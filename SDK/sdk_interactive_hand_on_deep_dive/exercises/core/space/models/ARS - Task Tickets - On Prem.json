@@ -1,0 +1,39 @@
+{
+  "activeMappingName": "ARS - Task Tickets - On Prem",
+  "attributes": [
+    {
+      "name": "Task ID"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Task ID",
+          "structureField": "${fields(\"Task ID\")}"
+        }
+      ],
+      "bridgeSlug": "ars-remedy-rest",
+      "name": "ARS - Task Tickets - On Prem",
+      "qualifications": [
+        {
+          "name": "All Tasks",
+          "query": "1=1"
+        }
+      ],
+      "structure": "Entry > TMS:Task"
+    }
+  ],
+  "name": "ARS - Task Tickets - On Prem",
+  "qualifications": [
+    {
+      "name": "All Tasks",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

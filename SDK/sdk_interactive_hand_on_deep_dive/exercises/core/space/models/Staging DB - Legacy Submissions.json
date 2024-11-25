@@ -1,0 +1,41 @@
+{
+  "activeMappingName": "Staging DB - Legacy Submissions",
+  "attributes": [
+    {
+      "name": "Request Id"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Request Id",
+          "structureField": "${fields(\"Request_ID\")}"
+        }
+      ],
+      "bridgeSlug": "staging-database",
+      "name": "Staging DB - Legacy Submissions",
+      "qualifications": [
+        {
+          "name": "By Submitter",
+          "query": "Submitter= ${parameters(\"Submitter\")}"
+        }
+      ],
+      "structure": "dbo.MSA_UserServiceRequestForm"
+    }
+  ],
+  "name": "Staging DB - Legacy Submissions",
+  "qualifications": [
+    {
+      "name": "By Submitter",
+      "parameters": [
+        {
+          "name": "Submitter"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

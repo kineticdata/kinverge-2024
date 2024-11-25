@@ -1,0 +1,80 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 1,
+  "name": "Submitted",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_finish_v1_1",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_finish_v1_1"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Finish",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_finish_v1_1",
+      "position": {
+        "x": 10,
+        "y": 210
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the completed run",
+          "id": "Run Id",
+          "label": "Run Id",
+          "menu": "",
+          "value": "<%=@run['Id']%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_finish_v1"
+    }
+  ]
+}

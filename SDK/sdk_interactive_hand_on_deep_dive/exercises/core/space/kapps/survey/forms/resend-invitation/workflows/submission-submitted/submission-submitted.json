@@ -1,0 +1,318 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 4,
+  "name": "Submitted",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_submission_retrieve_v1_2",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_solutions_survey_invitation_send_v1_1",
+      "to": "system_tree_return_v1_4",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_retrieve_v1_2",
+      "to": "routine_kinetic_submission_activity_create_v1_3",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_activity_create_v1_3",
+      "to": "routine_kinetic_solutions_survey_invitation_send_v1_1",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_retrieve_v1_2"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "name": "Re-send Survey",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_tree_return_v1_4"
+          }
+        ]
+      },
+      "id": "routine_kinetic_solutions_survey_invitation_send_v1_1",
+      "position": {
+        "x": 408,
+        "y": 378
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "To store the slug for the survey form",
+          "id": "Survey Slug",
+          "label": "Survey Slug",
+          "menu": "",
+          "value": "<%= @results['Retrieve Survey']['Form Slug'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "To store the user who is to be the recipient of the survey",
+          "id": "recipientEmail",
+          "label": "recipientEmail",
+          "menu": "",
+          "value": "<%= JSON.parse(@results['Retrieve Survey']['Values JSON'])[\"recipientEmail\"] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Submission Id",
+          "label": "Submission Id",
+          "menu": "",
+          "value": "<%= @results['Retrieve Survey']['Id'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Survey Kapp Slug",
+          "label": "Survey Kapp Slug",
+          "menu": "",
+          "value": "<%= @results['Retrieve Survey']['Kapp Slug'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_solutions_survey_invitation_send_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Retrieve Survey",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_activity_create_v1_3"
+          }
+        ]
+      },
+      "id": "routine_kinetic_submission_retrieve_v1_2",
+      "position": {
+        "x": 129,
+        "y": 138
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submission to retrieve",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%=  @values['Survey Submission Id'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_retrieve_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "name": "Manual Re-send Invite Submission Activity",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_solutions_survey_invitation_send_v1_1"
+          }
+        ]
+      },
+      "id": "routine_kinetic_submission_activity_create_v1_3",
+      "position": {
+        "x": 263,
+        "y": 255
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Id of the submission to create the activity record for",
+          "id": "Submission Id",
+          "label": "Submission Id",
+          "menu": "",
+          "value": "<%=  @values['Survey Submission Id'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Data to store in the submission activity",
+          "id": "Data",
+          "label": "Data",
+          "menu": "",
+          "value": "<%= {\n  \"actionTakenBy\" => @submission['Submitted By']  \n}.to_json %>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Description of the submission activity",
+          "id": "Description",
+          "label": "Description",
+          "menu": "",
+          "value": "Survey Invitation was re-sent by <%=@submission['Submitted By']%>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Label for the submission activity",
+          "id": "Label",
+          "label": "Label",
+          "menu": "",
+          "value": "Survey Invitation Re-sent",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Type of submission activity",
+          "id": "Type",
+          "label": "Type",
+          "menu": "",
+          "value": "Survey Action",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_activity_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Complete",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "system_tree_return_v1_4",
+      "position": {
+        "x": 551,
+        "y": 489
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "content",
+          "label": "Content",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "content_type",
+          "label": "Content Type",
+          "menu": "",
+          "value": "application/json",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "headers_json",
+          "label": "Headers (JSON)",
+          "menu": "",
+          "value": "{}",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "response_code",
+          "label": "Response Code",
+          "menu": "",
+          "value": "200",
+          "required": false
+        }
+      ],
+      "definitionId": "system_tree_return_v1"
+    }
+  ]
+}

@@ -1,0 +1,1558 @@
+[
+  {
+    "attributes": [
+
+    ],
+    "name": "_bnp test",
+    "slug": "bnp-test"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-male"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "miscellaneous"
+        ]
+      }
+    ],
+    "name": "AR Clothing",
+    "slug": "ar-clothing"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "finance-and-accounting"
+        ]
+      }
+    ],
+    "name": "Asset Suite Contract / PO Account Code Modification",
+    "slug": "asset-suite-contract--po-account-code-modification"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "fire-systems-maintenance"
+        ]
+      }
+    ],
+    "name": "Backflow Prevent Services",
+    "slug": "hydrant-backflow"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-briefcase"
+        ]
+      },
+      {
+        "name": "Sort Order",
+        "values": [
+          "1"
+        ]
+      }
+    ],
+    "name": "Business Services",
+    "slug": "business-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-key"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "information-management"
+        ]
+      }
+    ],
+    "name": "Business Systems Access Requests",
+    "slug": "business-systems-access-requests"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-wrench"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "miscellaneous"
+        ]
+      }
+    ],
+    "name": "Calibration Services",
+    "slug": "calibration-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "finance-and-accounting"
+        ]
+      }
+    ],
+    "name": "Control Account Manager (CAM) Transfer",
+    "slug": "control-account-manager-cam-transfer"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-print"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Copiers / Scanners / Plotters",
+    "slug": "copiers-scanners-plotters"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "finance-and-accounting"
+        ]
+      }
+    ],
+    "name": "Cost Closure",
+    "slug": "cost-closure"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "finance-and-accounting"
+        ]
+      }
+    ],
+    "name": "Cost Transfer",
+    "slug": "cost-transfer"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-truck"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Courier Services / Stores Delivery",
+    "slug": "courier-services--stores-delivery"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "finance-and-accounting"
+        ]
+      }
+    ],
+    "name": "CPA Costing Modification",
+    "slug": "cpa-costing-modification"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "transportation-and-heavy-equipment"
+        ]
+      },
+      {
+        "name": "Sort Order",
+        "values": [
+          "1000"
+        ]
+      }
+    ],
+    "name": "Cranes and Rigging",
+    "slug": "cranes-and-rigging"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "miscellaneous"
+        ]
+      }
+    ],
+    "name": "Curation Services",
+    "slug": "curation-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-user"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "people-land-buildings"
+        ]
+      }
+    ],
+    "name": "Custodial Services",
+    "slug": "custodial-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "fire-systems-maintenance"
+        ]
+      }
+    ],
+    "name": "Deactivations",
+    "slug": "deactivations"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "information-management"
+        ]
+      }
+    ],
+    "name": "Document Control Services",
+    "slug": "document-control-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-bolt"
+        ]
+      },
+      {
+        "name": "Sort Order",
+        "values": [
+          "9"
+        ]
+      }
+    ],
+    "name": "Electrical",
+    "slug": "electrical"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Label",
+        "values": [
+          "test"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "electrical"
+        ]
+      },
+      {
+        "name": "Sort Order",
+        "values": [
+          "7"
+        ]
+      }
+    ],
+    "name": "Electrical Repair Example",
+    "slug": "electrical-repair-example"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "utilities"
+        ]
+      }
+    ],
+    "name": "Electrical Utilities Services",
+    "slug": "electrical-utilities-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "utilities"
+        ]
+      }
+    ],
+    "name": "Engineering Services",
+    "slug": "engineering-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "utilities"
+        ]
+      }
+    ],
+    "name": "Engineering Support Services",
+    "slug": "engineering-support-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "network-and-computing-services"
+        ]
+      }
+    ],
+    "name": "Enterprise IT Services",
+    "slug": "enterprise-it-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-list-alt"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "miscellaneous"
+        ]
+      }
+    ],
+    "name": "Environmental Activity Screening",
+    "slug": "environmental-activity-screening"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "people-land-buildings"
+        ]
+      }
+    ],
+    "name": "Environmental Integration Services",
+    "slug": "environmental-integration-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "fire-systems-maintenance"
+        ]
+      }
+    ],
+    "name": "Facility Fire Protection Outage Support",
+    "slug": "facility-fire-protection-outage-support"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-wrench"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "people-land-buildings"
+        ]
+      }
+    ],
+    "name": "Facility Maintenance",
+    "slug": "facility-maintenance"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "electrical-utilities-services"
+        ]
+      }
+    ],
+    "name": "Field Support Services",
+    "slug": "field-support-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-usd"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Finance and Accounting",
+    "slug": "finance-and-accounting"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "fire-systems-maintenance"
+        ]
+      }
+    ],
+    "name": "Fire Systems Issue / Discrepancy Notification",
+    "slug": "fire-systems-issue--discrepancy-notification"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-fire"
+        ]
+      }
+    ],
+    "name": "Fire Systems Maintenance",
+    "slug": "fire-systems-maintenance"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "transportation-and-heavy-equipment"
+        ]
+      },
+      {
+        "name": "Sort Order",
+        "values": [
+          "10"
+        ]
+      }
+    ],
+    "name": "Fleet Services",
+    "slug": "fleet-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "transportation-and-heavy-equipment"
+        ]
+      }
+    ],
+    "name": "Guzzler",
+    "slug": "guzzler"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-fire"
+        ]
+      }
+    ],
+    "name": "Hanford Fire Department",
+    "slug": "hanford-fire-department"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "network-and-computing-services"
+        ]
+      }
+    ],
+    "name": "Hardware and Software Acquisition",
+    "slug": "hardware-and-software-acquisition"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "hanford-fire-department"
+        ]
+      }
+    ],
+    "name": "HFD Blue Card Requests",
+    "slug": "hfd-blue-card-requests"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "hanford-fire-department"
+        ]
+      }
+    ],
+    "name": "HFD Fleet Services",
+    "slug": "hfd-fleet-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "hanford-fire-department"
+        ]
+      }
+    ],
+    "name": "HFD Paramedic Training Request",
+    "slug": "hfd-paramedic-training-request"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "hanford-fire-department"
+        ]
+      }
+    ],
+    "name": "HFD Support Services",
+    "slug": "hfd-support-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-bullhorn"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "HMIS Communications",
+    "slug": "hmis-communications"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-graduation-cap"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "HMIS Training",
+    "slug": "hmis-training"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "finance-and-accounting"
+        ]
+      }
+    ],
+    "name": "HPIC Change Control",
+    "slug": "hpic-change-control"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-users"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Human Resources - CPCCo",
+    "slug": "human-resources---cpcco"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-users"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Human Resources - HMIS",
+    "slug": "human-resources-hmis"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "information-management"
+        ]
+      }
+    ],
+    "name": "Imaging Services",
+    "slug": "imaging-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "information-management"
+        ]
+      }
+    ],
+    "name": "Information Clearance",
+    "slug": "information-clearance"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-desktop"
+        ]
+      }
+    ],
+    "name": "Information Management",
+    "slug": "information-management"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "file-text-o"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Inter Contractor Work Order",
+    "slug": "inter-contractor-work-order"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "fire-systems-maintenance"
+        ]
+      }
+    ],
+    "name": "Labeling Request",
+    "slug": "labeling-request"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "people-land-buildings"
+        ]
+      }
+    ],
+    "name": "Land Management Services",
+    "slug": "land-management-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "envelope-o"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Mail Services",
+    "slug": "mail-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-map-o"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "information-management"
+        ]
+      }
+    ],
+    "name": "Maps and Geographic Infomation",
+    "slug": "maps-and-geographic-infomation"
+  },
+  {
+    "attributes": [
+
+    ],
+    "name": "Miscellaneous",
+    "slug": "miscellaneous"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "network-and-computing-services"
+        ]
+      }
+    ],
+    "name": "Mission Service Desk Support",
+    "slug": "mission-service-desk-support"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-video-camera"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "people-land-buildings"
+        ]
+      }
+    ],
+    "name": "Mobile Camera Monitoring Systems",
+    "slug": "mobile-camera-monitoring-systems"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-mobile"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Mobile Devices",
+    "slug": "mobile-devices"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "electrical-repair-example"
+        ]
+      },
+      {
+        "name": "Sort Order",
+        "values": [
+          "8"
+        ]
+      }
+    ],
+    "name": "More Electrical Services",
+    "slug": "more-electrical-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "transportation-and-heavy-equipment"
+        ]
+      }
+    ],
+    "name": "Motor Carrier Services",
+    "slug": "motor-carrier-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-truck"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "people-land-buildings"
+        ]
+      }
+    ],
+    "name": "Move Coordination and Scheduling",
+    "slug": "move-coordination-and-scheduling"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-desktop"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "information-management"
+        ]
+      }
+    ],
+    "name": "Network and Other ESP Services",
+    "slug": "network-and-other-esp-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "finance-and-accounting"
+        ]
+      }
+    ],
+    "name": "Non-ICWO CACN Closure",
+    "slug": "non-icwo-cacn-closure"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "transportation-and-heavy-equipment"
+        ]
+      }
+    ],
+    "name": "Oversize/Overweight Load Permits",
+    "slug": "oversizeoverweight-load-permits"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-building"
+        ]
+      }
+    ],
+    "name": "People, Land & Buildings",
+    "slug": "people-land-buildings"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-id-badge"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "people-land-buildings"
+        ]
+      }
+    ],
+    "name": "Personnel Security",
+    "slug": "personnel-security"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-lock"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "people-land-buildings"
+        ]
+      }
+    ],
+    "name": "Physical Security Systems",
+    "slug": "physical-security-systems"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-moon-o"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "utilities"
+        ]
+      }
+    ],
+    "name": "Portable Toilets",
+    "slug": "portable-toilets"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Process Improvement / Lean Six Sigma",
+    "slug": "process-improvement-lean-six-sigma"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "utilities"
+        ]
+      }
+    ],
+    "name": "Project Management Services",
+    "slug": "project-management-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-cubes"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Property and Warehouse Management",
+    "slug": "property-and-warehouse-management"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-cube"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "information-management"
+        ]
+      }
+    ],
+    "name": "Radio Services",
+    "slug": "radio-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "information-management"
+        ]
+      }
+    ],
+    "name": "Records Management",
+    "slug": "records-management"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-recycle"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "miscellaneous"
+        ]
+      }
+    ],
+    "name": "Recycling Services: CCRC (Universal Waste)",
+    "slug": "recycling-services-ccrc-universal-waste"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-recycle"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "miscellaneous"
+        ]
+      }
+    ],
+    "name": "Recycling Services: Non-Hazardous Waste",
+    "slug": "recycling-services-non-hazardous-waste"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "finance-and-accounting"
+        ]
+      }
+    ],
+    "name": "Reopen CACN",
+    "slug": "reopen-cacn"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-files-o"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Reproduction Services",
+    "slug": "reproduction-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-road"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "utilities"
+        ]
+      }
+    ],
+    "name": "Roads and Grounds",
+    "slug": "roads-and-grounds"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-trash-o"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "utilities"
+        ]
+      }
+    ],
+    "name": "Sanitary Waste",
+    "slug": "sanitary-waste"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Hidden",
+        "values": [
+          "true"
+        ]
+      },
+      {
+        "name": "Sort Order",
+        "values": [
+          "9999"
+        ]
+      }
+    ],
+    "name": "Service Catalog Administration",
+    "slug": "service-catalog-administration"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "utilities"
+        ]
+      }
+    ],
+    "name": "Sewer Systems",
+    "slug": "sewer-systems"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-trash-o"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "miscellaneous"
+        ]
+      }
+    ],
+    "name": "Shred Bins",
+    "slug": "shred-bins"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-map-signs"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "people-land-buildings"
+        ]
+      }
+    ],
+    "name": "Sign Shop – Sign Ordering",
+    "slug": "sign-shop--sign-ordering"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "information-management"
+        ]
+      }
+    ],
+    "name": "Site Forms Management",
+    "slug": "site-forms-management"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-keyboard-o"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "information-management"
+        ]
+      }
+    ],
+    "name": "Software Engineering Services",
+    "slug": "software-engineering-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "hanford-fire-department"
+        ]
+      }
+    ],
+    "name": "Station Maintenance",
+    "slug": "station-maintenance"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-shopping-cart"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Supply Ordering - HMIS",
+    "slug": "supply-ordering---hmis"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "fire-systems-maintenance"
+        ]
+      }
+    ],
+    "name": "System / Hydrant Flow Test",
+    "slug": "system--hydrant-flow-test"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "fire-systems-maintenance"
+        ]
+      }
+    ],
+    "name": "System Design / Installation / Acceptance Testing",
+    "slug": "system-design-installation-acceptance-testing"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-pencil"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Technical Editing Services",
+    "slug": "technical-editing-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "electrical-utilities-services"
+        ]
+      }
+    ],
+    "name": "Technical Support Services",
+    "slug": "technical-support-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-cube"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "information-management"
+        ]
+      }
+    ],
+    "name": "Telecommunications Infrastructure Support",
+    "slug": "telecommunications-infrastructure-support"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-phone"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Telephone Services",
+    "slug": "telephone-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Hidden",
+        "values": [
+          "false"
+        ]
+      },
+      {
+        "name": "Icon",
+        "values": [
+          "question"
+        ]
+      },
+      {
+        "name": "Sort Order",
+        "values": [
+          "9000"
+        ]
+      }
+    ],
+    "name": "Testing",
+    "slug": "testing"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "finance-and-accounting"
+        ]
+      }
+    ],
+    "name": "Timecard Corrections > 90 Days",
+    "slug": "timecard-corrections--90-days"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "miscellaneous"
+        ]
+      }
+    ],
+    "name": "Toxic Air Monitoring Program (TAMP) Support",
+    "slug": "toxic-air-monitoring-program-tamp-support"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "map-signs"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "transportation-and-heavy-equipment"
+        ]
+      }
+    ],
+    "name": "Traffic Control",
+    "slug": "traffic-control"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-truck"
+        ]
+      },
+      {
+        "name": "Sort Order",
+        "values": [
+          "9"
+        ]
+      }
+    ],
+    "name": "Transportation and Heavy Equipment",
+    "slug": "transportation-and-heavy-equipment"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-plane"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "miscellaneous"
+        ]
+      }
+    ],
+    "name": "Unmanned Aircraft Systems (UAS) Flight Management",
+    "slug": "unmanned-aircraft-systems-uas-flight-management"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          " fa-bolt"
+        ]
+      },
+      {
+        "name": "Sort Order",
+        "values": [
+          "1000"
+        ]
+      }
+    ],
+    "name": "Utilities",
+    "slug": "utilities"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-bug"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "people-land-buildings"
+        ]
+      }
+    ],
+    "name": "Vegetation and Pest Control",
+    "slug": "vegetation-and-pest-control"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Parent",
+        "values": [
+          "miscellaneous"
+        ]
+      }
+    ],
+    "name": "Vending Machine Services",
+    "slug": "vending-machine-services"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-file-image-o"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "business-services"
+        ]
+      }
+    ],
+    "name": "Visual Communications",
+    "slug": "visual-communications"
+  },
+  {
+    "attributes": [
+      {
+        "name": "Icon",
+        "values": [
+          "fa-shower"
+        ]
+      },
+      {
+        "name": "Label",
+        "values": [
+          "Water"
+        ]
+      },
+      {
+        "name": "Parent",
+        "values": [
+          "utilities"
+        ]
+      }
+    ],
+    "name": "Water Systems",
+    "slug": "water-systems"
+  }
+]

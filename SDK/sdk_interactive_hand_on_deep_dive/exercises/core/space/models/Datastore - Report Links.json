@@ -1,0 +1,58 @@
+{
+  "activeMappingName": "Datastore - Report Links",
+  "attributes": [
+    {
+      "name": "Id"
+    },
+    {
+      "name": "Report Description"
+    },
+    {
+      "name": "Report Name"
+    },
+    {
+      "name": "Report URL"
+    },
+    {
+      "name": "Status"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Status",
+          "structureField": "${fields('values[Status]')}"
+        },
+        {
+          "name": "Report Name",
+          "structureField": "${fields('values[Report Name]')}"
+        },
+        {
+          "name": "Report Description",
+          "structureField": "${fields('values[Report Description]')}"
+        },
+        {
+          "name": "Report URL",
+          "structureField": "${fields('values[Report URL]')}"
+        },
+        {
+          "name": "Id",
+          "structureField": "${fields('id')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Datastore - Report Links",
+      "qualifications": [
+
+      ],
+      "structure": "Datastore Submissions"
+    }
+  ],
+  "name": "Datastore - Report Links",
+  "qualifications": [
+
+  ],
+  "status": "Active"
+}

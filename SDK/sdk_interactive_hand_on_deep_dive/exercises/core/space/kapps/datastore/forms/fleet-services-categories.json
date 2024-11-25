@@ -1,0 +1,260 @@
+{
+  "anonymous": false,
+  "attributes": [
+    {
+      "name": "Datastore Configuration",
+      "values": [
+        "{\"columns\":[{\"name\":\"Category 1\",\"label\":\"Category 1\",\"type\":\"value\",\"visible\":true},{\"name\":\"Category 2\",\"label\":\"Category 2\",\"type\":\"value\",\"visible\":true},{\"name\":\"Category 3\",\"label\":\"Category 3\",\"type\":\"value\",\"visible\":true},{\"name\":\"Category 4\",\"label\":\"Category 4\",\"type\":\"value\",\"visible\":true},{\"name\":\"handle\",\"label\":\"Handle\",\"type\":\"system\",\"visible\":false},{\"name\":\"label\",\"label\":\"Label\",\"type\":\"system\",\"visible\":false},{\"name\":\"createdAt\",\"label\":\"Created At\",\"type\":\"system\",\"visible\":false},{\"name\":\"createdBy\",\"label\":\"Created By\",\"type\":\"system\",\"visible\":false},{\"name\":\"updatedAt\",\"label\":\"Updated At\",\"type\":\"system\",\"visible\":false},{\"name\":\"updatedBy\",\"label\":\"Updated By\",\"type\":\"system\",\"visible\":false},{\"name\":\"id\",\"label\":\"Id\",\"type\":\"system\",\"visible\":false}],\"defaultSearchIndex\":{\"index\":\"values[Category 1],values[Category 2],values[Category 3],values[Category 4]\",\"direction\":\"ASC\"}}"
+      ]
+    }
+  ],
+  "bridgedResources": [
+
+  ],
+  "categorizations": [
+
+  ],
+  "customHeadContent": null,
+  "description": "",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Category 1]",
+      "parts": [
+        "values[Category 1]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Category 1],values[Category 2]",
+      "parts": [
+        "values[Category 1]",
+        "values[Category 2]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Category 1],values[Category 2],values[Category 3]",
+      "parts": [
+        "values[Category 1]",
+        "values[Category 2]",
+        "values[Category 3]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Category 1],values[Category 2],values[Category 3],values[Category 4]",
+      "parts": [
+        "values[Category 1]",
+        "values[Category 2]",
+        "values[Category 3]",
+        "values[Category 4]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Category 2]",
+      "parts": [
+        "values[Category 2]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Category 3]",
+      "parts": [
+        "values[Category 3]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Category 4]",
+      "parts": [
+        "values[Category 4]"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "Fleet Services Categories",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "type": "field",
+          "name": "Category 1",
+          "label": "Category 1",
+          "key": "f1",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": {
+            "regex": "^[^&]*$",
+            "message": "Ampersands are not allowed"
+          },
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+          },
+          "dataType": "string",
+          "renderType": "text",
+          "rows": 1
+        },
+        {
+          "type": "field",
+          "name": "Category 2",
+          "label": "Category 2",
+          "key": "f4",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": {
+            "regex": "^[^&]*$",
+            "message": "Ampersands are not allowed"
+          },
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+          },
+          "dataType": "string",
+          "renderType": "text",
+          "rows": 1
+        },
+        {
+          "type": "field",
+          "name": "Category 3",
+          "label": "Category 3",
+          "key": "f3",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": {
+            "regex": "^[^&]*$",
+            "message": "Ampersands are not allowed"
+          },
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+          },
+          "dataType": "string",
+          "renderType": "text",
+          "rows": 1
+        },
+        {
+          "type": "field",
+          "name": "Category 4",
+          "label": "Category 4",
+          "key": "f2",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": {
+            "regex": "^[^&]*$",
+            "message": "Ampersands are not allowed"
+          },
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+          },
+          "dataType": "string",
+          "renderType": "text",
+          "rows": 1
+        },
+        {
+          "type": "button",
+          "label": "Submit",
+          "name": "Submit Button",
+          "visible": true,
+          "enabled": true,
+          "renderType": "submit-page",
+          "renderAttributes": {
+          }
+        }
+      ],
+      "events": [
+
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+
+  ],
+  "slug": "fleet-services-categories",
+  "status": "New",
+  "submissionLabelExpression": null,
+  "type": "Datastore"
+}

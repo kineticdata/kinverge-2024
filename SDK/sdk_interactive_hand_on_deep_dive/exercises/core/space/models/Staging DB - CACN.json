@@ -1,0 +1,88 @@
+{
+  "activeMappingName": "Staging DB - CACN",
+  "attributes": [
+    {
+      "name": "CACN"
+    },
+    {
+      "name": "WPM Cost Center"
+    },
+    {
+      "name": "WPM ID"
+    },
+    {
+      "name": "WPM Name"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "CACN",
+          "structureField": "${fields(\"CACN\")}"
+        },
+        {
+          "name": "WPM Name",
+          "structureField": "${fields(\"WPM_NAME\")}"
+        },
+        {
+          "name": "WPM ID",
+          "structureField": "${fields(\"WPM_HID\")}"
+        },
+        {
+          "name": "WPM Cost Center",
+          "structureField": "${fields(\"WPM_COST_CENTER\")}"
+        }
+      ],
+      "bridgeSlug": "staging-database",
+      "name": "Staging DB - CACN",
+      "qualifications": [
+        {
+          "name": "Equal to CACN",
+          "query": "CACN = ${parameters(\"CACN\")}"
+        },
+        {
+          "name": "Like CACN",
+          "query": "CACN LIKE ${parameters(\"CACN\")} and CACN LIKE '6%'\t\n"
+        },
+        {
+          "name": "By User",
+          "query": "WPM_HID = ${parameters(\"id\")}"
+        }
+      ],
+      "structure": "dbo.han_hpic"
+    }
+  ],
+  "name": "Staging DB - CACN",
+  "qualifications": [
+    {
+      "name": "By User",
+      "parameters": [
+        {
+          "name": "id"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Equal to CACN",
+      "parameters": [
+        {
+          "name": "CACN"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Like CACN",
+      "parameters": [
+        {
+          "name": "CACN"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

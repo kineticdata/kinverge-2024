@@ -1,0 +1,282 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 12,
+  "name": "Created",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_user_password_reset_token_create_v1_7",
+      "label": "Not a kinops user",
+      "value": "@user['Username'].match(/.*@kinops.io$/).nil?",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_user_password_reset_token_create_v1_7",
+      "to": "routine_kinetic_email_template_notification_send_v1_9",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_email_template_notification_send_v1_9",
+      "to": "routine_kinetic_user_update_v1_8",
+      "label": "Has Guided Tour Attribute",
+      "value": "@user_profile_attributes.has_key?('Guided Tour')",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Not a kinops user",
+            "type": "Complete",
+            "value": "@user['Username'].match(/.*@kinops.io$/).nil?",
+            "content": "routine_kinetic_user_password_reset_token_create_v1_7"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Generate Token",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_email_template_notification_send_v1_9"
+          }
+        ]
+      },
+      "id": "routine_kinetic_user_password_reset_token_create_v1_7",
+      "position": {
+        "x": 251,
+        "y": 37
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Username of the user to create a password reset token for",
+          "id": "Username",
+          "label": "Username",
+          "menu": "",
+          "value": "<%= @user['Username']%>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_user_password_reset_token_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Add Guided Tour Profile Attributes",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_user_update_v1_8",
+      "position": {
+        "x": 737,
+        "y": 69
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The User's current username",
+          "id": "Current Username",
+          "label": "Current Username",
+          "menu": "",
+          "value": "<%= @user['Username']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The updated username - may be omitted",
+          "id": "Updated - Username",
+          "label": "Updated - Username",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The updated email address - may be omitted",
+          "id": "Updated - Email",
+          "label": "Updated - Email",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The updated name that is displayed for the user",
+          "id": "Updated - Display Name",
+          "label": "Updated - Display Name",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Include only attributes that need to be updated",
+          "id": "Updated - Attributes Map JSON",
+          "label": "Updated - Attributes Map JSON",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Include only profile attributes that need to be updated",
+          "id": "Updated - Profile Attributes Map JSON",
+          "label": "Updated - Profile Attributes Map JSON",
+          "menu": "",
+          "value": "<%={\n  \"Guided Tour\" => [\"Welcome Tour\",\"Services\",\"Queue\"]\n}.to_json%>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "(True | False) Allows or disallows the user from being a super administrator",
+          "id": "Updated - Is Space Admin",
+          "label": "Updated - Is Space Admin",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "(True | False) Allows or disallows the user from being a super administrator",
+          "id": "Updated - Is Enabled",
+          "label": "Updated - Is Enabled",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_user_update_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Send Welcome Email",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Has Guided Tour Attribute",
+            "type": "Complete",
+            "value": "@user_profile_attributes.has_key?('Guided Tour')",
+            "content": "routine_kinetic_user_update_v1_8"
+          }
+        ]
+      },
+      "id": "routine_kinetic_email_template_notification_send_v1_9",
+      "position": {
+        "x": 532,
+        "y": 66
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Comma separated list of recipients (Usernames, SMTP Addresses, and/or Team Names)",
+          "id": "Recipient List",
+          "label": "Recipient List",
+          "menu": "",
+          "value": "<%= @user['Email']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Name of the notification template to use when sending this email",
+          "id": "Notification Template Name",
+          "label": "Notification Template Name",
+          "menu": "",
+          "value": "Account Created",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "JSON input of miscellaneous values.  These values are used to replace placeholder content in notification messages.",
+          "id": "JSON Variables",
+          "label": "JSON Variables",
+          "menu": "",
+          "value": "<%={\n    \"Email Link\"=> \"#{@space_attributes['Web Server Url']}\",\n    \"Company Name\" => \"#{@space['Name']}\",\n    \"Username\" => \"#{@user['Username']}\"\n     }.to_json %>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The slug of the Kapp sending the notification (ex: catalog, queue, etc.)",
+          "id": "Kapp Slug Initiating Notification",
+          "label": "Kapp Slug Initiating Notification",
+          "menu": "",
+          "value": "<%= @space_attributes['Admin Kapp Slug']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Id of the submission to get values for, required if using those or attachments in the message",
+          "id": "Related Submission Id",
+          "label": "Related Submission Id",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_email_template_notification_send_v1"
+    }
+  ]
+}

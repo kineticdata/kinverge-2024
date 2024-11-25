@@ -1,0 +1,129 @@
+{
+  "activeMappingName": "Datastore - ICWO Approvers",
+  "attributes": [
+    {
+      "name": "Email"
+    },
+    {
+      "name": "HID"
+    },
+    {
+      "name": "Id"
+    },
+    {
+      "name": "Name"
+    },
+    {
+      "name": "Role"
+    },
+    {
+      "name": "Service"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Service",
+          "structureField": "${fields('values[Service]')}"
+        },
+        {
+          "name": "Role",
+          "structureField": "${fields('values[Role]')}"
+        },
+        {
+          "name": "HID",
+          "structureField": "${fields('values[HID]')}"
+        },
+        {
+          "name": "Name",
+          "structureField": "${fields('values[Name]')}"
+        },
+        {
+          "name": "Email",
+          "structureField": "${fields('values[Email]')}"
+        },
+        {
+          "name": "Id",
+          "structureField": "${fields('values[id]')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Datastore - ICWO Approvers",
+      "qualifications": [
+        {
+          "name": "All",
+          "query": "index=values[Service]&limit=1000"
+        },
+        {
+          "name": "By Service",
+          "query": "index=values[Service]&q=values[Service] = \"${parameters(\"Service\")}\"&limit=1000"
+        },
+        {
+          "name": "By Service and Role",
+          "query": "index=values[Service],values[Role]&q=values[Service] = \"${parameters(\"Service\")}\" AND values[Role] = \"${parameters(\"Role\")}\"&limit=1000"
+        },
+        {
+          "name": "CAM by Service",
+          "query": "index=values[Service],values[Role]&q=values[Service] = \"${parameters(\"Service\")}\" AND values[Role] = \"CAM\"&limit=1000"
+        },
+        {
+          "name": "Analyst by Service",
+          "query": "index=values[Service],values[Role]&q=values[Service] = \"${parameters(\"Service\")}\" AND values[Role] = \"Analyst\"&limit=1000"
+        }
+      ],
+      "structure": "Datastore Submissions > icwo-approvers"
+    }
+  ],
+  "name": "Datastore - ICWO Approvers",
+  "qualifications": [
+    {
+      "name": "All",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Analyst by Service",
+      "parameters": [
+        {
+          "name": "Service"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Service",
+      "parameters": [
+        {
+          "name": "Service"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Service and Role",
+      "parameters": [
+        {
+          "name": "Role"
+        },
+        {
+          "name": "Service"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "CAM by Service",
+      "parameters": [
+        {
+          "name": "Service"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

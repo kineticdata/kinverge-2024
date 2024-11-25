@@ -1,0 +1,806 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 45,
+  "name": "Updated",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "system_noop_v1_31",
+      "label": "Is Survey",
+      "value": " @form['Type'] == \"Survey\"",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_31",
+      "to": "utilities_echo_v1_44",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_31",
+      "to": "routine_kinetic_solutions_survey_status_validate_v1_43",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_32",
+      "to": "system_join_v1_42",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_33",
+      "to": "routine_datastore_submission_retrieve_by_query_v1_35",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_34",
+      "to": "routine_datastore_submission_retrieve_by_query_v1_37",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_datastore_submission_retrieve_by_query_v1_35",
+      "to": "routine_kinetic_datastore_submission_delete_v1_36",
+      "label": "Found robot definition",
+      "value": "!@results['Get Poller to Delete']['Id'].nil?",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_datastore_submission_retrieve_by_query_v1_37",
+      "to": "utilities_echo_v1_39",
+      "label": "Found robot definition",
+      "value": "!@results['Get Poller to Update']['Id'].nil?",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_datastore_submission_retrieve_by_query_v1_37",
+      "to": "system_join_v1_42",
+      "label": "None Found",
+      "value": "@results['Get Poller to Update']['Id'].nil?",
+      "type": "Complete"
+    },
+    {
+      "from": "utilities_echo_v1_39",
+      "to": "routine_kinetic_datastore_submission_update_v1_38",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "utilities_echo_v1_40",
+      "to": "routine_kinetic_datastore_submission_create_v1_41",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_join_v1_42",
+      "to": "utilities_echo_v1_40",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "utilities_echo_v1_44",
+      "to": "system_noop_v1_32",
+      "label": "Has new polling",
+      "value": "@results['Check Polling']['output'] == \"new\"",
+      "type": "Complete"
+    },
+    {
+      "from": "utilities_echo_v1_44",
+      "to": "system_noop_v1_33",
+      "label": "Removed Polling",
+      "value": "@results['Check Polling']['output'] == \"remove\"",
+      "type": "Complete"
+    },
+    {
+      "from": "utilities_echo_v1_44",
+      "to": "system_noop_v1_34",
+      "label": "Adjusted Polling",
+      "value": "@results['Check Polling']['output'] == \"update\"",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Is Survey",
+            "type": "Complete",
+            "value": " @form['Type'] == \"Survey\"",
+            "content": "system_noop_v1_31"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 198,
+        "y": 23
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Is Survey",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "utilities_echo_v1_44"
+          },
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_solutions_survey_status_validate_v1_43"
+          }
+        ]
+      },
+      "id": "system_noop_v1_31",
+      "position": {
+        "x": 517,
+        "y": 23
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_noop_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Has new polling",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_join_v1_42"
+          }
+        ]
+      },
+      "id": "system_noop_v1_32",
+      "position": {
+        "x": 220,
+        "y": 245
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_noop_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Removed Polling",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_datastore_submission_retrieve_by_query_v1_35"
+          }
+        ]
+      },
+      "id": "system_noop_v1_33",
+      "position": {
+        "x": 836.7118,
+        "y": 257.14536
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_noop_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Adjusted Polling",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_datastore_submission_retrieve_by_query_v1_37"
+          }
+        ]
+      },
+      "id": "system_noop_v1_34",
+      "position": {
+        "x": 517,
+        "y": 256
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_noop_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Get Poller to Delete",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Found robot definition",
+            "type": "Complete",
+            "value": "!@results['Get Poller to Delete']['Id'].nil?",
+            "content": "routine_kinetic_datastore_submission_delete_v1_36"
+          }
+        ]
+      },
+      "id": "routine_datastore_submission_retrieve_by_query_v1_35",
+      "position": {
+        "x": 837.9824,
+        "y": 371.2456
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Datastore Form Slug",
+          "label": "Datastore Form Slug",
+          "menu": "",
+          "value": "robot-definitions",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Index To Search",
+          "label": "Index To Search",
+          "menu": "",
+          "value": "values[Robot Name]",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Query",
+          "label": "Query",
+          "menu": "",
+          "value": "values[Robot Name] = \"<%= @form['Slug'] %> poller\"",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_datastore_submission_retrieve_by_query_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Remove Poller",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_datastore_submission_delete_v1_36",
+      "position": {
+        "x": 842.0226,
+        "y": 514.2582
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The id of the submission to delete",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%= @results['Get Poller to Delete']['Id'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_datastore_submission_delete_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Get Poller to Update",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Found robot definition",
+            "type": "Complete",
+            "value": "!@results['Get Poller to Update']['Id'].nil?",
+            "content": "utilities_echo_v1_39"
+          },
+          {
+            "label": "None Found",
+            "type": "Complete",
+            "value": "@results['Get Poller to Update']['Id'].nil?",
+            "content": "system_join_v1_42"
+          }
+        ]
+      },
+      "id": "routine_datastore_submission_retrieve_by_query_v1_37",
+      "position": {
+        "x": 522,
+        "y": 361
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Datastore Form Slug",
+          "label": "Datastore Form Slug",
+          "menu": "",
+          "value": "robot-definitions",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Index To Search",
+          "label": "Index To Search",
+          "menu": "",
+          "value": "values[Robot Name]",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Query",
+          "label": "Query",
+          "menu": "",
+          "value": "values[Robot Name] = \"<%= @form['Slug'] %> poller\"",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_datastore_submission_retrieve_by_query_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Update Poller",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_datastore_submission_update_v1_38",
+      "position": {
+        "x": 530,
+        "y": 598
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The id of the submission to update",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%= @results['Get Poller to Update']['Id'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The submissions core state",
+          "id": "Updated - Core State",
+          "label": "Updated - Core State",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The page to set the submission to",
+          "id": "Updated - Current Page Name",
+          "label": "Updated - Current Page Name",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The direction of the next page (next or previous)",
+          "id": "Updated - Current Page Navigation",
+          "label": "Updated - Current Page Navigation",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON representation of the submissions values",
+          "id": "Updated - Values JSON",
+          "label": "Updated - Values JSON",
+          "menu": "",
+          "value": "<%=  pollingInfo = JSON.parse(@results['Get Polling Info-New']['output'])\nvalues = {}\nvalues[\"Robot Name\"] = @form['Slug'] + \" poller\" \nvalues[\"Interval\"] = pollingInfo[\"Interval\"]\nvalues[\"Description\"] = \"Used for polling source for survey\"\nvalues[\"Recurrence\"] = \"minutely\"\nvalues[\"Recurrence Label\"] = \"minutely\"\nvalues[\"Recurrence Description\"] = \"Every #{pollingInfo[\"Interval\"]} minutes\"\nvalues[\"Notify Upon Each Run Completion\"] = \"No\"\nvalues[\"Status\"] = \"Active\"\nvalues[\"Start Date\"] = DateTime.now\nvalues[\"Category\"] = \"Survey Poller\"\nvalues[\"Task Tree\"] = pollingInfo[\"Source\"]\nruntime = {}\nruntime[\"Survey Slug\"] = @form['Slug']\nruntime[\"Kapp Slug\"] = @kapp['Slug'] \nvalues[\"Runtime Inputs\"] = runtime.to_json\nvalues.to_json %>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_datastore_submission_update_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": true,
+      "name": "Get Polling Info-New",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_datastore_submission_update_v1_38"
+          }
+        ]
+      },
+      "id": "utilities_echo_v1_39",
+      "position": {
+        "x": 527,
+        "y": 484
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "input",
+          "label": "Input",
+          "menu": "",
+          "value": "<%=  output = JSON.parse(@form_attributes['Survey Configuration'])[\"Event Polling\"]\noutput.to_json %>",
+          "required": true
+        }
+      ],
+      "definitionId": "utilities_echo_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": true,
+      "name": "Get Polling Info",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_datastore_submission_create_v1_41"
+          }
+        ]
+      },
+      "id": "utilities_echo_v1_40",
+      "position": {
+        "x": 230,
+        "y": 467
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "input",
+          "label": "Input",
+          "menu": "",
+          "value": "<%=  output = JSON.parse(@form_attributes['Survey Configuration'])[\"Event Polling\"]\noutput.to_json %>",
+          "required": true
+        }
+      ],
+      "definitionId": "utilities_echo_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Create Poller",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_datastore_submission_create_v1_41",
+      "position": {
+        "x": 230,
+        "y": 582
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The slug of the Form to create the submission in",
+          "id": "Form Slug",
+          "label": "Form Slug",
+          "menu": "",
+          "value": "robot-definitions",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The page to set the submission to",
+          "id": "Current Page Name",
+          "label": "Current Page Name",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The direction of the next page (next or previous)",
+          "id": "Current Page Navigation",
+          "label": "Current Page Navigation",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON Map of values to set into the submissions fields",
+          "id": "Values JSON",
+          "label": "Values JSON",
+          "menu": "",
+          "value": "<%=  values = {\"Days\"=>[],\"Embedded\"=>nil,\"Embedded Display Mode\"=>nil,\"End Date\"=>nil,\"End Date Original\"=>nil,\"Execution Hour\"=>nil,\"Execution Minute\"=>\"00\",\"Friday Index\"=>[],\"Interval\"=>\"1\",\"Monday Index\"=>[],\"Months\"=>[],\"Notify Upon Each Run Completion\"=>\"No\",\"Notify Upon Schedule Completion\"=>nil,\"Run Completion Notification Message Template\"=>nil,\"Run Completion Recipient\"=>nil,\"Saturday Index\"=>[],\"Schedule Completion Notification Message Template\"=>nil,\"Schedule Completion Recipient\"=>nil,\"Sunday Index\"=>[],\"Thursday Index\"=>[],\"Timing\"=>nil,\"Tuesday Index\"=>[],\"Wednesday Index\"=>[],\"Weekdays\"=>[]}\n\npollingInfo = JSON.parse(@results['Get Polling Info']['output'])\nvalues[\"Robot Name\"] = @form['Slug'] + \" poller\" \nvalues[\"Interval\"] = pollingInfo[\"Interval\"]\nvalues[\"Description\"] = \"Used for polling source for survey\"\nvalues[\"Recurrence\"] = \"minutely\"\nvalues[\"Recurrence Label\"] = \"minutely\"\nvalues[\"Recurrence Description\"] = \"Every #{pollingInfo[\"Interval\"]} minutes\"\nvalues[\"Notify Upon Each Run Completion\"] = \"No\"\nvalues[\"Status\"] = \"Active\"\nvalues[\"Start Date\"] = DateTime.now\nvalues[\"Category\"] = \"Survey Poller\"\nvalues[\"Task Tree\"] = pollingInfo[\"Source\"]\nruntime = {}\nruntime[\"Survey Slug\"] = @form['Slug']\nruntime[\"Kapp Slug\"] = @kapp['Slug'] \nvalues[\"Runtime Inputs\"] = runtime.to_json\nvalues.to_json %>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_datastore_submission_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "None Found-Create New",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "utilities_echo_v1_40"
+          }
+        ]
+      },
+      "id": "system_join_v1_42",
+      "position": {
+        "x": 221,
+        "y": 362
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "How many dependents must be completed before continuing?",
+          "id": "type",
+          "label": "Type:",
+          "menu": "All,Any,Some",
+          "value": "Any",
+          "required": true
+        },
+        {
+          "dependsOnId": "type",
+          "dependsOnValue": "Some",
+          "description": "If some, how many?",
+          "id": "number",
+          "label": "Number:",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "system_join_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "name": "Handle Survey Status",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_solutions_survey_status_validate_v1_43",
+      "position": {
+        "x": 865.3243,
+        "y": 27.639809
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Survey Slug",
+          "label": "Survey Slug",
+          "menu": "",
+          "value": "<%=  @form['Slug'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Kapp Slug",
+          "label": "Kapp Slug",
+          "menu": "",
+          "value": "<%=  @kapp['Slug'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Previous Config",
+          "label": "Previous Config",
+          "menu": "",
+          "value": "<%=  @form_attributes_previous['Survey Configuration'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Current Config",
+          "label": "Current Config",
+          "menu": "",
+          "value": "<%=  @form_attributes['Survey Configuration'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Current Status",
+          "label": "Current Status",
+          "menu": "",
+          "value": "<%=  @form['Status'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_solutions_survey_status_validate_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": true,
+      "name": "Check Polling",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Has new polling",
+            "type": "Complete",
+            "value": "@results['Check Polling']['output'] == \"new\"",
+            "content": "system_noop_v1_32"
+          },
+          {
+            "label": "Removed Polling",
+            "type": "Complete",
+            "value": "@results['Check Polling']['output'] == \"remove\"",
+            "content": "system_noop_v1_33"
+          },
+          {
+            "label": "Adjusted Polling",
+            "type": "Complete",
+            "value": "@results['Check Polling']['output'] == \"update\"",
+            "content": "system_noop_v1_34"
+          }
+        ]
+      },
+      "id": "utilities_echo_v1_44",
+      "position": {
+        "x": 513,
+        "y": 127
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "input",
+          "label": "Input",
+          "menu": "",
+          "value": "<%= \n# Parse the current and previous configs\ncurrent_config = @form_attributes['Survey Configuration'].to_s.empty? ? {} : JSON.parse(@form_attributes['Survey Configuration'])\nprev_config = @form_attributes_previous['Survey Configuration'].to_s.empty? ? {} : JSON.parse(@form_attributes_previous['Survey Configuration'])\n\n# Determine if polling is enabled\ncurrent_has_polling = current_config.has_key?('Event Polling') && current_config[\"Event Polling\"][\"Poll\"].to_s.downcase == \"true\" \nprev_has_polling = prev_config.has_key?('Event Polling') && prev_config[\"Event Polling\"][\"Poll\"].to_s.downcase == \"true\"\n\n# Calculate polling values\ncurrent_polling_values = current_has_polling ? current_config[\"Event Polling\"] : {}\nprev_polling_values = prev_has_polling ? prev_config[\"Event Polling\"] : {}\n\n# Determine Current Survey Status\ncurrent_status = @form['Status']\nprev_status = @form_previous['Status']\n\n# Build variable to store result\npolling = \"\"\nif (current_status == \"Active\" && prev_status == \"Active\")\n  if (!prev_has_polling && current_has_polling)\n    polling = \"new\"\n  #elsif current_polling_values != prev_polling_values \n  elsif current_has_polling && current_polling_values != prev_polling_values \n    polling = \"update\"\n  elsif prev_has_polling && !current_has_polling\n    polling = \"remove\"\n  else\n    polling = \"none\"\n  end\nelsif current_status == \"Inactive\"\n  polling = \"remove\"\nelsif current_status == \"Active\" && prev_status == \"Inactive\" && current_has_polling\n  polling = \"new\"\nend\n\n  \npolling %>",
+          "required": true
+        }
+      ],
+      "definitionId": "utilities_echo_v1"
+    }
+  ]
+}

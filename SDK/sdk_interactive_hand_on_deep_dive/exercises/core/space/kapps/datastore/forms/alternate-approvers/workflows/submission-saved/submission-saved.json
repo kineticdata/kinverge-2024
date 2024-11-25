@@ -1,0 +1,163 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 20,
+  "name": "Saved",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_expire_alternate_approver_v1_12",
+      "label": "Expire Now",
+      "value": "@values['Alternate End Date'] <= \"#{Date.today}\" ",
+      "type": "Complete"
+    },
+    {
+      "from": "start",
+      "to": "routine_add_alternate_approver_v1_5",
+      "label": "Start Now",
+      "value": " @values['Alternate Start Date'] <= \"#{Date.today}\" &&  @values['Alternate End Date'] > \"#{Date.today}\" ",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Expire Now",
+            "type": "Complete",
+            "value": "@values['Alternate End Date'] <= \"#{Date.today}\" ",
+            "content": "routine_expire_alternate_approver_v1_12"
+          },
+          {
+            "label": "Start Now",
+            "type": "Complete",
+            "value": " @values['Alternate Start Date'] <= \"#{Date.today}\" &&  @values['Alternate End Date'] > \"#{Date.today}\" ",
+            "content": "routine_add_alternate_approver_v1_5"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Start Alternate Approval",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_add_alternate_approver_v1_5",
+      "position": {
+        "x": 261,
+        "y": 216
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Team",
+          "label": "Team",
+          "menu": "",
+          "value": "<%=  @values['Form Name'].to_s ==\"\" ? @values['Team']:  @values['Team']<<\"::\"<<@values['Form Name']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Alternate Username",
+          "label": "Alternate Username",
+          "menu": "",
+          "value": "<%=  @values['Alternate Login'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Datastore Id",
+          "label": "Datastore Id",
+          "menu": "",
+          "value": "<%=  @submission['Id'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_add_alternate_approver_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Expire Alternate Approver",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_expire_alternate_approver_v1_12",
+      "position": {
+        "x": 265,
+        "y": 17
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Team",
+          "label": "Team",
+          "menu": "",
+          "value": "<%=  @values['Form Name'].to_s ==\"\" ? @values['Team']:  @values['Team']<<\"::\"<<@values['Form Name']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Alternate Username",
+          "label": "Alternate Username",
+          "menu": "",
+          "value": "<%=  @values['Alternate Login'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Datastore Id",
+          "label": "Datastore Id",
+          "menu": "",
+          "value": "<%=  @submission['Id'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_expire_alternate_approver_v1"
+    }
+  ]
+}

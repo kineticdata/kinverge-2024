@@ -1,0 +1,313 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 32,
+  "name": "Created",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "system_noop_v1_22",
+      "label": "Has Survey Config",
+      "value": "@form_attributes.has_key?('Survey Configuration') && !@form_attributes['Survey Configuration'].nil? && !@form_attributes['Survey Configuration'].empty?",
+      "type": "Complete"
+    },
+    {
+      "from": "start",
+      "to": "routine_kinetic_solutions_survey_status_validate_v1_32",
+      "label": "Is Survey",
+      "value": "@form_attributes.has_key?('Survey Configuration') && !@form_attributes['Survey Configuration'].nil? && !@form_attributes['Survey Configuration'].empty?",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_22",
+      "to": "system_noop_v1_23",
+      "label": "Has polling configuration",
+      "value": " JSON.parse(@form_attributes['Survey Configuration']).has_key?('Event Polling') && JSON.parse(@form_attributes['Survey Configuration'])[\"Event Polling\"][\"Poll\"] == \"true\"",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_23",
+      "to": "utilities_echo_v1_24",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "utilities_echo_v1_24",
+      "to": "routine_kinetic_datastore_submission_create_v1_25",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Has Survey Config",
+            "type": "Complete",
+            "value": "@form_attributes.has_key?('Survey Configuration') && !@form_attributes['Survey Configuration'].nil? && !@form_attributes['Survey Configuration'].empty?",
+            "content": "system_noop_v1_22"
+          },
+          {
+            "label": "Is Survey",
+            "type": "Complete",
+            "value": "@form_attributes.has_key?('Survey Configuration') && !@form_attributes['Survey Configuration'].nil? && !@form_attributes['Survey Configuration'].empty?",
+            "content": "routine_kinetic_solutions_survey_status_validate_v1_32"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 550,
+        "y": -55
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Is Survey",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Has polling configuration",
+            "type": "Complete",
+            "value": " JSON.parse(@form_attributes['Survey Configuration']).has_key?('Event Polling') && JSON.parse(@form_attributes['Survey Configuration'])[\"Event Polling\"][\"Poll\"] == \"true\"",
+            "content": "system_noop_v1_23"
+          }
+        ]
+      },
+      "id": "system_noop_v1_22",
+      "position": {
+        "x": 999,
+        "y": -50
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_noop_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Is poller",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "utilities_echo_v1_24"
+          }
+        ]
+      },
+      "id": "system_noop_v1_23",
+      "position": {
+        "x": 999,
+        "y": 150
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_noop_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": true,
+      "name": "Get Polling Info",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_datastore_submission_create_v1_25"
+          }
+        ]
+      },
+      "id": "utilities_echo_v1_24",
+      "position": {
+        "x": 999,
+        "y": 266
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "input",
+          "label": "Input",
+          "menu": "",
+          "value": "<%=  output = JSON.parse(@form_attributes['Survey Configuration'])[\"Event Polling\"]\noutput.to_json %>",
+          "required": true
+        }
+      ],
+      "definitionId": "utilities_echo_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Create Robot",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_datastore_submission_create_v1_25",
+      "position": {
+        "x": 997,
+        "y": 384
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The slug of the Form to create the submission in",
+          "id": "Form Slug",
+          "label": "Form Slug",
+          "menu": "",
+          "value": "robot-definitions",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The page to set the submission to",
+          "id": "Current Page Name",
+          "label": "Current Page Name",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The direction of the next page (next or previous)",
+          "id": "Current Page Navigation",
+          "label": "Current Page Navigation",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON Map of values to set into the submissions fields",
+          "id": "Values JSON",
+          "label": "Values JSON",
+          "menu": "",
+          "value": "<%=  values = {\"Days\"=>[],\"Embedded\"=>nil,\"Embedded Display Mode\"=>nil,\"End Date\"=>nil,\"End Date Original\"=>nil,\"Execution Hour\"=>nil,\"Execution Minute\"=>\"00\",\"Friday Index\"=>[],\"Interval\"=>\"1\",\"Monday Index\"=>[],\"Months\"=>[],\"Notify Upon Each Run Completion\"=>\"No\",\"Notify Upon Schedule Completion\"=>nil,\"Run Completion Notification Message Template\"=>nil,\"Run Completion Recipient\"=>nil,\"Saturday Index\"=>[],\"Schedule Completion Notification Message Template\"=>nil,\"Schedule Completion Recipient\"=>nil,\"Sunday Index\"=>[],\"Thursday Index\"=>[],\"Timing\"=>nil,\"Tuesday Index\"=>[],\"Wednesday Index\"=>[],\"Weekdays\"=>[]}\nvalues[\"Robot Name\"] = @form['Slug'] + \" poller\" \nvalues[\"Interval\"] = @results['Get Polling Info']['output'][\"Interval\"]\nvalues[\"Description\"] = \"Used for polling source for survey\"\nvalues[\"Recurrence\"] = \"minutely\"\nvalues[\"Recurrence Label\"] = \"minutely\"\nvalues[\"Recurrence Description\"] = \"Every #{@results['Get Polling Info']['output'][\"Interval\"]} minutes\"\nvalues[\"Notify Upon Each Run Completion\"] = \"No\"\nvalues[\"Status\"] = \"Active\"\nvalues[\"Start Date\"] = DateTime.now\nvalues[\"Category\"] = \"Survey Poller\"\nvalues[\"Task Tree\"] = @results['Get Polling Info']['output'][\"Source\"]\nruntime = {}\nruntime[\"Survey Slug\"] = @form['Slug']\nruntime[\"Kapp Slug\"] = @kapp['Slug'] \nvalues[\"Runtime Inputs\"] = runtime.to_json\nvalues.to_json %>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_datastore_submission_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Update Status as Necessary",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_solutions_survey_status_validate_v1_32",
+      "position": {
+        "x": 706,
+        "y": 77.5
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Survey Slug",
+          "label": "Survey Slug",
+          "menu": "",
+          "value": "<%=  @form['Slug'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Kapp Slug",
+          "label": "Kapp Slug",
+          "menu": "",
+          "value": "<%=  @kapp['Slug'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Previous Config",
+          "label": "Previous Config",
+          "menu": "",
+          "value": "<%=  @form_attributes_previous['Survey Configuration'] if @form_attributes_previous.has_key?('Survey Configuration') %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Current Config",
+          "label": "Current Config",
+          "menu": "",
+          "value": "<%=  @form_attributes['Survey Configuration'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Current Status",
+          "label": "Current Status",
+          "menu": "",
+          "value": "<%=  @form['Status'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_solutions_survey_status_validate_v1"
+    }
+  ]
+}

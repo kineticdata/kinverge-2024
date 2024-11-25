@@ -1,0 +1,7 @@
+{
+  "event": "Created",
+  "filter": "form('slug') == \"work-info\"",
+  "name": "Work Info Create",
+  "type": "Submission",
+  "url": "/app/api/v1/run-tree/${space('attribute:Task Source Name')}/Submissions%20%3E%20datastore%20%3E%20work-info/Created"
+}

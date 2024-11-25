@@ -1,0 +1,35 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 0,
+  "name": "Closed",
+  "notes": "",
+  "connectors": [
+
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "start",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    }
+  ]
+}

@@ -1,0 +1,421 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 4,
+  "name": "Submitted",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_submissions_retrieve_list_v1_2",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_update_v1_1",
+      "to": "system_loop_tail_v1_4",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submissions_retrieve_list_v1_2",
+      "to": "system_loop_head_v1_3",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_3",
+      "to": "routine_kinetic_submission_update_v1_1",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_3",
+      "to": "system_loop_tail_v1_4",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submissions_retrieve_list_v1_2"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Update existing survey status",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_tail_v1_4"
+          }
+        ]
+      },
+      "id": "routine_kinetic_submission_update_v1_1",
+      "position": {
+        "x": 472,
+        "y": 412
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The id of the submission to update",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%= JSON.parse(@results['Loop to Close Surveys']['Value'])['id'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The submissions core state",
+          "id": "Updated - Core State",
+          "label": "Updated - Core State",
+          "menu": "",
+          "value": "Submitted",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The page to set the submission to",
+          "id": "Updated - Current Page Name",
+          "label": "Updated - Current Page Name",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The direction of the next page (next or previous)",
+          "id": "Updated - Current Page Navigation",
+          "label": "Updated - Current Page Navigation",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submissions origin",
+          "id": "Updated - Origin Id",
+          "label": "Updated - Origin Id",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submissions parent",
+          "id": "Updated - Parent Id",
+          "label": "Updated - Parent Id",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON representation of the submissions values",
+          "id": "Updated - Values JSON",
+          "label": "Updated - Values JSON",
+          "menu": "",
+          "value": "<%= vals = {}\nvals['Status'] = \"Opted Out\"\nvals.to_json %>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_update_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Get Open Surveys",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_head_v1_3"
+          }
+        ]
+      },
+      "id": "routine_kinetic_submissions_retrieve_list_v1_2",
+      "position": {
+        "x": 210,
+        "y": 210
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The slug of the Kapp to find submissions in.",
+          "id": "Kapp Slug",
+          "label": "Kapp Slug",
+          "menu": "",
+          "value": "<%=  @kapp['Slug'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The slug of the Form to find submissions in. If none provided, can only use Kapp Fields in search query",
+          "id": "Form Slug",
+          "label": "Form Slug",
+          "menu": "",
+          "value": "<%=  @values['Survey Slug'] %>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Type of Form to find submissions in.",
+          "id": "Form Type",
+          "label": "Form Type",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Searches for submissions that have a core state that matches this parameter. If no value is provided, the results will contain submissions in all core states.",
+          "id": "Core State",
+          "label": "Core State",
+          "menu": "",
+          "value": "Draft",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Limit the number of results returned. If not provided, the server will limit the results to 25 submissions. Maximum limit 1000",
+          "id": "Limit",
+          "label": "Limit",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Query to use to fetch submissions. (i.e values[First Name]=\"Fred\")",
+          "id": "Query",
+          "label": "Query",
+          "menu": "",
+          "value": "values[recipientEmail]=\"<%=  @values['recipientEmail'] %>\"",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Date property to search by. The default value is createdAt.",
+          "id": "Timeline",
+          "label": "Timeline",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Result Set sorting direction. The default value is descending.",
+          "id": "Direction",
+          "label": "Direction",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Start date/time of the timeline. This value should be used to both refine and limit the search results. Format should be yyyy-MM-dd'T'HH:mm:ss'Z'",
+          "id": "Start Date/Time",
+          "label": "Start Date/Time",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "End date/time of the timeline. This value should be used to both refine and limit the search results. Formatshould be yyyy-MM-dd'T'HH:mm:ss'Z'",
+          "id": "End Date/Time",
+          "label": "End Date/Time",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The value to use as the offset for the page of submissions to return. The submission that matches this value will not be included in the results.",
+          "id": "Next Page Token",
+          "label": "Next Page Token",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_submissions_retrieve_list_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Loop to Close Surveys",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_update_v1_1"
+          },
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_tail_v1_4"
+          }
+        ]
+      },
+      "id": "system_loop_head_v1_3",
+      "position": {
+        "x": 210,
+        "y": 410
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The source that contains the data to use to create each task in the loop.",
+          "id": "data_source",
+          "label": "Data Source:",
+          "menu": "",
+          "value": "<%= @results['Get Open Surveys']['Submissions List JSON'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The XPath or JSONPath statement to indicate what data records to process.",
+          "id": "loop_path",
+          "label": "Loop Path:",
+          "menu": "",
+          "value": "$.[*]",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The local variable name used to represent the data used in loop tasks.",
+          "id": "var_name",
+          "label": "Variable Name:",
+          "menu": "",
+          "value": "surveyId",
+          "required": false
+        }
+      ],
+      "definitionId": "system_loop_head_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "All Closed",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "system_loop_tail_v1_4",
+      "position": {
+        "x": 205,
+        "y": 535
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "How many loop processes must be completed before continuing?",
+          "id": "type",
+          "label": "Type:",
+          "menu": "All,Some,Any",
+          "value": "All",
+          "required": true
+        },
+        {
+          "dependsOnId": "type",
+          "dependsOnValue": "Some",
+          "description": "If some, how many?",
+          "id": "number",
+          "label": "Number:",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "system_loop_tail_v1"
+    }
+  ]
+}

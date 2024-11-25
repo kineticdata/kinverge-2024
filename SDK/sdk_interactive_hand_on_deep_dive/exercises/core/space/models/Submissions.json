@@ -1,0 +1,53 @@
+{
+  "activeMappingName": "Submissions",
+  "attributes": [
+    {
+      "name": "Created At"
+    },
+    {
+      "name": "Observing Teams"
+    },
+    {
+      "name": "Status"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Created At",
+          "structureField": "${fields('createdAt')}"
+        },
+        {
+          "name": "Status",
+          "structureField": "${fields(\"values[Status]\")}"
+        },
+        {
+          "name": "Observing Teams",
+          "structureField": "${fields(\"values[Observing Teams]\")}"
+        }
+      ],
+      "bridgeSlug": "kinetic-core",
+      "name": "Submissions",
+      "qualifications": [
+        {
+          "name": "Pending Approval",
+          "query": "kappSlug=services&q=values[Status]=\"Pending Approval\"&limit=1000\t\n"
+        }
+      ],
+      "structure": "Submissions"
+    }
+  ],
+  "name": "Submissions",
+  "qualifications": [
+    {
+      "name": "Pending Approval",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

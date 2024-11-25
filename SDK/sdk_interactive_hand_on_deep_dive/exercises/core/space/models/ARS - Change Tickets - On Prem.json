@@ -1,0 +1,52 @@
+{
+  "activeMappingName": "ARS - Change Tickets - On Prem",
+  "attributes": [
+    {
+      "name": "Infrastructure Change ID"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Infrastructure Change ID",
+          "structureField": "${fields(\"Infrastructure Change ID\")}"
+        }
+      ],
+      "bridgeSlug": "ars-remedy-rest",
+      "name": "ARS - Change Tickets - On Prem",
+      "qualifications": [
+        {
+          "name": "All Changes",
+          "query": "1=1"
+        },
+        {
+          "name": "By Change Id",
+          "query": "'Infrastructure Change ID'=${parameters(\"Infrastructure Change ID\")}"
+        }
+      ],
+      "structure": "Entry > CHG:Infrastructure%20Change"
+    }
+  ],
+  "name": "ARS - Change Tickets - On Prem",
+  "qualifications": [
+    {
+      "name": "All Changes",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Change Id",
+      "parameters": [
+        {
+          "name": "Infrastructure Change ID"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

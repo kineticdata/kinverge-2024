@@ -1,0 +1,100 @@
+{
+  "activeMappingName": "Incidents",
+  "attributes": [
+    {
+      "name": "Assigned Group"
+    },
+    {
+      "name": "Contact Company"
+    },
+    {
+      "name": "Description"
+    },
+    {
+      "name": "Detailed Decription"
+    },
+    {
+      "name": "Incident Number"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Incident Number",
+          "structureField": "${fields(\"Incident Number\")}"
+        },
+        {
+          "name": "Contact Company",
+          "structureField": "${fields(\"Contact Company\")}"
+        },
+        {
+          "name": "Description",
+          "structureField": "${fields(\"Description\")}"
+        },
+        {
+          "name": "Assigned Group",
+          "structureField": "${fields(\"Assigned Group\")}"
+        },
+        {
+          "name": "Detailed Decription",
+          "structureField": "${fields(\"Detailed Decription\")}"
+        }
+      ],
+      "bridgeSlug": "ars-bridge",
+      "name": "Incidents",
+      "qualifications": [
+        {
+          "name": "All",
+          "query": "1=1"
+        },
+        {
+          "name": "Backoffice Support",
+          "query": "q= 'Assigned Group'= \"Backoffice Support\""
+        },
+        {
+          "name": "Frontoffice Support",
+          "query": "q= 'Assigned Group'= \"Frontoffice Support\""
+        },
+        {
+          "name": "Service Desk",
+          "query": "q= 'Assigned Group'= \"Service Desk\""
+        }
+      ],
+      "structure": "Entry > HPD%3AHelp%20Desk"
+    }
+  ],
+  "name": "Incidents",
+  "qualifications": [
+    {
+      "name": "All",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Backoffice Support",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Frontoffice Support",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Service Desk",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

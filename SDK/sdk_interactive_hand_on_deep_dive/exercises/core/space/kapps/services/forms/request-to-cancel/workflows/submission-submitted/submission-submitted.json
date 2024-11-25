@@ -1,0 +1,817 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 46,
+  "name": "Submitted",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_solutions_service_portal_submission_config_v1_34",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_15",
+      "to": "system_loop_tail_v1_16",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_15",
+      "to": "routine_kinetic_submission_retrieve_v1_36",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_tail_v1_16",
+      "to": "routine_kinetic_submission_activity_create_v1_41",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_solutions_service_portal_submission_config_v1_34",
+      "to": "routine_kinetic_submission_retrieve_v1_35",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_retrieve_v1_35",
+      "to": "system_loop_head_v1_15",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_retrieve_v1_36",
+      "to": "routine_kinetic_submission_create_v1_38",
+      "label": "Is Open",
+      "value": "@results['Retrieve Child Submission']['Core State'] == \"Draft\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_retrieve_v1_36",
+      "to": "system_junction_v1_45",
+      "label": "Not Open",
+      "value": "@results['Retrieve Child Submission']['Core State'] != \"Draft\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_create_v1_38",
+      "to": "routine_kinetic_submission_update_v1_39",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_update_v1_39",
+      "to": "system_junction_v1_45",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_update_v1_40",
+      "to": "routine_kinetic_finish_v1_44",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_activity_create_v1_41",
+      "to": "routine_kinetic_submission_update_v1_40",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_junction_v1_45",
+      "to": "system_loop_tail_v1_16",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_solutions_service_portal_submission_config_v1_34"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 63,
+        "y": 65
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Loop Head",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_tail_v1_16"
+          },
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_retrieve_v1_36"
+          }
+        ]
+      },
+      "id": "system_loop_head_v1_15",
+      "position": {
+        "x": 716,
+        "y": 47
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The source that contains the data to use to create each task in the loop.",
+          "id": "data_source",
+          "label": "Data Source:",
+          "menu": "",
+          "value": "<children><%=JSON.parse(@results['Retrieve Related Submission']['Children JSON']).collect {|child| \"<child>#{child['id']}</child>\"}.join%></children>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The XPath statement to indicate what data records to process.",
+          "id": "loop_path",
+          "label": "Loop Path:",
+          "menu": "",
+          "value": "//children/child",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The local variable name used to represent the data used in loop tasks.",
+          "id": "var_name",
+          "label": "Variable Name:",
+          "menu": "",
+          "value": "childId",
+          "required": false
+        }
+      ],
+      "definitionId": "system_loop_head_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Loop Tail",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_activity_create_v1_41"
+          }
+        ]
+      },
+      "id": "system_loop_tail_v1_16",
+      "position": {
+        "x": 660,
+        "y": 582
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "How many loop processes must be completed before continuing?",
+          "id": "type",
+          "label": "Type:",
+          "menu": "All,Some,Any",
+          "value": "All",
+          "required": true
+        },
+        {
+          "dependsOnId": "type",
+          "dependsOnValue": "Some",
+          "description": "If some, how many?",
+          "id": "number",
+          "label": "Number:",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "system_loop_tail_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Get Config",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_retrieve_v1_35"
+          }
+        ]
+      },
+      "id": "routine_kinetic_solutions_service_portal_submission_config_v1_34",
+      "position": {
+        "x": 184,
+        "y": 65
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Submission Source Data Used to Build Configuration",
+          "id": "Source Data",
+          "label": "Source Data",
+          "menu": "",
+          "value": "<%=@source['Data']%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_solutions_service_portal_submission_config_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Retrieve Related Submission",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_head_v1_15"
+          }
+        ]
+      },
+      "id": "routine_kinetic_submission_retrieve_v1_35",
+      "position": {
+        "x": 426.64706,
+        "y": 58.294117
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submission to retrieve",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%= @values['Related Submission Id']%>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_retrieve_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Retrieve Child Submission",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Is Open",
+            "type": "Complete",
+            "value": "@results['Retrieve Child Submission']['Core State'] == \"Draft\"",
+            "content": "routine_kinetic_submission_create_v1_38"
+          },
+          {
+            "label": "Not Open",
+            "type": "Complete",
+            "value": "@results['Retrieve Child Submission']['Core State'] != \"Draft\"",
+            "content": "system_junction_v1_45"
+          }
+        ]
+      },
+      "id": "routine_kinetic_submission_retrieve_v1_36",
+      "position": {
+        "x": 935,
+        "y": 22
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submission to retrieve",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%= @childId %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_retrieve_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Create Cancel Task",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_update_v1_39"
+          }
+        ]
+      },
+      "id": "routine_kinetic_submission_create_v1_38",
+      "position": {
+        "x": 1047.9412,
+        "y": 187.41176
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The slug of the Kapp to create the submission in",
+          "id": "Kapp Slug",
+          "label": "Kapp Slug",
+          "menu": "",
+          "value": "<%=@results['Get Config']['Queue Kapp Slug']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The slug of the Form to create the submission in",
+          "id": "Form Slug",
+          "label": "Form Slug",
+          "menu": "",
+          "value": "<%=@results['Get Config']['Task Form Slug']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The page to set the submission to",
+          "id": "Current Page Name",
+          "label": "Current Page Name",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The direction of the next page (next or previous)",
+          "id": "Current Page Navigation",
+          "label": "Current Page Navigation",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON Map of values to set into the submissions fields",
+          "id": "Values JSON",
+          "label": "Values JSON",
+          "menu": "",
+          "value": "<%=\nchild_values = JSON.parse(@results['Retrieve Child Submission']['Values JSON'])\n{\n  'Status' => 'Complete',\n  'Assigned Team' => child_values['Assigned Team'].to_s,\n  'Assigned Team Display Name' => child_values['Assigned Team Display Name'].to_s,\n  'Assigned Individual' => child_values['Assigned Individual'].to_s,\n  'Assigned Individual Display Name' => child_values['Assigned Individual Display Name'].to_s,\n  'Summary' => \"Cancellation requested by - #{@submission['Created By']}\",\n  'Details' => (@values['Cancellation Reason']).to_s,\n  'Resolution' => (@values['Cancellation Reason']).to_s\n}.to_json%>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Sets the submissions origin to another Kinetic Submission",
+          "id": "Origin Id",
+          "label": "Origin Id",
+          "menu": "",
+          "value": "<%= @values['Related Submission Id']%>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Sets the submissions parent to another Kinetic Submission",
+          "id": "Parent Id",
+          "label": "Parent Id",
+          "menu": "",
+          "value": "<%= @childId %>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "True or False, if Submission should be Submitted when created",
+          "id": "Submit Submission",
+          "label": "Submit Submission",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Close Cancel Task",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_junction_v1_45"
+          }
+        ]
+      },
+      "id": "routine_kinetic_submission_update_v1_39",
+      "position": {
+        "x": 1040.5294,
+        "y": 427.52942
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The id of the submission to update",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%=@results['Create Cancel Task']['Id']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The submissions core state",
+          "id": "Updated - Core State",
+          "label": "Updated - Core State",
+          "menu": "",
+          "value": "Closed",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The page to set the submission to",
+          "id": "Updated - Current Page Name",
+          "label": "Updated - Current Page Name",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The direction of the next page (next or previous)",
+          "id": "Updated - Current Page Navigation",
+          "label": "Updated - Current Page Navigation",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submissions origin",
+          "id": "Updated - Origin Id",
+          "label": "Updated - Origin Id",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submissions parent",
+          "id": "Updated - Parent Id",
+          "label": "Updated - Parent Id",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON representation of the submissions values",
+          "id": "Updated - Values JSON",
+          "label": "Updated - Values JSON",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_update_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Close Submission",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_finish_v1_44"
+          }
+        ]
+      },
+      "id": "routine_kinetic_submission_update_v1_40",
+      "position": {
+        "x": 350,
+        "y": 442
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The id of the submission to update",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%= @submission['Id']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The submissions core state",
+          "id": "Updated - Core State",
+          "label": "Updated - Core State",
+          "menu": "",
+          "value": "Closed",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The page to set the submission to",
+          "id": "Updated - Current Page Name",
+          "label": "Updated - Current Page Name",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The direction of the next page (next or previous)",
+          "id": "Updated - Current Page Navigation",
+          "label": "Updated - Current Page Navigation",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submissions origin",
+          "id": "Updated - Origin Id",
+          "label": "Updated - Origin Id",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submissions parent",
+          "id": "Updated - Parent Id",
+          "label": "Updated - Parent Id",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON representation of the submissions values",
+          "id": "Updated - Values JSON",
+          "label": "Updated - Values JSON",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_update_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Create Activity Record - Cancel",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_update_v1_40"
+          }
+        ]
+      },
+      "id": "routine_kinetic_submission_activity_create_v1_41",
+      "position": {
+        "x": 354,
+        "y": 310
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Id of the submission to create the activity record for",
+          "id": "Submission Id",
+          "label": "Submission Id",
+          "menu": "",
+          "value": "<%= @values['Related Submission Id']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Data to store in the submission activity",
+          "id": "Data",
+          "label": "Data",
+          "menu": "",
+          "value": "<%={\n\"Reason Provided\" => @values['Cancellation Reason']\n}.to_json%>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Description of the submission activity",
+          "id": "Description",
+          "label": "Description",
+          "menu": "",
+          "value": "Cancellation Requested by <%= @submission['Submitted By']%>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Label for the submission activity",
+          "id": "Label",
+          "label": "Label",
+          "menu": "",
+          "value": "Cancellation Requested",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Type of submission activity",
+          "id": "Type",
+          "label": "Type",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_activity_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "name": "Finish",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_finish_v1_44",
+      "position": {
+        "x": 354,
+        "y": 539
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the completed run",
+          "id": "Run Id",
+          "label": "Run Id",
+          "menu": "",
+          "value": "<%=@run['Id']%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_finish_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Child Work Finished - Continue",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_tail_v1_16"
+          }
+        ]
+      },
+      "id": "system_junction_v1_45",
+      "position": {
+        "x": 826,
+        "y": 569
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_junction_v1"
+    }
+  ]
+}

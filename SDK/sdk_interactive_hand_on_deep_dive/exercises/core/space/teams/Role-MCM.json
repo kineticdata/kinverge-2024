@@ -1,0 +1,13 @@
+{
+  "attributes": [
+    {
+      "name": "Assignable",
+      "values": [
+        "False"
+      ]
+    }
+  ],
+  "description": "Authorized submitters for the Facility Maintenance - MCM request form.  Security settings applied to form.",
+  "name": "Role::MCM",
+  "slug": "025b35ad3c1004de74959f03deb83cdc"
+}

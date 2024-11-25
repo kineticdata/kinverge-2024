@@ -1,0 +1,8 @@
+{
+  "attributes": [
+
+  ],
+  "description": "Membership allows user to submit an internal Water and Sewer Utilities request to Facility Maintenance.",
+  "name": "Role::WSU Internal",
+  "slug": "c415401049922e093394e9e3490421c6"
+}

@@ -1,0 +1,359 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 18,
+  "name": "Created",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_queue_submission_config_v1_14",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_retrieve_v1_13",
+      "to": "routine_kinetic_submission_update_observers_v1_12",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_queue_submission_config_v1_14",
+      "to": "system_noop_v1_16",
+      "label": "Parent != Origin",
+      "value": "!@submission['Parent Id'].to_s.empty? && !@submission['Origin Id'].to_s.empty? && @submission['Parent Id'] != @submission['Origin Id']",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_queue_submission_config_v1_14",
+      "to": "system_noop_v1_15",
+      "label": "Open",
+      "value": "!['Complete','Closed','Cancelled'].include?(@values['Status'].to_s)",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_15",
+      "to": "routine_kinetic_email_template_notification_send_v1_18",
+      "label": "Has Contact Email",
+      "value": "!@values['Contact Email'].to_s.empty?",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_16",
+      "to": "routine_kinetic_submission_retrieve_v1_13",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_queue_submission_config_v1_14"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 516,
+        "y": -56
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Set Parent Assignees as Observers",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_submission_update_observers_v1_12",
+      "position": {
+        "x": 749,
+        "y": 276
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Id of the submission to update",
+          "id": "Submission Id",
+          "label": "Submission Id",
+          "menu": "",
+          "value": "<%= @submission['Id']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "JSON array of team names to add to Observing Teams field on Submission",
+          "id": "Observing Teams",
+          "label": "Observing Teams",
+          "menu": "",
+          "value": "<%=\nkey = \"Assigned Team\"\nJSON.parse(@results['Get Parent Submission']['Values JSON'])[key]%>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "JSON array of usernames to add to Observing Individuals field on Submission",
+          "id": "Observing Individuals",
+          "label": "Observing Individuals",
+          "menu": "",
+          "value": "<%=\nkey = \"Assigned Individual\"\nJSON.parse(@results['Get Parent Submission']['Values JSON'])[key]%>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "true or false if existing observers should be replaced",
+          "id": "Replace Existing",
+          "label": "Replace Existing",
+          "menu": "",
+          "value": "false",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_update_observers_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Get Parent Submission",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_update_observers_v1_12"
+          }
+        ]
+      },
+      "id": "routine_kinetic_submission_retrieve_v1_13",
+      "position": {
+        "x": 749,
+        "y": 176
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submission to retrieve",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%= @submission['Parent Id']%>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_retrieve_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Get Config",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Parent != Origin",
+            "type": "Complete",
+            "value": "!@submission['Parent Id'].to_s.empty? && !@submission['Origin Id'].to_s.empty? && @submission['Parent Id'] != @submission['Origin Id']",
+            "content": "system_noop_v1_16"
+          },
+          {
+            "label": "Open",
+            "type": "Complete",
+            "value": "!['Complete','Closed','Cancelled'].include?(@values['Status'].to_s)",
+            "content": "system_noop_v1_15"
+          }
+        ]
+      },
+      "id": "routine_kinetic_queue_submission_config_v1_14",
+      "position": {
+        "x": 518,
+        "y": 32
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Submission Source Data Used to Build Configuration",
+          "id": "Source Data",
+          "label": "Source Data",
+          "menu": "",
+          "value": "<%=@source['Data']%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_queue_submission_config_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Notification",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Has Contact Email",
+            "type": "Complete",
+            "value": "!@values['Contact Email'].to_s.empty?",
+            "content": "routine_kinetic_email_template_notification_send_v1_18"
+          }
+        ]
+      },
+      "id": "system_noop_v1_15",
+      "position": {
+        "x": 257,
+        "y": 113
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_noop_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Observers",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_retrieve_v1_13"
+          }
+        ]
+      },
+      "id": "system_noop_v1_16",
+      "position": {
+        "x": 746,
+        "y": 107
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_noop_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Notify Contact - Case Created",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_email_template_notification_send_v1_18",
+      "position": {
+        "x": 254,
+        "y": 222
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Comma separated list of recipients (Usernames, SMTP Addresses, and/or Team Names)",
+          "id": "Recipient List",
+          "label": "Recipient List",
+          "menu": "",
+          "value": "<%= @values['Contact Email']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Name of the notification template to use when sending this email",
+          "id": "Notification Template Name",
+          "label": "Notification Template Name",
+          "menu": "",
+          "value": "<%=@results['Get Config']['Notification Template Name - Create']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "JSON input of miscellaneous values.  These values are used to replace placeholder content in notification messages.",
+          "id": "JSON Variables",
+          "label": "JSON Variables",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The slug of the Kapp sending the notification (ex: catalog, queue, etc.)",
+          "id": "Kapp Slug Initiating Notification",
+          "label": "Kapp Slug Initiating Notification",
+          "menu": "",
+          "value": "<%= @kapp['Slug']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Id of the submission to get values for, required if using those or attachments in the message",
+          "id": "Related Submission Id",
+          "label": "Related Submission Id",
+          "menu": "",
+          "value": "<%= @submission['Id']%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_email_template_notification_send_v1"
+    }
+  ]
+}

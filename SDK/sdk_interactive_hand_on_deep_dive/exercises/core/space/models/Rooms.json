@@ -1,0 +1,163 @@
+{
+  "activeMappingName": "Rooms",
+  "attributes": [
+    {
+      "name": "Form"
+    },
+    {
+      "name": "Location Code"
+    },
+    {
+      "name": "Location Id"
+    },
+    {
+      "name": "Location Name"
+    },
+    {
+      "name": "Room - Short Name"
+    },
+    {
+      "name": "Room Capabilities"
+    },
+    {
+      "name": "Room Id"
+    },
+    {
+      "name": "Room Name"
+    },
+    {
+      "name": "Status"
+    },
+    {
+      "name": "Submission Id"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Submission Id",
+          "structureField": "${fields(\"id\")}"
+        },
+        {
+          "name": "Location Id",
+          "structureField": "${fields(\"values[Location Id]\")}"
+        },
+        {
+          "name": "Location Name",
+          "structureField": "${fields(\"values[Location Name]\")}"
+        },
+        {
+          "name": "Room Name",
+          "structureField": "${fields(\"values[Room Name]\")}"
+        },
+        {
+          "name": "Room Capabilities",
+          "structureField": "${fields(\"values[Room Capabilities]\")}"
+        },
+        {
+          "name": "Status",
+          "structureField": "${fields(\"values[Status]\")}"
+        },
+        {
+          "name": "Room Id",
+          "structureField": "${fields(\"values[Room Id]\")}"
+        },
+        {
+          "name": "Location Code",
+          "structureField": "${fields(\"values[Location Code]\")}"
+        },
+        {
+          "name": "Room - Short Name",
+          "structureField": "${fields(\"values[Room - Short Name]\")}\t"
+        },
+        {
+          "name": "Form",
+          "structureField": "${fields(\"form.name\")}"
+        }
+      ],
+      "bridgeSlug": "kinetic-core",
+      "name": "Rooms",
+      "qualifications": [
+        {
+          "name": "All Active Locations",
+          "query": "kappSlug=calendar&formSlug=rooms&limit=1000&index=values[Status]&q=values[Status]=\"Active\""
+        },
+        {
+          "name": "All Active Rooms By Location",
+          "query": "kappSlug=calendar&formSlug=rooms&limit=1000&index=values[Status],values[Location Id]&q=values[Status]=\"Active\" AND values[Location Id]=\"${parameters(\"Location Id\")}\""
+        },
+        {
+          "name": "All Locations",
+          "query": "kappSlug=calendar&formSlug=rooms&limit=1000"
+        },
+        {
+          "name": "Location By Location Id",
+          "query": "kappSlug=calendar&formSlug=rooms&index=values[Location Id]&q=values[Location Id]=\"${parameters(\"Location Id\")}\""
+        },
+        {
+          "name": "All Rooms By Location",
+          "query": "kappSlug=calendar&formSlug=rooms&limit=1000&index=values[Location Id]&q=values[Location Id]=\"${parameters(\"Location Id\")}\""
+        },
+        {
+          "name": "a test",
+          "query": "kappSlug=calendar&formSlug=rooms&index=values[Status]&q=values[Status]=\"Active\"&include=form.name"
+        }
+      ],
+      "structure": "Submissions"
+    }
+  ],
+  "name": "Rooms",
+  "qualifications": [
+    {
+      "name": "a test",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "All Active Locations",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "All Active Rooms By Location",
+      "parameters": [
+        {
+          "name": "Location Id"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "All Locations",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "All Rooms By Location",
+      "parameters": [
+        {
+          "name": "Location Id"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Location By Location Id",
+      "parameters": [
+        {
+          "name": "Location Id"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

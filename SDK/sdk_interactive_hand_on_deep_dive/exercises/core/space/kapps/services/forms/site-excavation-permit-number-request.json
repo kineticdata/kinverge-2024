@@ -1,0 +1,137 @@
+{
+  "anonymous": false,
+  "attributes": [
+    {
+      "name": "Icon",
+      "values": [
+        "fa-external-link"
+      ]
+    },
+    {
+      "name": "Redirect URL",
+      "values": [
+        "http://msc.ms.rl.gov/sepa/"
+      ]
+    }
+  ],
+  "bridgedResources": [
+
+  ],
+  "categorizations": [
+    {
+      "category": {
+        "slug": "land-management-services"
+      }
+    }
+  ],
+  "customHeadContent": null,
+  "description": "",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,createdBy",
+      "parts": [
+        "type",
+        "coreState",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,submittedBy",
+      "parts": [
+        "type",
+        "coreState",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,createdBy",
+      "parts": [
+        "type",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,submittedBy",
+      "parts": [
+        "type",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "Site Excavation Permit Number Request",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "visible": true,
+          "renderAttributes": {
+          },
+          "name": "Submit Button",
+          "label": "Submit",
+          "type": "button",
+          "renderType": "submit-page",
+          "enabled": true
+        }
+      ],
+      "events": [
+
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+
+  ],
+  "slug": "site-excavation-permit-number-request",
+  "status": "Active",
+  "submissionLabelExpression": "",
+  "type": "External"
+}

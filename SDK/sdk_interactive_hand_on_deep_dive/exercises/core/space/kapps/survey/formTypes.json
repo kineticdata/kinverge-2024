@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Approval"
+  },
+  {
+    "name": "Console"
+  },
+  {
+    "name": "Content"
+  },
+  {
+    "name": "Service"
+  },
+  {
+    "name": "Service Description"
+  },
+  {
+    "name": "Subservice"
+  },
+  {
+    "name": "Survey"
+  },
+  {
+    "name": "Survey Action"
+  },
+  {
+    "name": "Template"
+  },
+  {
+    "name": "Utility"
+  },
+  {
+    "name": "Work Order"
+  }
+]

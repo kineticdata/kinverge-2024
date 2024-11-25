@@ -1,0 +1,39 @@
+{
+  "activeMappingName": "ARS - Incident Tickets - On Prem",
+  "attributes": [
+    {
+      "name": "Ticket Number"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Ticket Number",
+          "structureField": "${fields(\"Incident Number\")}"
+        }
+      ],
+      "bridgeSlug": "ars-remedy-rest",
+      "name": "ARS - Incident Tickets - On Prem",
+      "qualifications": [
+        {
+          "name": "All Incidents",
+          "query": "1=1"
+        }
+      ],
+      "structure": "Entry > HPD:Help%20Desk"
+    }
+  ],
+  "name": "ARS - Incident Tickets - On Prem",
+  "qualifications": [
+    {
+      "name": "All Incidents",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

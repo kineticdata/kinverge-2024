@@ -1,0 +1,68 @@
+{
+  "activeMappingName": "Staging DB - COA",
+  "attributes": [
+    {
+      "name": "COA"
+    },
+    {
+      "name": "Description"
+    },
+    {
+      "name": "Effective"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "COA",
+          "structureField": "${fields(\"coa_no\")}"
+        },
+        {
+          "name": "Description",
+          "structureField": "${fields(\"descr\")}"
+        },
+        {
+          "name": "Effective",
+          "structureField": "${fields(\"effective\")}"
+        }
+      ],
+      "bridgeSlug": "staging-database",
+      "name": "Staging DB - COA",
+      "qualifications": [
+        {
+          "name": "LIKE COA",
+          "query": "coa_no LIKE ${parameters(\"COA\")}"
+        },
+        {
+          "name": "By COA",
+          "query": "coa_no = ${parameters(\"COA\")}"
+        }
+      ],
+      "structure": "dbo.han_coa"
+    }
+  ],
+  "name": "Staging DB - COA",
+  "qualifications": [
+    {
+      "name": "By COA",
+      "parameters": [
+        {
+          "name": "COA"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "LIKE COA",
+      "parameters": [
+        {
+          "name": "COA"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

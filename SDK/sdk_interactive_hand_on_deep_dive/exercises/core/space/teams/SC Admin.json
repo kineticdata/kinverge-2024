@@ -1,0 +1,19 @@
+{
+  "attributes": [
+    {
+      "name": "Icon",
+      "values": [
+        "fa-cube"
+      ]
+    },
+    {
+      "name": "Assignable",
+      "values": [
+        "True"
+      ]
+    }
+  ],
+  "description": "Requests for Service Catalog administrators.",
+  "name": "SC Admin",
+  "slug": "582a664a82796675ade90e65befad3ad"
+}

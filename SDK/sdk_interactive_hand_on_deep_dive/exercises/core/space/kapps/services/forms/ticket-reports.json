@@ -1,0 +1,87 @@
+{
+  "anonymous": false,
+  "attributes": [
+
+  ],
+  "bridgedResources": [
+
+  ],
+  "categorizations": [
+
+  ],
+  "customHeadContent": null,
+  "description": "",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "Ticket Reports",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "type": "content",
+          "renderType": "html",
+          "name": "Report1",
+          "text": "<!DOCTYPE html>\n<html>\n<body>\n\n<h1>Report Menu</h1>\n\n<p><a href=\"https://biapp.rl.gov/BOE/OpenDocument/opendoc/openDocument.jsp?sIDType=CUID&iDocID=AZaAPQIQWO9Ntm3cSGlsHa8&lsSRequest Number=$Request Number$&sOutputFormat=P\">Print Ticket Report 1</a></p>\n\n</body>\n</html>\n",
+          "visible": true,
+          "renderAttributes": {
+          }
+        }
+      ],
+      "events": [
+
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+
+  ],
+  "slug": "ticket-reports",
+  "status": "New",
+  "submissionLabelExpression": "",
+  "type": "Template"
+}

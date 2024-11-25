@@ -1,0 +1,129 @@
+{
+  "activeMappingName": "Opportunities",
+  "attributes": [
+    {
+      "name": "Customer"
+    },
+    {
+      "name": "Job Number"
+    },
+    {
+      "name": "Opportunity Id"
+    },
+    {
+      "name": "Opportunity Name"
+    },
+    {
+      "name": "Opportunity Number"
+    },
+    {
+      "name": "Opportunity Status"
+    },
+    {
+      "name": "Opportunity URL"
+    },
+    {
+      "name": "Project Manager"
+    },
+    {
+      "name": "Research Director"
+    },
+    {
+      "name": "Sales Rep"
+    },
+    {
+      "name": "Status"
+    },
+    {
+      "name": "Submission Id"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Opportunity Name",
+          "structureField": "${fields(\"values[Opportunity Name]\")}"
+        },
+        {
+          "name": "Opportunity Id",
+          "structureField": "${fields(\"values[Opportunity Id]\")}"
+        },
+        {
+          "name": "Opportunity URL",
+          "structureField": "${fields(\"values[Opportunity URL]\")}"
+        },
+        {
+          "name": "Opportunity Status",
+          "structureField": "${fields(\"values[Opportunity Status]\")}"
+        },
+        {
+          "name": "Status",
+          "structureField": "${fields(\"values[Status]\")}"
+        },
+        {
+          "name": "Submission Id",
+          "structureField": "${fields(\"id\")}"
+        },
+        {
+          "name": "Opportunity Number",
+          "structureField": "${fields(\"values[Opportunity Number]\")}"
+        },
+        {
+          "name": "Customer",
+          "structureField": "${fields(\"values[Customer]\")}"
+        },
+        {
+          "name": "Sales Rep",
+          "structureField": "${fields(\"values[Sales Rep]\")}"
+        },
+        {
+          "name": "Project Manager",
+          "structureField": "${fields(\"values[Project Manager]\")}"
+        },
+        {
+          "name": "Job Number",
+          "structureField": "${fields(\"values[Job Number]\")}"
+        },
+        {
+          "name": "Research Director",
+          "structureField": "${fields(\"values[Research Director]\")}"
+        }
+      ],
+      "bridgeSlug": "kinetic-core",
+      "name": "Opportunities",
+      "qualifications": [
+        {
+          "name": "All Active",
+          "query": "kappSlug=calendar&formSlug=opportunities&limit=1000&index=values[Status],values[Opportunity Status]&q=values[Status]=\"Active\""
+        },
+        {
+          "name": "Status By Opportunity",
+          "query": "kappSlug=calendar&formSlug=opportunities&limit=1000&index=values[Opportunity Id]&q=values[Opportunity Id]=\"${parameters('Opportunity Id')}\""
+        }
+      ],
+      "structure": "Submissions"
+    }
+  ],
+  "name": "Opportunities",
+  "qualifications": [
+    {
+      "name": "All Active",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Status By Opportunity",
+      "parameters": [
+        {
+          "name": "Opportunity Id"
+        }
+      ],
+      "resultType": "Single"
+    }
+  ],
+  "status": "Active"
+}

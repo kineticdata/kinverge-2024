@@ -1,0 +1,1104 @@
+{
+  "anonymous": false,
+  "attributes": [
+    {
+      "name": "Icon",
+      "values": [
+        "fa-question-circle-o"
+      ]
+    },
+    {
+      "name": "Redirect URL",
+      "values": [
+        "http://remweb.rl.gov/kinetic/DisplayPage?name=Water"
+      ]
+    },
+    {
+      "name": "Survey Form Slug",
+      "values": [
+        "customer-satisfaction-survey"
+      ]
+    },
+    {
+      "name": "Task Assignee Team",
+      "values": [
+        "Water Systems"
+      ]
+    },
+    {
+      "name": "Task Form Slug",
+      "values": [
+        "hanford-work-order"
+      ]
+    }
+  ],
+  "bridgedResources": [
+
+  ],
+  "categorizations": [
+    {
+      "category": {
+        "slug": "water-systems"
+      }
+    }
+  ],
+  "customHeadContent": "",
+  "description": "Updated description",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,createdBy",
+      "parts": [
+        "type",
+        "coreState",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,submittedBy",
+      "parts": [
+        "type",
+        "coreState",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,values[Requested By]",
+      "parts": [
+        "type",
+        "coreState",
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,values[Requested For]",
+      "parts": [
+        "type",
+        "coreState",
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,createdBy",
+      "parts": [
+        "type",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,submittedBy",
+      "parts": [
+        "type",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,values[Requested By]",
+      "parts": [
+        "type",
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,values[Requested For]",
+      "parts": [
+        "type",
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[CACN]",
+      "parts": [
+        "values[CACN]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[COA]",
+      "parts": [
+        "values[COA]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Discussion Id]",
+      "parts": [
+        "values[Discussion Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Individuals]",
+      "parts": [
+        "values[Observing Individuals]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Teams]",
+      "parts": [
+        "values[Observing Teams]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Point of Contact Display Name]",
+      "parts": [
+        "values[Point of Contact Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Point of Contact Email]",
+      "parts": [
+        "values[Point of Contact Email]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Point of Contact Id]",
+      "parts": [
+        "values[Point of Contact Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Point of Contact Phone]",
+      "parts": [
+        "values[Point of Contact Phone]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Request Details]",
+      "parts": [
+        "values[Request Details]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By Display Name]",
+      "parts": [
+        "values[Requested By Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By]",
+      "parts": [
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested By],values[Requested For]",
+      "parts": [
+        "values[Requested By]",
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For Company]",
+      "parts": [
+        "values[Requested For Company]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For Display Name]",
+      "parts": [
+        "values[Requested For Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For Email]",
+      "parts": [
+        "values[Requested For Email]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For Phone]",
+      "parts": [
+        "values[Requested For Phone]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Requested For]",
+      "parts": [
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Responsible Company]",
+      "parts": [
+        "values[Responsible Company]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status]",
+      "parts": [
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],createdBy",
+      "parts": [
+        "values[Status]",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],submittedBy",
+      "parts": [
+        "values[Status]",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],values[Requested By]",
+      "parts": [
+        "values[Status]",
+        "values[Requested By]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status],values[Requested For]",
+      "parts": [
+        "values[Status]",
+        "values[Requested For]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Type of Alarm]",
+      "parts": [
+        "values[Type of Alarm]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Work Location]",
+      "parts": [
+        "values[Work Location]"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "Alarms",
+  "notes": "",
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Detailed Information Section",
+          "title": "Detailed Information",
+          "visible": false,
+          "omitWhenHidden": true,
+          "renderAttributes": {
+            "id": "detailedInformationSection"
+          },
+          "elements": [
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "Detailed Information",
+              "text": "  <p>Alarms</p>",
+              "visible": true,
+              "renderAttributes": {
+                "id": "detailedInformation",
+                "style": "display:none"
+              }
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Requested For Section",
+          "title": "Request For",
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+          },
+          "elements": [
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "Requested For Container",
+              "text": null,
+              "visible": true,
+              "renderAttributes": {
+                "id": "requestedFor"
+              }
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Billing Section",
+          "title": "Billing Information",
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+            "class": "w-50"
+          },
+          "elements": [
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "Billing Container",
+              "text": null,
+              "visible": true,
+              "renderAttributes": {
+                "id": "billingInformation"
+              }
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "Type of Alarm",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Type of Alarm",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "2a920f5eeede467c83a74b76de00e67d",
+              "required": true
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "Work Location",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Work Location",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "48eddbc97f3b4aa68f19e2a66d755149",
+              "required": true
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Point of Contact Section",
+          "title": "Point of Contact",
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+          },
+          "elements": [
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "Point of Contact Container",
+              "text": null,
+              "visible": true,
+              "renderAttributes": {
+                "id": "pointOfContact"
+              }
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Request Details Section",
+          "title": "Request Details",
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+            "class": "w-50"
+          },
+          "elements": [
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "Request Details",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Request Details",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 4,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f910",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "file",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "Attachments",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "attachment",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Attachments",
+              "constraints": [
+
+              ],
+              "allowMultiple": true,
+              "events": [
+
+              ],
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f911",
+              "required": false
+            }
+          ]
+        },
+        {
+          "type": "button",
+          "label": "Submit",
+          "name": "Submit Button",
+          "visible": true,
+          "enabled": true,
+          "renderType": "submit-page",
+          "renderAttributes": {
+          }
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Hidden Section",
+          "title": "Hidden Section",
+          "visible": false,
+          "omitWhenHidden": false,
+          "renderAttributes": {
+          },
+          "elements": [
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "Requested For Email",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Requested For Email",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f3",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "Requested For Phone",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Requested For Phone",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f2",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "Requested For Company",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Requested For Company",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f12",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "Responsible Company",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Responsible Company",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f13",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "Point of Contact Display Name",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Point of Contact Display Name",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f10",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "Point of Contact Id",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Point of Contact Id",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f11",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "Point of Contact Email",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Point of Contact Email",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f14",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "Point of Contact Phone",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Point of Contact Phone",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f15",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "CACN",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "CACN",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f5",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "defaultDataSource": "none",
+              "requiredMessage": null,
+              "name": "COA",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "COA",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f6",
+              "required": false
+            },
+            {
+              "type": "section",
+              "renderType": null,
+              "name": "Hidden System Questions Do Not Delete",
+              "title": "Hidden System Questions Do Not Delete",
+              "visible": false,
+              "omitWhenHidden": false,
+              "renderAttributes": {
+              },
+              "elements": [
+                {
+                  "enabled": true,
+                  "dataType": "string",
+                  "defaultDataSource": "none",
+                  "requiredMessage": null,
+                  "name": "Requested For",
+                  "omitWhenHidden": null,
+                  "renderAttributes": {
+                  },
+                  "renderType": "text",
+                  "pattern": null,
+                  "defaultValue": "${identity('username')}",
+                  "visible": true,
+                  "label": "Requested For",
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "rows": 1,
+                  "defaultResourceName": null,
+                  "type": "field",
+                  "key": "f908",
+                  "required": false
+                },
+                {
+                  "enabled": true,
+                  "dataType": "string",
+                  "defaultDataSource": "none",
+                  "requiredMessage": null,
+                  "name": "Requested For Display Name",
+                  "omitWhenHidden": null,
+                  "renderAttributes": {
+                  },
+                  "renderType": "text",
+                  "pattern": null,
+                  "defaultValue": "${identity('displayName')}",
+                  "visible": true,
+                  "label": "Requested For Display Name",
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "rows": 1,
+                  "defaultResourceName": null,
+                  "type": "field",
+                  "key": "f909",
+                  "required": false
+                },
+                {
+                  "enabled": true,
+                  "dataType": "string",
+                  "defaultDataSource": "none",
+                  "requiredMessage": null,
+                  "name": "Requested By",
+                  "omitWhenHidden": null,
+                  "renderAttributes": {
+                  },
+                  "renderType": "text",
+                  "pattern": null,
+                  "defaultValue": "${identity('username')}",
+                  "visible": true,
+                  "label": "Requested By",
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "rows": 1,
+                  "defaultResourceName": null,
+                  "type": "field",
+                  "key": "f906",
+                  "required": false
+                },
+                {
+                  "enabled": true,
+                  "dataType": "string",
+                  "defaultDataSource": "none",
+                  "requiredMessage": null,
+                  "name": "Requested By Display Name",
+                  "omitWhenHidden": null,
+                  "renderAttributes": {
+                  },
+                  "renderType": "text",
+                  "pattern": null,
+                  "defaultValue": "${identity('displayName')}",
+                  "visible": true,
+                  "label": "Requested By Display Name",
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "rows": 1,
+                  "defaultResourceName": null,
+                  "type": "field",
+                  "key": "f907",
+                  "required": false
+                },
+                {
+                  "enabled": true,
+                  "dataType": "string",
+                  "defaultDataSource": "none",
+                  "requiredMessage": null,
+                  "name": "Discussion Id",
+                  "omitWhenHidden": null,
+                  "renderAttributes": {
+                  },
+                  "renderType": "text",
+                  "pattern": null,
+                  "defaultValue": null,
+                  "visible": true,
+                  "label": "Discussion Id",
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "rows": 1,
+                  "defaultResourceName": null,
+                  "type": "field",
+                  "key": "f902",
+                  "required": false
+                },
+                {
+                  "enabled": true,
+                  "dataType": "json",
+                  "defaultDataSource": "none",
+                  "requiredMessage": null,
+                  "name": "Observing Teams",
+                  "choicesResourceName": null,
+                  "omitWhenHidden": null,
+                  "renderAttributes": {
+                  },
+                  "renderType": "checkbox",
+                  "pattern": null,
+                  "defaultValue": null,
+                  "visible": true,
+                  "choices": [
+
+                  ],
+                  "label": "Observing Teams",
+                  "choicesRunIf": null,
+                  "constraints": [
+
+                  ],
+                  "choicesDataSource": "custom",
+                  "events": [
+
+                  ],
+                  "defaultResourceName": null,
+                  "type": "field",
+                  "key": "f904",
+                  "required": false
+                },
+                {
+                  "enabled": true,
+                  "dataType": "json",
+                  "defaultDataSource": "none",
+                  "requiredMessage": null,
+                  "name": "Observing Individuals",
+                  "choicesResourceName": null,
+                  "omitWhenHidden": null,
+                  "renderAttributes": {
+                  },
+                  "renderType": "checkbox",
+                  "pattern": null,
+                  "defaultValue": null,
+                  "visible": true,
+                  "choices": [
+
+                  ],
+                  "label": "Observing Individuals",
+                  "choicesRunIf": null,
+                  "constraints": [
+
+                  ],
+                  "choicesDataSource": "custom",
+                  "events": [
+
+                  ],
+                  "defaultResourceName": null,
+                  "type": "field",
+                  "key": "f905",
+                  "required": false
+                },
+                {
+                  "enabled": true,
+                  "dataType": "string",
+                  "defaultDataSource": "none",
+                  "requiredMessage": null,
+                  "name": "Status",
+                  "omitWhenHidden": null,
+                  "renderAttributes": {
+                  },
+                  "renderType": "text",
+                  "pattern": null,
+                  "defaultValue": "Draft",
+                  "visible": true,
+                  "label": "Status",
+                  "constraints": [
+
+                  ],
+                  "events": [
+
+                  ],
+                  "rows": 1,
+                  "defaultResourceName": null,
+                  "type": "field",
+                  "key": "f901",
+                  "required": false
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "Load Requested For",
+          "type": "Load",
+          "action": "Custom",
+          "code": "// ***** CONFIGURE *********\nvar load = {\n\t//Form to Load\n  \"formSlug\":\"requested-for-search\", \n  //Container for the form (jQuery syntax)\n  \"container\": '#requestedFor', \n  //Define values to pass into subform.  Map subform Field to value or K('field') reference.\n\t//NOTE: INCLUDE THESE FIELDS IN SUBFORM, OR PAGE WILL NOT LOAD\n  \"paramsInput\": {\n    \"Requested For Display Name\": K('field[Requested For Display Name]').value(),\n    \"Review Mode\": K('form').reviewMode() ? true : \"\",\n    \"Request For\": K('field[Requested For]').value() != null && K('identity').username != K('field[Requested For]').value()? \"Someone Else\" : \"Me\",\n    \"Email\": K('field[Requested For Email]').value(),\n    \"Phone\": K('field[Requested For Phone]').value(),\n    \"Company\":  K('field[Requested For Company]').value(),\n    \"Responsible Company\":K('field[Responsible Company]').value(),\n\t},\n  //Define Fields to set on parent form using watch.  Map subform field to parent form field.\n  \"watchFields\":{\n    \"Requested For Id\": \"Requested For\",\n    \"Requested For Display Name\": \"Requested For Display Name\",\n    \"Email\": \"Requested For Email\",\n    \"Phone\": \"Requested For Phone\",\n    \"Company\":  \"Requested For Company\",\n    \"Responsible Company\": \"Responsible Company\",\n  }\n}\n// ***** END CONFIGURE *********\n\n// Turn paramsInput into formatted/encoded urlParams array as that's what's required by the\n// Kinetic App when passing in values\nload.urlParams = [];\n$.each( load.paramsInput, function( key, value ){\n  load.urlParams.push( \"values[\" + encodeURIComponent( key ) + \"]=\" + encodeURIComponent( value ) );\n})\n\n\n// Remove null values from urlParams list\nload.urlParams = load.urlParams.filter(function(val) { return val.split(\"=\")[1]!==\"null\" });\n\n// Load the Subform\nK.load({\n  path: bundle.spaceLocation() + '/'+ K(\"kapp\").slug()+ '/' + load.formSlug + '?' + load.urlParams.join(\"&\"),\n  container: load.container,\n  parent: K('form'),\n  loaded: function(form) {\n    // initialize watch fields definfed in configuration\n\t\t$.each(load.watchFields, function(source, desination){\n\t\t  form.$watch(source, function(newVal,oldVal){\n        K('field['+desination+']').value(newVal);\n      });\n    })\n  }\n});"
+        },
+        {
+          "name": "Load Point of Contact",
+          "type": "Load",
+          "action": "Custom",
+          "code": "// ***** CONFIGURE *********\nvar load = {\n\t//Form to Load\n  \"formSlug\":\"person-search\", \n  //Container for the form (jQuery syntax)\n  \"container\": '#pointOfContact', \n  //Define values to pass into subform.  Map subform Field to value or K('field') reference.\n\t//NOTE: INCLUDE THESE FIELDS IN SUBFORM, OR PAGE WILL NOT LOAD\n  \"paramsInput\": {\n    \"Display Name\": K('field[Point of Contact Display Name]').value(),\n    \"Review Mode\": K('form').reviewMode() ? true : \"\",\n    \"Id\": K('field[Point of Contact Id]').value(),\n    \"Email\": K('field[Point of Contact Email]').value(),\n    \"Phone\": K('field[Point of Contact Phone]').value(),\n\t},\n  //Define Fields to set on parent form using watch.  Map subform field to parent form field.\n  \"watchFields\":{\n    \"Id\": \"Point of Contact Id\",\n    \"Display Name\": \"Point of Contact Display Name\",\n    \"Email\": \"Point of Contact Email\",\n    \"Phone\": \"Point of Contact Phone\",\n  }\n}\n// ***** END CONFIGURE *********\n\n// Turn paramsInput into formatted/encoded urlParams array as that's what's required by the\n// Kinetic App when passing in values\nload.urlParams = [];\n$.each( load.paramsInput, function( key, value ){\n  load.urlParams.push( \"values[\" + encodeURIComponent( key ) + \"]=\" + encodeURIComponent( value ) );\n})\n\n\n// Remove null values from urlParams list\nload.urlParams = load.urlParams.filter(function(val) { return val.split(\"=\")[1]!==\"null\" });\n\n// Load the Subform\nK.load({\n  path: bundle.spaceLocation() + '/'+ K(\"kapp\").slug()+ '/' + load.formSlug + '?' + load.urlParams.join(\"&\"),\n  container: load.container,\n  parent: K('form'),\n  loaded: function(form) {\n    // initialize watch fields definfed in configuration\n\t\t$.each(load.watchFields, function(source, desination){\n\t\t  form.$watch(source, function(newVal,oldVal){\n        K('field['+desination+']').value(newVal);\n      });\n    })\n  }\n});",
+          "runIf": ""
+        },
+        {
+          "name": "Load Billing Information",
+          "type": "Load",
+          "action": "Custom",
+          "code": "\n// ***** CONFIGURE *********\nvar load = {\n\t//Form to Load\n  \"formSlug\":\"billing-information\", \n  //Container for the form (jQuery syntax)\n  \"container\": '#billingInformation', \n  //Define values to pass into subform.  Map subform Field to value or K('field') reference.\n\t//NOTE: INCLUDE THESE FIELDS IN SUBFORM, OR PAGE WILL NOT LOAD\n  \"paramsInput\": {\n    \"CACN Display\" : K('field[CACN]').value(),\n    \"CACN\" : K('field[CACN]').value(),\n    \"COA\" : K('field[COA]').value(),\n    \"Review Mode\" : K('form').reviewMode() ? true : \"\",\n\t},\n  //Define Fields to set on parent form using watch.  Map subform field to parent form field.\n  \"watchFields\":{\n    \"CACN\": \"CACN\",\n    \"COA\": \"COA\",\n  }\n}\n// ***** END CONFIGURE *********\n\n// Turn paramsInput into formatted/encoded urlParams array as that's what's required by the\n// Kinetic App when passing in values\nload.urlParams = [];\n$.each( load.paramsInput, function( key, value ){\n  load.urlParams.push( \"values[\" + encodeURIComponent( key ) + \"]=\" + encodeURIComponent( value ) );\n})\n\n\n// Remove null values from urlParams list\nload.urlParams = load.urlParams.filter(function(val) { return val.split(\"=\")[1]!==\"null\" });\n\n// Load the Subform\nK.load({\n  path: bundle.spaceLocation() + '/'+ K(\"kapp\").slug()+ '/' + load.formSlug + '?' + load.urlParams.join(\"&\"),\n  container: load.container,\n  parent: K('form'),\n  loaded: function(form) {\n    // initialize watch fields definfed in configuration\n\t\t$.each(load.watchFields, function(source, desination){\n\t\t  form.$watch(source, function(newVal,oldVal){\n        K('field['+desination+']').value(newVal);\n      });\n    })\n  }\n});"
+        }
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+
+  ],
+  "slug": "alarms",
+  "status": "Inactive",
+  "submissionLabelExpression": "${form('name')} request for ${values('Requested For Display Name')}",
+  "type": "Service"
+}

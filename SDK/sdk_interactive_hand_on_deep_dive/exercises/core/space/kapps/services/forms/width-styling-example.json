@@ -1,0 +1,831 @@
+{
+  "anonymous": false,
+  "attributes": [
+
+  ],
+  "bridgedResources": [
+
+  ],
+  "categorizations": [
+
+  ],
+  "customHeadContent": null,
+  "description": "",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,createdBy",
+      "parts": [
+        "type",
+        "coreState",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,submittedBy",
+      "parts": [
+        "type",
+        "coreState",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,createdBy",
+      "parts": [
+        "type",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,submittedBy",
+      "parts": [
+        "type",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Checkbox 2]",
+      "parts": [
+        "values[Checkbox 2]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Checkbox]",
+      "parts": [
+        "values[Checkbox]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Date 2]",
+      "parts": [
+        "values[Date 2]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Date and Time 2]",
+      "parts": [
+        "values[Date and Time 2]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Date and Time]",
+      "parts": [
+        "values[Date and Time]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Dropdown 2]",
+      "parts": [
+        "values[Dropdown 2]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Dropdown]",
+      "parts": [
+        "values[Dropdown]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Radio 2]",
+      "parts": [
+        "values[Radio 2]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Radio]",
+      "parts": [
+        "values[Radio]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Text 2]",
+      "parts": [
+        "values[Text 2]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Text]",
+      "parts": [
+        "values[Text]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Time 2]",
+      "parts": [
+        "values[Time 2]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Time]",
+      "parts": [
+        "values[Time]"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "_Width Styling Example",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Two Column Section",
+          "title": "Two Column Section",
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+            "class": "form-group__columns"
+          },
+          "elements": [
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "Two Column Section Note",
+              "text": "<p><b>Applying a class of \"form-group__columns\" to a section will force its elements into 2 columns.  However text and HTML elements will appear in full width.</b></p>",
+              "visible": true,
+              "renderAttributes": {
+              }
+            },
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "HTML in 2 Column Section",
+              "text": "<p>(This is an HTML Element) -- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <b>incididunt ut labore et dolore magna aliqua.</b> Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. Lobortis feugiat vivamus at augue eget arcu. Aliquam purus sit amet luctus venenatis lectus magna. Congue quisque egestas diam in arcu cursus euismod quis. Cursus sit amet dictum sit amet. Ut tortor pretium viverra suspendisse potenti. Est ante in nibh mauris cursus mattis molestie. At erat pellentesque adipiscing commodo elit at.</p>",
+              "visible": true,
+              "renderAttributes": {
+              }
+            },
+            {
+              "type": "content",
+              "renderType": "text",
+              "name": "Text in 2 Column Section",
+              "text": "(This is an Text Element) -- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. Lobortis feugiat vivamus at augue eget arcu. Aliquam purus sit amet luctus venenatis lectus magna. Congue quisque egestas diam in arcu cursus euismod quis. Cursus sit amet dictum sit amet. Ut tortor pretium viverra suspendisse potenti. Est ante in nibh mauris cursus mattis molestie. At erat pellentesque adipiscing commodo elit at.",
+              "visible": true,
+              "renderAttributes": {
+              }
+            },
+            {
+              "type": "section",
+              "renderType": null,
+              "name": "Half Width Text and HTML in a 2 Column Section",
+              "title": "",
+              "visible": true,
+              "omitWhenHidden": null,
+              "renderAttributes": {
+                "class": "w-50"
+              },
+              "elements": [
+                {
+                  "type": "content",
+                  "renderType": "html",
+                  "name": "test html",
+                  "text": "<div class=\"section-title\">Half Width Text and HTML in a 2 Column Section</div>\n<p><b>Text and HMTL may be forced to half witdth by placing it in section within the Two Column Section by inserting it into a new section and applying a class of half-width to the text or HTML element</b></p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <b>incididunt ut labore et dolore magna aliqua.</b> Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. Lobortis feugiat vivamus at augue eget arcu. Aliquam purus sit amet luctus venenatis lectus magna. Congue quisque egestas diam in arcu cursus euismod quis. Cursus sit amet dictum sit amet. </p>",
+                  "visible": true,
+                  "renderAttributes": {
+                    "class": "half-width"
+                  }
+                }
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Attachment",
+              "label": "Attachment",
+              "key": "f2",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "file",
+              "renderType": "attachment",
+              "allowMultiple": false
+            },
+            {
+              "type": "field",
+              "name": "Checkbox",
+              "label": "Checkbox",
+              "key": "f3",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "json",
+              "renderType": "checkbox",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "a",
+                  "value": "a"
+                },
+                {
+                  "label": "b",
+                  "value": "b"
+                },
+                {
+                  "label": "c",
+                  "value": "c"
+                }
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Date and Time",
+              "label": "Date and Time",
+              "key": "f4",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "datetime"
+            },
+            {
+              "type": "field",
+              "name": "Dropdown",
+              "label": "Dropdown",
+              "key": "f5",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "dropdown",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "a",
+                  "value": "a"
+                },
+                {
+                  "label": "b",
+                  "value": "b"
+                },
+                {
+                  "label": "c",
+                  "value": "c"
+                }
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Radio",
+              "label": "Radio",
+              "key": "f6",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "radio",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "a",
+                  "value": "a"
+                },
+                {
+                  "label": "b",
+                  "value": "b"
+                },
+                {
+                  "label": "c",
+                  "value": "c"
+                }
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Text",
+              "label": "Text",
+              "key": "f1",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Time",
+              "label": "Time",
+              "key": "f7",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "time"
+            },
+            {
+              "type": "section",
+              "renderType": null,
+              "name": "Button Section in 2 column Section",
+              "title": "Button in 2 column Section",
+              "visible": true,
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "elements": [
+                {
+                  "type": "content",
+                  "renderType": "html",
+                  "name": "Button Section Text in 2 column Section",
+                  "text": "<p><b>When a button is included in a 2 column section it must be inserted into an additional section, otherwise it will be full width.</b></p>",
+                  "visible": true,
+                  "renderAttributes": {
+                  }
+                },
+                {
+                  "type": "button",
+                  "label": "Button",
+                  "name": "Button",
+                  "visible": true,
+                  "enabled": true,
+                  "renderType": "custom",
+                  "renderAttributes": {
+                    "class": "half-width"
+                  },
+                  "events": [
+
+                  ]
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "renderType": "html",
+          "name": "HTML Line",
+          "text": "<hr>",
+          "visible": true,
+          "renderAttributes": {
+          }
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Full Width Section",
+          "title": "Full Width Section with \"half-width\" elements",
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+          },
+          "elements": [
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "HTML 2",
+              "text": "<p><b>Elements can be made half width by adding the class of \"half-width\" to the elements.  No additional class is needed for the parent section.</b></p>\n<p>(This is an HTML Element) -- \"half-width\" elements are half the width of the screen and displayed in 1 column aligned to the left.</p>\n<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor <b>incididunt ut labore et dolore magna aliqua.</b> Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. Lobortis feugiat vivamus at augue eget arcu. Aliquam purus sit amet luctus venenatis lectus magna. Congue quisque egestas diam in arcu cursus euismod quis.</p>",
+              "visible": true,
+              "renderAttributes": {
+                "class": "half-width"
+              }
+            },
+            {
+              "type": "content",
+              "renderType": "text",
+              "name": "text 2",
+              "text": "(This is an text Element) -- Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ultricies leo integer malesuada nunc vel risus commodo viverra maecenas. Lobortis feugiat vivamus at augue eget arcu. Aliquam purus sit amet luctus venenatis lectus magna. Congue quisque egestas diam in arcu cursus euismod quis.",
+              "visible": true,
+              "renderAttributes": {
+                "class": "half-width"
+              }
+            },
+            {
+              "type": "field",
+              "name": "Attachment 2",
+              "label": "Attachment 2",
+              "key": "f8",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+                "class": "half-width"
+              },
+              "dataType": "file",
+              "renderType": "attachment",
+              "allowMultiple": false
+            },
+            {
+              "type": "field",
+              "name": "Checkbox 2",
+              "label": "Checkbox 2",
+              "key": "f9",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+                "class": "half-width"
+              },
+              "dataType": "json",
+              "renderType": "checkbox",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "a",
+                  "value": "a"
+                },
+                {
+                  "label": "b",
+                  "value": "b"
+                },
+                {
+                  "label": "c",
+                  "value": "c"
+                }
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Date 2",
+              "label": "Date 2",
+              "key": "f10",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+                "class": "half-width"
+              },
+              "dataType": "string",
+              "renderType": "date"
+            },
+            {
+              "type": "field",
+              "name": "Date and Time 2",
+              "label": "Date and Time 2",
+              "key": "f11",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+                "class": "half-width"
+              },
+              "dataType": "string",
+              "renderType": "datetime"
+            },
+            {
+              "type": "field",
+              "name": "Dropdown 2",
+              "label": "Dropdown 2",
+              "key": "f12",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+                "class": "half-width"
+              },
+              "dataType": "string",
+              "renderType": "dropdown",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Radio 2",
+              "label": "Radio 2",
+              "key": "f13",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+                "class": "half-width"
+              },
+              "dataType": "string",
+              "renderType": "radio",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "a",
+                  "value": "a"
+                },
+                {
+                  "label": "b",
+                  "value": "b"
+                },
+                {
+                  "label": "c",
+                  "value": "c"
+                }
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Text 2",
+              "label": "Text 2",
+              "key": "f14",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+                "class": "half-width"
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Time 2",
+              "label": "Time 2",
+              "key": "f15",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+                "class": "half-width"
+              },
+              "dataType": "string",
+              "renderType": "time"
+            },
+            {
+              "type": "button",
+              "label": "Button",
+              "name": "Button 2",
+              "visible": true,
+              "enabled": true,
+              "renderType": "custom",
+              "renderAttributes": {
+              },
+              "events": [
+
+              ]
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "renderType": "html",
+          "name": "Ending Line",
+          "text": "<hr>",
+          "visible": true,
+          "renderAttributes": {
+          }
+        },
+        {
+          "type": "button",
+          "label": "Submit",
+          "name": "Submit Button",
+          "visible": true,
+          "enabled": true,
+          "renderType": "submit-page",
+          "renderAttributes": {
+          }
+        }
+      ],
+      "events": [
+
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+
+  ],
+  "slug": "width-styling-example",
+  "status": "Inactive",
+  "submissionLabelExpression": "",
+  "type": null
+}

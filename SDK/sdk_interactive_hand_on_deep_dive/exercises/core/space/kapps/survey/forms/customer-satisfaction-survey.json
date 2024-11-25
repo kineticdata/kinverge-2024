@@ -1,0 +1,931 @@
+{
+  "anonymous": false,
+  "attributes": [
+    {
+      "name": "Confirmation Page Text",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "name": "Survey Configuration",
+      "values": [
+        "{\"Use Custom Workflow\":\"false\",\"Reminders\":{\"Reminder Template\":\"Survey Invitation - Allows Opt Out\",\"Reminder Interval\":2,\"Reminder Max\":\"0\"},\"Invitation Notification Name\":\"Survey Invitation - Allows Opt Out\",\"Event Polling\":{\"Poll\":\"false\",\"Source\":\"\",\"Type\":\"\",\"Reference Id\":\"\",\"Email Address\":\"\",\"Trigger\":\"\",\"Interval\":1440},\"Survey Period\":{\"Start\":\"2020-07-20\",\"Stop\":\"2050-09-30\"},\"Expiration\":365,\"Allow Opt-out\":\"true\",\"Unique\":\"false\",\"Maximum Survey Frequency\":{\"Count\":\"50\",\"Days\":7},\"Owning Team\":\"\",\"Owning Individual\":\"\"}"
+      ]
+    }
+  ],
+  "bridgedResources": [
+
+  ],
+  "categorizations": [
+
+  ],
+  "customHeadContent": "",
+  "description": "Customer Satisfaction Survey",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Additional Comments]",
+      "parts": [
+        "values[Additional Comments]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Individual]",
+      "parts": [
+        "values[Assigned Individual]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Communication]",
+      "parts": [
+        "values[Communication]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Discussion Id]",
+      "parts": [
+        "values[Discussion Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Individuals]",
+      "parts": [
+        "values[Observing Individuals]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Observing Teams]",
+      "parts": [
+        "values[Observing Teams]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Overall Satisfaction]",
+      "parts": [
+        "values[Overall Satisfaction]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Quality]",
+      "parts": [
+        "values[Quality]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Reference Id]",
+      "parts": [
+        "values[Reference Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Response Time]",
+      "parts": [
+        "values[Response Time]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Service Catalog]",
+      "parts": [
+        "values[Service Catalog]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Status]",
+      "parts": [
+        "values[Status]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[d-Confirmation Number]",
+      "parts": [
+        "values[d-Confirmation Number]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[d-Date of Request]",
+      "parts": [
+        "values[d-Date of Request]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[d-Description]",
+      "parts": [
+        "values[d-Description]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[d-Details]",
+      "parts": [
+        "values[d-Details]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[d-Service Category]",
+      "parts": [
+        "values[d-Service Category]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[d-Submission Id]",
+      "parts": [
+        "values[d-Submission Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[recipientEmail]",
+      "parts": [
+        "values[recipientEmail]"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "Customer Satisfaction Survey",
+  "notes": "Add questions to the Questions from source as d-FieldNameFromSource if you are taking in any particular information from the source, such as ticket number.",
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Customer Satisfaction Survey Section",
+          "title": "Customer Satisfaction Survey",
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+          },
+          "elements": [
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "Ticket Information HTML",
+              "text": "<div>\n  <p>Thank you for submitting a request for service. Your feedback is essential in our ongoing efforts to enhance the HMIS service delivery process.</p>\n  <p>Please take a few minutes to answer the following questions about your service request referenced below. If you feel the service request has not been adequately addressed, please contact the the Mission Service Desk at 376-1234.</p>\n</div>\n<div>\n  <p><strong>Confirmation #: </strong><pre>${values('d-Confirmation Number')}</pre></p>\n</div>\n<div>\n  <p><strong>Date of Request #: </strong><pre id=\"dateTime\"></pre></p>\n</div>\n<div>\n  <p><strong>Description: </strong><pre>${values('d-Details')}</pre></p>\n</div>\n",
+              "visible": true,
+              "renderAttributes": {
+              }
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Survey Table Layout",
+          "title": null,
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+            "class": "likert-table"
+          },
+          "elements": [
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "Table Headers",
+              "text": "<div>Please Rate our performance in the following areas:</div>\n<div>Excellent</div>\n<div>Good</div>\n<div>Average</div>\n<div>Fair</div>\n<div>Poor</div>\n<div>N/A</div>",
+              "visible": true,
+              "renderAttributes": {
+              }
+            },
+            {
+              "type": "field",
+              "name": "Service Catalog",
+              "label": "How would you rate the Service Catalog as a tool for submitting requests?",
+              "key": "f910",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "radio",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "Excellent",
+                  "value": "5"
+                },
+                {
+                  "label": "Good",
+                  "value": "4"
+                },
+                {
+                  "label": "Average",
+                  "value": "3"
+                },
+                {
+                  "label": "Fair",
+                  "value": "2"
+                },
+                {
+                  "label": "Poor",
+                  "value": "1"
+                },
+                {
+                  "label": "N/A",
+                  "value": "N/A"
+                }
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Response Time",
+              "label": "How would you rate the time it took to respond to your service request?",
+              "key": "f925",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "radio",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "Excellent",
+                  "value": "5"
+                },
+                {
+                  "label": "Good",
+                  "value": "4"
+                },
+                {
+                  "label": "Average",
+                  "value": "3"
+                },
+                {
+                  "label": "Fair",
+                  "value": "2"
+                },
+                {
+                  "label": "Poor",
+                  "value": "1"
+                },
+                {
+                  "label": "N/A",
+                  "value": "N/A"
+                }
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Communication",
+              "label": "How would you rate the communication you received throughout the service delivery process?",
+              "key": "f924",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "radio",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "Excellent",
+                  "value": "5"
+                },
+                {
+                  "label": "Good",
+                  "value": "4"
+                },
+                {
+                  "label": "Average",
+                  "value": "3"
+                },
+                {
+                  "label": "Fair",
+                  "value": "2"
+                },
+                {
+                  "label": "Poor",
+                  "value": "1"
+                },
+                {
+                  "label": "N/A",
+                  "value": "N/A"
+                }
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Quality",
+              "label": "How would you rate the quality of the work that was performed?",
+              "key": "f923",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "radio",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "Excellent",
+                  "value": "5"
+                },
+                {
+                  "label": "Good",
+                  "value": "4"
+                },
+                {
+                  "label": "Average",
+                  "value": "3"
+                },
+                {
+                  "label": "Fair",
+                  "value": "2"
+                },
+                {
+                  "label": "Poor",
+                  "value": "1"
+                },
+                {
+                  "label": "N/A",
+                  "value": "N/A"
+                }
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Overall Satisfaction",
+              "label": "What is your overall satisfaction with the service provided by HMIS for this request?",
+              "key": "f922",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "radio",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "Excellent",
+                  "value": "5"
+                },
+                {
+                  "label": "Good",
+                  "value": "4"
+                },
+                {
+                  "label": "Average",
+                  "value": "3"
+                },
+                {
+                  "label": "Fair",
+                  "value": "2"
+                },
+                {
+                  "label": "Poor",
+                  "value": "1"
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "type": "field",
+          "name": "Additional Comments",
+          "label": "Additional Comments",
+          "key": "f915",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": null,
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+          },
+          "dataType": "string",
+          "renderType": "text",
+          "rows": 2
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Footer",
+          "title": null,
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+            "class": "text-right"
+          },
+          "elements": [
+            {
+              "type": "button",
+              "label": "Submit",
+              "name": "Submit",
+              "visible": true,
+              "enabled": true,
+              "renderType": "submit-page",
+              "renderAttributes": {
+              }
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Hidden System Questions Do Not Delete",
+          "title": "Hidden System Questions Do Not Delete",
+          "visible": false,
+          "omitWhenHidden": false,
+          "renderAttributes": {
+          },
+          "elements": [
+            {
+              "type": "field",
+              "name": "Discussion Id",
+              "label": "Discussion Id",
+              "key": "f902",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Observing Individuals",
+              "label": "Observing Individuals",
+              "key": "f905",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "json",
+              "renderType": "checkbox",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+
+              ]
+            },
+            {
+              "type": "field",
+              "name": "Observing Teams",
+              "label": "Observing Teams",
+              "key": "f904",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "json",
+              "renderType": "checkbox",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+
+              ]
+            },
+            {
+              "type": "field",
+              "name": "recipientEmail",
+              "label": "recipientEmail",
+              "key": "f908",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Reference Id",
+              "label": "Reference Id",
+              "key": "f916",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Status",
+              "label": "Status",
+              "key": "f901",
+              "defaultValue": "Draft",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Assigned Individual",
+              "label": "Assigned Individual",
+              "key": "f928",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Questions from Source",
+          "title": null,
+          "visible": false,
+          "omitWhenHidden": false,
+          "renderAttributes": {
+          },
+          "elements": [
+            {
+              "type": "field",
+              "name": "d-Service Category",
+              "label": "Service Category",
+              "key": "f930",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "d-Details",
+              "label": "Details",
+              "key": "f917",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 2
+            },
+            {
+              "type": "field",
+              "name": "d-Description",
+              "label": "Description",
+              "key": "f932",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "d-Confirmation Number",
+              "label": "Confirmation Number",
+              "key": "f926",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "d-Submission Id",
+              "label": "Submission Id",
+              "key": "f931",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "d-Date of Request",
+              "label": "d-Date of Request",
+              "key": "f927",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "datetime"
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "Set Date and Time in readable format",
+          "type": "Load",
+          "action": "Custom",
+          "code": "// Set the Date and time.  It cannot be done in the HTML as the other field are set.\n$('#dateTime').html( moment(K('field[d-Date of Request]').value()).format('MM/DD/YYYY hh:mm A') )\n",
+          "runIf": ""
+        }
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+
+  ],
+  "slug": "customer-satisfaction-survey",
+  "status": "Active",
+  "submissionLabelExpression": "${form('name')} for ${values('recipientEmail')}",
+  "type": "Survey"
+}

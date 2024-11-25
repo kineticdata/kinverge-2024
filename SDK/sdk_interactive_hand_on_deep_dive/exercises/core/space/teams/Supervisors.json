@@ -1,0 +1,13 @@
+{
+  "attributes": [
+    {
+      "name": "Assignable",
+      "values": [
+        "True"
+      ]
+    }
+  ],
+  "description": "Supervisors Team for DD2875 Process",
+  "name": "Supervisors",
+  "slug": "7bf7a32fd5dfdd1bdbd08a2360b6c72f"
+}

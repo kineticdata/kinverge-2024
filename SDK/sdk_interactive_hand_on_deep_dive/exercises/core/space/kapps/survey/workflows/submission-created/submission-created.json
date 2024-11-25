@@ -1,0 +1,382 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 6,
+  "name": "Created",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "system_noop_v1_4",
+      "label": "Is Active",
+      "value": " @form['Status'] == \"Active\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_solutions_survey_invitation_send_v1_1",
+      "to": "routine_kinetic_submission_activity_create_v1_3",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_4",
+      "to": "routine_kinetic_solutions_survey_invitation_send_v1_1",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_4",
+      "to": "utilities_echo_v1_6",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "utilities_echo_v1_6",
+      "to": "routine_kinetic_solutions_survey_reminder_send_v1_5",
+      "label": "Has Reminders",
+      "value": "@results['Survey Reminder Template']['output'] != \"none\"",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Is Active",
+            "type": "Complete",
+            "value": " @form['Status'] == \"Active\"",
+            "content": "system_noop_v1_4"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Send Invite",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_activity_create_v1_3"
+          }
+        ]
+      },
+      "id": "routine_kinetic_solutions_survey_invitation_send_v1_1",
+      "position": {
+        "x": 527.8969,
+        "y": 162.41237
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "To store the slug for the survey form",
+          "id": "Survey Slug",
+          "label": "Survey Slug",
+          "menu": "",
+          "value": "<%=  @form['Slug'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "To store the user who is to be the recipient of the survey",
+          "id": "recipientEmail",
+          "label": "recipientEmail",
+          "menu": "",
+          "value": "<%=  @values['recipientEmail'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Submission Id",
+          "label": "Submission Id",
+          "menu": "",
+          "value": "<%=  @submission['Id'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Survey Kapp Slug",
+          "label": "Survey Kapp Slug",
+          "menu": "",
+          "value": "<%=  @kapp['Slug'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_solutions_survey_invitation_send_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Survey Sent Activity Record",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_submission_activity_create_v1_3",
+      "position": {
+        "x": 535.0928,
+        "y": 343.84537
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Id of the submission to create the activity record for",
+          "id": "Submission Id",
+          "label": "Submission Id",
+          "menu": "",
+          "value": "<%=  @submission['Id'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Data to store in the submission activity",
+          "id": "Data",
+          "label": "Data",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Description of the submission activity",
+          "id": "Description",
+          "label": "Description",
+          "menu": "",
+          "value": "Survey has been sent",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Label for the submission activity",
+          "id": "Label",
+          "label": "Label",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Type of submission activity",
+          "id": "Type",
+          "label": "Type",
+          "menu": "",
+          "value": "Survey Sent",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_activity_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Active Survey",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_solutions_survey_invitation_send_v1_1"
+          },
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "utilities_echo_v1_6"
+          }
+        ]
+      },
+      "id": "system_noop_v1_4",
+      "position": {
+        "x": 355,
+        "y": 11
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_noop_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Initiate Reminder Process",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_solutions_survey_reminder_send_v1_5",
+      "position": {
+        "x": 236.91753,
+        "y": 347.90723
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Reminder Email Template",
+          "label": "Reminder Email Template",
+          "menu": "",
+          "value": "<%= @results['Survey Reminder Template']['output'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Reminder Count",
+          "label": "Reminder Count",
+          "menu": "",
+          "value": "<%= \nconfig = JSON.parse(@form_attributes['Survey Configuration'])\nconfig[\"Reminders\"][\"Reminder Max\"]%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "recipientEmail",
+          "label": "recipientEmail",
+          "menu": "",
+          "value": "<%=  @values['recipientEmail'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Survey Slug",
+          "label": "Survey Slug",
+          "menu": "",
+          "value": "<%=  @form['Slug'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Survey Submission Id",
+          "label": "Survey Submission Id",
+          "menu": "",
+          "value": "<%=  @submission['Id'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Wait Days",
+          "label": "Wait Days",
+          "menu": "",
+          "value": "<%=\nconfig = JSON.parse(@form_attributes['Survey Configuration'])\nconfig[\"Reminders\"][\"Reminder Interval\"]%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Survey Kapp Slug",
+          "label": "Survey Kapp Slug",
+          "menu": "",
+          "value": "<%=  @kapp['Slug'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_solutions_survey_reminder_send_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": true,
+      "name": "Survey Reminder Template",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Has Reminders",
+            "type": "Complete",
+            "value": "@results['Survey Reminder Template']['output'] != \"none\"",
+            "content": "routine_kinetic_solutions_survey_reminder_send_v1_5"
+          }
+        ]
+      },
+      "id": "utilities_echo_v1_6",
+      "position": {
+        "x": 238.97939,
+        "y": 171.61856
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "input",
+          "label": "Input",
+          "menu": "",
+          "value": "<%= \nconfig = JSON.parse(@form_attributes['Survey Configuration'])\nname = \"none\"\nif config[\"Reminders\"].has_key?(\"Reminder Template\")\nname = config[\"Reminders\"][\"Reminder Template\"]\nend\nname%>",
+          "required": true
+        }
+      ],
+      "definitionId": "utilities_echo_v1"
+    }
+  ]
+}

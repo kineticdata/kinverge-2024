@@ -1,0 +1,516 @@
+{
+  "anonymous": false,
+  "attributes": [
+
+  ],
+  "bridgedResources": [
+
+  ],
+  "categorizations": [
+
+  ],
+  "customHeadContent": "<style>\n.half-width.form-group, .half-width.radio, .half-width.checkbox, .half-width[data-element-type=\"content\"] {\n    width: 50%;\n}\n</style>",
+  "description": "",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,createdBy",
+      "parts": [
+        "type",
+        "coreState",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,submittedBy",
+      "parts": [
+        "type",
+        "coreState",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,createdBy",
+      "parts": [
+        "type",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,submittedBy",
+      "parts": [
+        "type",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Checkbox]",
+      "parts": [
+        "values[Checkbox]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Date Time]",
+      "parts": [
+        "values[Date Time]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Date]",
+      "parts": [
+        "values[Date]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Dropdown]",
+      "parts": [
+        "values[Dropdown]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Radio]",
+      "parts": [
+        "values[Radio]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Text]",
+      "parts": [
+        "values[Text]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Time]",
+      "parts": [
+        "values[Time]"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "BNP 50 Percent Test",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "type": "content",
+          "renderType": "html",
+          "name": "HTML",
+          "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus suspendisse faucibus interdum posuere lorem ipsum. Eget duis at tellus at urna condimentum mattis pellentesque id. Mauris pharetra et ultrices neque ornare. Dapibus ultrices in iaculis nunc sed augue lacus viverra. Enim neque volutpat ac tincidunt vitae. Sed viverra tellus in hac habitasse platea dictumst. Enim tortor at auctor urna nunc id cursus metus. Sit amet consectetur adipiscing elit ut aliquam. Lacus viverra vitae congue eu. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue. Ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia. Et magnis dis parturient montes nascetur ridiculus mus. Viverra aliquet eget sit amet tellus cras adipiscing enim eu. Parturient montes nascetur ridiculus mus mauris vitae. Gravida arcu ac tortor dignissim convallis aenean. Vitae tortor condimentum lacinia quis vel eros donec. Sed elementum tempus egestas sed sed risus pretium.\n\nAdipiscing elit ut aliquam purus sit amet luctus venenatis. Pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Tempus urna et pharetra pharetra massa massa ultricies. Risus commodo viverra maecenas accumsan. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ornare aenean euismod elementum nisi quis eleifend. Massa tempor nec feugiat nisl. Massa sed elementum tempus egestas sed. Lacus luctus accumsan tortor posuere ac ut. Nibh nisl condimentum id venenatis a condimentum vitae sapien. Porttitor eget dolor morbi non arcu.\n\nLibero justo laoreet sit amet cursus sit amet. Nisi quis eleifend quam adipiscing vitae proin. In est ante in nibh mauris cursus. Ac orci phasellus egestas tellus rutrum. Integer feugiat scelerisque varius morbi enim nunc faucibus a. Augue interdum velit euismod in pellentesque massa placerat duis ultricies. Praesent tristique magna sit amet purus gravida. Nunc sed blandit libero volutpat. Turpis egestas sed tempus urna et pharetra. Quis auctor elit sed vulputate mi sit. Amet risus nullam eget felis eget nunc lobortis. Et tortor at risus viverra. Et pharetra pharetra massa massa ultricies mi quis hendrerit dolor. Tortor consequat id porta nibh venenatis. Nulla pharetra diam sit amet. Sit amet nulla facilisi morbi tempus. Eu lobortis elementum nibh tellus. Tortor id aliquet lectus proin nibh.\n\nAliquam ut porttitor leo a. Dui nunc mattis enim ut tellus elementum. Aliquam eleifend mi in nulla posuere sollicitudin. Est ullamcorper eget nulla facilisi. Netus et malesuada fames ac turpis. Ut ornare lectus sit amet est placerat in. Nulla porttitor massa id neque aliquam vestibulum morbi. Mauris a diam maecenas sed enim ut sem viverra aliquet. Sem viverra aliquet eget sit amet tellus cras. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum.\n\nVenenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend. Nibh ipsum consequat nisl vel pretium lectus quam id leo. Arcu vitae elementum curabitur vitae nunc. Et ultrices neque ornare aenean euismod elementum nisi. Pharetra et ultrices neque ornare aenean. Commodo elit at imperdiet dui accumsan sit amet nulla. A arcu cursus vitae congue mauris rhoncus aenean vel. Mattis molestie a iaculis at erat. Quisque sagittis purus sit amet volutpat consequat. Quis ipsum suspendisse ultrices gravida. Elementum sagittis vitae et leo duis. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Nullam ac tortor vitae purus faucibus. Adipiscing enim eu turpis egestas pretium aenean pharetra. Ornare quam viverra orci sagittis eu volutpat. Egestas dui id ornare arcu odio. At lectus urna duis convallis convallis tellus. Vitae congue eu consequat ac felis donec. Sit amet tellus cras adipiscing enim eu.",
+          "visible": true,
+          "renderAttributes": {
+            "class": "half-width"
+          }
+        },
+        {
+          "type": "content",
+          "renderType": "text",
+          "name": "Text",
+          "text": "TextLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lacus suspendisse faucibus interdum posuere lorem ipsum. Eget duis at tellus at urna condimentum mattis pellentesque id. Mauris pharetra et ultrices neque ornare. Dapibus ultrices in iaculis nunc sed augue lacus viverra. Enim neque volutpat ac tincidunt vitae. Sed viverra tellus in hac habitasse platea dictumst. Enim tortor at auctor urna nunc id cursus metus. Sit amet consectetur adipiscing elit ut aliquam. Lacus viverra vitae congue eu. Ullamcorper dignissim cras tincidunt lobortis feugiat vivamus at augue. Ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia. Et magnis dis parturient montes nascetur ridiculus mus. Viverra aliquet eget sit amet tellus cras adipiscing enim eu. Parturient montes nascetur ridiculus mus mauris vitae. Gravida arcu ac tortor dignissim convallis aenean. Vitae tortor condimentum lacinia quis vel eros donec. Sed elementum tempus egestas sed sed risus pretium.\n\nAdipiscing elit ut aliquam purus sit amet luctus venenatis. Pretium viverra suspendisse potenti nullam ac tortor vitae purus faucibus. Tempus urna et pharetra pharetra massa massa ultricies. Risus commodo viverra maecenas accumsan. Ut eu sem integer vitae justo eget magna fermentum iaculis. Ornare aenean euismod elementum nisi quis eleifend. Massa tempor nec feugiat nisl. Massa sed elementum tempus egestas sed. Lacus luctus accumsan tortor posuere ac ut. Nibh nisl condimentum id venenatis a condimentum vitae sapien. Porttitor eget dolor morbi non arcu.\n\nLibero justo laoreet sit amet cursus sit amet. Nisi quis eleifend quam adipiscing vitae proin. In est ante in nibh mauris cursus. Ac orci phasellus egestas tellus rutrum. Integer feugiat scelerisque varius morbi enim nunc faucibus a. Augue interdum velit euismod in pellentesque massa placerat duis ultricies. Praesent tristique magna sit amet purus gravida. Nunc sed blandit libero volutpat. Turpis egestas sed tempus urna et pharetra. Quis auctor elit sed vulputate mi sit. Amet risus nullam eget felis eget nunc lobortis. Et tortor at risus viverra. Et pharetra pharetra massa massa ultricies mi quis hendrerit dolor. Tortor consequat id porta nibh venenatis. Nulla pharetra diam sit amet. Sit amet nulla facilisi morbi tempus. Eu lobortis elementum nibh tellus. Tortor id aliquet lectus proin nibh.\n\nAliquam ut porttitor leo a. Dui nunc mattis enim ut tellus elementum. Aliquam eleifend mi in nulla posuere sollicitudin. Est ullamcorper eget nulla facilisi. Netus et malesuada fames ac turpis. Ut ornare lectus sit amet est placerat in. Nulla porttitor massa id neque aliquam vestibulum morbi. Mauris a diam maecenas sed enim ut sem viverra aliquet. Sem viverra aliquet eget sit amet tellus cras. Tincidunt lobortis feugiat vivamus at augue eget arcu dictum.\n\nVenenatis a condimentum vitae sapien pellentesque habitant. Egestas fringilla phasellus faucibus scelerisque eleifend. Nibh ipsum consequat nisl vel pretium lectus quam id leo. Arcu vitae elementum curabitur vitae nunc. Et ultrices neque ornare aenean euismod elementum nisi. Pharetra et ultrices neque ornare aenean. Commodo elit at imperdiet dui accumsan sit amet nulla. A arcu cursus vitae congue mauris rhoncus aenean vel. Mattis molestie a iaculis at erat. Quisque sagittis purus sit amet volutpat consequat. Quis ipsum suspendisse ultrices gravida. Elementum sagittis vitae et leo duis. Scelerisque mauris pellentesque pulvinar pellentesque habitant morbi tristique. Nullam ac tortor vitae purus faucibus. Adipiscing enim eu turpis egestas pretium aenean pharetra. Ornare quam viverra orci sagittis eu volutpat. Egestas dui id ornare arcu odio. At lectus urna duis convallis convallis tellus. Vitae congue eu consequat ac felis donec. Sit amet tellus cras adipiscing enim eu.",
+          "visible": true,
+          "renderAttributes": {
+            "class": "half-width"
+          }
+        },
+        {
+          "type": "button",
+          "label": "Button",
+          "name": "Button",
+          "visible": true,
+          "enabled": true,
+          "renderType": "custom",
+          "renderAttributes": {
+            "class": "half-width"
+          },
+          "events": [
+
+          ]
+        },
+        {
+          "type": "field",
+          "name": "Attachment",
+          "label": "Attachment",
+          "key": "f9",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": null,
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+            "class": "half-width"
+          },
+          "dataType": "file",
+          "renderType": "attachment",
+          "allowMultiple": false
+        },
+        {
+          "type": "field",
+          "name": "Checkbox",
+          "label": "Checkbox",
+          "key": "f2",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": null,
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+            "class": "half-width"
+          },
+          "dataType": "json",
+          "renderType": "checkbox",
+          "choicesResourceName": null,
+          "choicesRunIf": null,
+          "choices": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            },
+            {
+              "label": "6",
+              "value": "6"
+            },
+            {
+              "label": "7",
+              "value": "7"
+            },
+            {
+              "label": "8",
+              "value": "8"
+            },
+            {
+              "label": "9",
+              "value": "9"
+            },
+            {
+              "label": "aersfdasefdewfwre",
+              "value": "aersfdasefdewfwre"
+            },
+            {
+              "label": "werwefaewfaewrwr",
+              "value": "werwefaewfaewrwr"
+            },
+            {
+              "label": "wfeewrafe ewfdew efr",
+              "value": "wfeewrafe ewfdew efr"
+            }
+          ]
+        },
+        {
+          "type": "field",
+          "name": "Date",
+          "label": "Date",
+          "key": "f3",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": null,
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+            "class": "half-width"
+          },
+          "dataType": "string",
+          "renderType": "date"
+        },
+        {
+          "type": "field",
+          "name": "Date Time",
+          "label": "Date Time",
+          "key": "f4",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": null,
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+            "class": "half-width"
+          },
+          "dataType": "string",
+          "renderType": "datetime"
+        },
+        {
+          "type": "field",
+          "name": "Dropdown",
+          "label": "Dropdown",
+          "key": "f5",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": null,
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+            "class": "half-width"
+          },
+          "dataType": "string",
+          "renderType": "dropdown",
+          "choicesResourceName": null,
+          "choicesRunIf": null,
+          "choices": [
+            {
+              "label": "1",
+              "value": "1"
+            },
+            {
+              "label": "2",
+              "value": "2"
+            },
+            {
+              "label": "3",
+              "value": "3"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            },
+            {
+              "label": "5",
+              "value": "5"
+            },
+            {
+              "label": "6",
+              "value": "6"
+            },
+            {
+              "label": "7",
+              "value": "7"
+            },
+            {
+              "label": "8",
+              "value": "8"
+            },
+            {
+              "label": "9",
+              "value": "9"
+            },
+            {
+              "label": "ateateaetaetetaetesa",
+              "value": "ateateaetaetetaetesa"
+            },
+            {
+              "label": "taetweefewraewtarewtaewraweraew",
+              "value": "taetweefewraewtarewtaewraweraew"
+            },
+            {
+              "label": "aewtaetrawraweraew",
+              "value": "aewtaetrawraweraew"
+            }
+          ]
+        },
+        {
+          "type": "field",
+          "name": "Radio",
+          "label": "Radio",
+          "key": "f6",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": null,
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+            "class": "half-width"
+          },
+          "dataType": "string",
+          "renderType": "radio",
+          "choicesResourceName": null,
+          "choicesRunIf": null,
+          "choices": [
+
+          ]
+        },
+        {
+          "type": "field",
+          "name": "Text",
+          "label": "Te",
+          "key": "f7",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": null,
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+            "class": "half-width"
+          },
+          "dataType": "string",
+          "renderType": "text",
+          "rows": 1
+        },
+        {
+          "type": "field",
+          "name": "Time",
+          "label": "Time",
+          "key": "f8",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": null,
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+            "class": "half-width"
+          },
+          "dataType": "string",
+          "renderType": "time"
+        },
+        {
+          "type": "button",
+          "label": "Submit",
+          "name": "Submit Button",
+          "visible": true,
+          "enabled": true,
+          "renderType": "submit-page",
+          "renderAttributes": {
+          }
+        }
+      ],
+      "events": [
+
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+
+  ],
+  "slug": "bnp-50-percent-test",
+  "status": "New",
+  "submissionLabelExpression": null,
+  "type": null
+}

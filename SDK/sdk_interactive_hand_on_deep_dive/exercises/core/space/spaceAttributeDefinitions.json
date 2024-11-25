@@ -1,0 +1,162 @@
+[
+  {
+    "allowsMultiple": false,
+    "description": "Slug of this spaces Admin Kapp (typically admin)",
+    "name": "Admin Kapp Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Slug of the Admin Kapp form that is used for managing system alerts (typically 'alerts').",
+    "name": "Alerts Form Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "The Queue kapp form which approvals should be created in (Overridden by Kapp and Form Attributes)",
+    "name": "Approval Form Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Slug of this spaces Catalog Kapp (typically catalog)",
+    "name": "Catalog Kapp Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Form used by users to request their manager be changed.",
+    "name": "Change Manager Form Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Allows Space Administrators to set a default Kapp that will display for Users in their Space. This can be overridden by a User Profile Attribute.",
+    "name": "Default Kapp Display"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "If set to true, users won't be able to request their own accounts. Only system administrators will be able to grant them access.",
+    "name": "Disable Self Sign Up"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "The Discussion Id related to this space",
+    "name": "Discussion Id"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Url of this spaces response server",
+    "name": "Discussion Server Url"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Form used for collecting feedback about the kinops portal.",
+    "name": "Feedback Form Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Form used by users to get help within the kinops portal.",
+    "name": "Help Form Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Any users whose usernames match this regular expression, will not be shown in the Kapp.",
+    "name": "Hidden Users Regex"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Form used by Admins to mass invite others to kinops",
+    "name": "Invite Others Form Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Name of the Space Bundle which allows for sharing of libraries between bundles.",
+    "name": "Libraries Bundle Path"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "NetSuite \"Event Saved Search For Kinetic\" Search Id. The Internal Id of the Event Saved Search For Kinetic in NetSuite. Used by the Robot to search and sync data.",
+    "name": "NetSuite Calendar Event Saved Search Id"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "The Internal Id of the Test Schedule Saved Search in NetSuite. Used by the Robot to search and sync data.",
+    "name": "NetSuite Test Schedule Saved Search Id"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "If defined, the included emails will be notified on a Task Error.  This overrides notification of Space Admins, removing them from notification of Task Errors. [Comma separated list of email addresses.]",
+    "name": "Notify on Task Errors"
+  },
+  {
+    "allowsMultiple": true,
+    "description": "Team that owns and manages the system (overridden by kapp and form attributes)",
+    "name": "Owning Team"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "This value is passed into the \"Print Path\" Attribute value when the Print button in the Queue tickets. The value will replace the \"<DOC_ID>\" tag used in the path.",
+    "name": "Print Doc Id"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "The Label used in the creation of the Print Button of Queue tickets. (Default value is \"Print\")",
+    "name": "Print Label"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "The URL Path used in the creation of the Print Button of Queue tickets. Appended to the \"Print Server\" Attribute.\nReplaceable Values:\n-\"<DOC_ID>\" Replaced with the value of the \"Print Doc Id\" Attribute\n-\"<REQ_ID>\" Replaced with the value of the ticket that in view when the button is created.\n(ie: \"/openDocument.jsp?iDocID=<DOC_ID>&lsSService Request ID=<REQ_ID>\")\n",
+    "name": "Print Path"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "The Server part of the URL used in the creation of the Print Button of Queue tickets. (ie: https://biapp.rl.gov)",
+    "name": "Print Server"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Slug of this spaces Queue Kapp (typically queue)",
+    "name": "Queue Kapp Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Form used for requesting an alert be displayed in the kinops portal.",
+    "name": "Request Alert Form Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Number of days until service is expected to be fulfilled - Overridden by Form / Kapp Attribute",
+    "name": "Service Days Due"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Form used to request a new service be added to the catalog.",
+    "name": "Suggest a Service Form Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Slug of this space's Survey Kapp (typically survey)",
+    "name": "Survey Kapp Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Username of user to assign tasks to if not defined in a form or kapp.",
+    "name": "Task Assignee Individual"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Team to assign tasks to if not defined in a form or kapp.",
+    "name": "Task Assignee Team"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "The Queue kapp form to use when creating a task item (Overridden by Kapp and Form Attributes)",
+    "name": "Task Form Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Name of the source for this space in the workflow engine",
+    "name": "Task Source Name"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Url of the request web server that this space exists",
+    "name": "Web Server Url"
+  }
+]

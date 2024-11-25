@@ -1,0 +1,97 @@
+{
+  "anonymous": false,
+  "attributes": [
+    {
+      "name": "Redirect URL",
+      "values": [
+        "http://remweb.rl.gov/kinetic/DisplayPage?name=electrical"
+      ]
+    }
+  ],
+  "bridgedResources": [
+
+  ],
+  "categorizations": [
+    {
+      "category": {
+        "slug": "field-support-services"
+      }
+    }
+  ],
+  "customHeadContent": null,
+  "description": "Performance of acceptance testing, preventive maintenance, and/or corrective maintenance testing of facility owned equipment, facility owned protective relay calibrations, etc.",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "Electrical Testing",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "visible": true,
+          "renderAttributes": {
+          },
+          "name": "Submit Button",
+          "label": "Submit",
+          "type": "button",
+          "renderType": "submit-page",
+          "enabled": true
+        }
+      ],
+      "events": [
+
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+
+  ],
+  "slug": "electrical-testing-redirect",
+  "status": "New",
+  "submissionLabelExpression": "",
+  "type": "Service"
+}

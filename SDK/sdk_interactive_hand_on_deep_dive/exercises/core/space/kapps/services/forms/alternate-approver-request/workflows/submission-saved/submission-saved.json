@@ -1,0 +1,495 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 19,
+  "name": "Saved",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_datastore_submission_update_v1_19",
+      "label": "Has Datastore Id",
+      "value": "@values['Approval Datastore Id'].to_s != \"\"",
+      "type": "Complete"
+    },
+    {
+      "from": "start",
+      "to": "routine_kinetic_datastore_submission_create_v1_1",
+      "label": "No Datastore Id",
+      "value": "@values['Approval Datastore Id'].to_s == \"\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_datastore_submission_create_v1_1",
+      "to": "routine_submission_patch_2",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_datastore_submission_retrieve_v1_7",
+      "to": "routine_expire_alternate_approver_v1_12",
+      "label": "Expire Now",
+      "value": "@values['Approval Datastore Id'].to_s != \"\" &&  @values['End'] <= \"#{Time.now.iso8601}\" && JSON.parse(@results['Check Status in Datastore']['Values JSON'])['Status'].downcase == \"active\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_datastore_submission_retrieve_v1_7",
+      "to": "system_junction_v1_17",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_junction_v1_17",
+      "to": "routine_add_alternate_approver_v1_5",
+      "label": "Start Now",
+      "value": "@values['Start'] <= \"#{Time.now.iso8601}\" && @values['End'] >= \"#{Time.now.iso8601}\" && (!@results.has_key?('Check Status in Datastore') ||JSON.parse(@results['Check Status in Datastore']['Values JSON'])['Status'].downcase == \"new\")",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Has Datastore Id",
+            "type": "Complete",
+            "value": "@values['Approval Datastore Id'].to_s != \"\"",
+            "content": "routine_kinetic_datastore_submission_update_v1_19"
+          },
+          {
+            "label": "No Datastore Id",
+            "type": "Complete",
+            "value": "@values['Approval Datastore Id'].to_s == \"\"",
+            "content": "routine_kinetic_datastore_submission_create_v1_1"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": true,
+      "name": "Create Datastore Record",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_submission_patch_2"
+          }
+        ]
+      },
+      "id": "routine_kinetic_datastore_submission_create_v1_1",
+      "position": {
+        "x": 106,
+        "y": 290
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The slug of the Form to create the submission in",
+          "id": "Form Slug",
+          "label": "Form Slug",
+          "menu": "",
+          "value": "alternate-approvers",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The page to set the submission to",
+          "id": "Current Page Name",
+          "label": "Current Page Name",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The direction of the next page (next or previous)",
+          "id": "Current Page Navigation",
+          "label": "Current Page Navigation",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON Map of values to set into the submissions fields",
+          "id": "Values JSON",
+          "label": "Values JSON",
+          "menu": "",
+          "value": "<%=\n  datastoreField = {\n    \"Alternate Login\" => @values[\"Alternate Username\"],\n    \"Alternate Start Date\" => @values[\"Start\"],\n    \"Alternate End Date\" => @values[\"End\"],\n    \"Team\" => @values[\"Team\"],\n    \"Form Name\" => @values[\"Form Name\"],\n    \"Status\" => \"New\"\n  }.to_json\n%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_datastore_submission_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Patch Submission with Datastore Id",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_submission_patch_2",
+      "position": {
+        "x": 339,
+        "y": 292
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The id of the submission to update",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%=  @submission['Id'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The submissions core state",
+          "id": "Updated - Core State",
+          "label": "Updated - Core State",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The page to set the submission to",
+          "id": "Updated - Current Page Name",
+          "label": "Updated - Current Page Name",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The direction of the next page (next or previous)",
+          "id": "Updated - Current Page Navigation",
+          "label": "Updated - Current Page Navigation",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submissions origin",
+          "id": "Updated - Origin Id",
+          "label": "Updated - Origin Id",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submissions parent",
+          "id": "Updated - Parent Id",
+          "label": "Updated - Parent Id",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON representation of the submissions values",
+          "id": "Updated - Values JSON",
+          "label": "Updated - Values JSON",
+          "menu": "",
+          "value": "<%=\n  {\"Approval Datastore Id\":@results['Create Datastore Record']['Id']}.to_json\n%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_submission_patch"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Start Alternate Approval",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_add_alternate_approver_v1_5",
+      "position": {
+        "x": 1010,
+        "y": 289
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Team",
+          "label": "Team",
+          "menu": "",
+          "value": "<%=  @values['Team'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Alternate Username",
+          "label": "Alternate Username",
+          "menu": "",
+          "value": "<%=  @values['Alternate Username'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Datastore Id",
+          "label": "Datastore Id",
+          "menu": "",
+          "value": "<%=  @values['Approval Datastore Id'] || @results['Create Datastore Record']['Id'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_add_alternate_approver_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Check Status in Datastore",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Expire Now",
+            "type": "Complete",
+            "value": "@values['Approval Datastore Id'].to_s != \"\" &&  @values['End'] <= \"#{Time.now.iso8601}\" && JSON.parse(@results['Check Status in Datastore']['Values JSON'])['Status'].downcase == \"active\"",
+            "content": "routine_expire_alternate_approver_v1_12"
+          },
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_junction_v1_17"
+          }
+        ]
+      },
+      "id": "routine_kinetic_datastore_submission_retrieve_v1_7",
+      "position": {
+        "x": 295,
+        "y": 84
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submission to retrieve",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%=  @values['Approval Datastore Id'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_datastore_submission_retrieve_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Expire Alternate Approver",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_expire_alternate_approver_v1_12",
+      "position": {
+        "x": 827,
+        "y": 103
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Team",
+          "label": "Team",
+          "menu": "",
+          "value": "<%=  @values['Team'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Alternate Username",
+          "label": "Alternate Username",
+          "menu": "",
+          "value": "<%=  @values['Alternate Username'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Datastore Id",
+          "label": "Datastore Id",
+          "menu": "",
+          "value": "<%=  @values['Approval Datastore Id'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_expire_alternate_approver_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Junction Start Alternate",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Start Now",
+            "type": "Complete",
+            "value": "@values['Start'] <= \"#{Time.now.iso8601}\" && @values['End'] >= \"#{Time.now.iso8601}\" && (!@results.has_key?('Check Status in Datastore') ||JSON.parse(@results['Check Status in Datastore']['Values JSON'])['Status'].downcase == \"new\")",
+            "content": "routine_add_alternate_approver_v1_5"
+          }
+        ]
+      },
+      "id": "system_junction_v1_17",
+      "position": {
+        "x": 587,
+        "y": 298
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_junction_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Update Datastore",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_datastore_submission_update_v1_19",
+      "position": {
+        "x": 442,
+        "y": -28
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The id of the submission to update",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%=  @values['Approval Datastore Id'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The submissions core state",
+          "id": "Updated - Core State",
+          "label": "Updated - Core State",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The page to set the submission to",
+          "id": "Updated - Current Page Name",
+          "label": "Updated - Current Page Name",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The direction of the next page (next or previous)",
+          "id": "Updated - Current Page Navigation",
+          "label": "Updated - Current Page Navigation",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON representation of the submissions values",
+          "id": "Updated - Values JSON",
+          "label": "Updated - Values JSON",
+          "menu": "",
+          "value": "<%=\n  datastoreField = {\n    \"Alternate Login\" => @values[\"Alternate Username\"],\n    \"Alternate Start Date\" => @values[\"Start\"],\n    \"Alternate End Date\" => @values[\"End\"],\n    \"Team\" => @values[\"Team\"],\n    \"Form Name\" => @values[\"Form Name\"]\n  }.to_json\n%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_datastore_submission_update_v1"
+    }
+  ]
+}

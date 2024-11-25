@@ -1,0 +1,59 @@
+{
+  "activeMappingName": "Datastore - Report Links Categories",
+  "attributes": [
+    {
+      "name": "Category"
+    },
+    {
+      "name": "Sub Category"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Category",
+          "structureField": "${fields('values[Category]')}"
+        },
+        {
+          "name": "Sub Category",
+          "structureField": "${fields('values[Sub Category]')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Datastore - Report Links Categories",
+      "qualifications": [
+        {
+          "name": "All Categories",
+          "query": ""
+        },
+        {
+          "name": "By Category",
+          "query": "ndex=values[Category],values[Sub Category]&q=values[Category] = \"${parameters(\"Category\")}\"&limit=1000"
+        }
+      ],
+      "structure": "Datastore Submissions > report-links-categories"
+    }
+  ],
+  "name": "Datastore - Report Links Categories",
+  "qualifications": [
+    {
+      "name": "All Categories",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Category",
+      "parameters": [
+        {
+          "name": "Category"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

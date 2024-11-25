@@ -1,0 +1,345 @@
+{
+  "activeMappingName": "Staging DB - ICWO",
+  "attributes": [
+    {
+      "name": "Contract Amount"
+    },
+    {
+      "name": "Contract Desc"
+    },
+    {
+      "name": "Contract ID"
+    },
+    {
+      "name": "Contract Rel HNF"
+    },
+    {
+      "name": "Contract Release"
+    },
+    {
+      "name": "Contract Split HNF"
+    },
+    {
+      "name": "Contract Status HNF"
+    },
+    {
+      "name": "End Date"
+    },
+    {
+      "name": "Perf BU HNF"
+    },
+    {
+      "name": "Perf CACN"
+    },
+    {
+      "name": "Perf CACN Descr HNF"
+    },
+    {
+      "name": "Perf CACN HNF"
+    },
+    {
+      "name": "Perf CACN Status HNF"
+    },
+    {
+      "name": "Perf Cost Specialist HID"
+    },
+    {
+      "name": "Perf Cost Specialist Name"
+    },
+    {
+      "name": "Perf RL WBS"
+    },
+    {
+      "name": "Perf WPM HID"
+    },
+    {
+      "name": "Perf WPM Name"
+    },
+    {
+      "name": "Req BU HNF"
+    },
+    {
+      "name": "Req CACN CAM HID"
+    },
+    {
+      "name": "Req CACN CAM Name"
+    },
+    {
+      "name": "Req CACN Descr HNF"
+    },
+    {
+      "name": "Req CACN HNF"
+    },
+    {
+      "name": "Req CACN Status HNF"
+    },
+    {
+      "name": "Start Date"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Contract ID",
+          "structureField": "${fields(\"CONTRACT_ID\")}"
+        },
+        {
+          "name": "Contract Rel HNF",
+          "structureField": "${fields(\"CNTRCT_REL_HNF\")}"
+        },
+        {
+          "name": "Perf CACN HNF",
+          "structureField": "${fields(\"PERF_CACN_HNF\")}"
+        },
+        {
+          "name": "Req CACN HNF",
+          "structureField": "${fields(\"REQ_CACN_HNF\")}"
+        },
+        {
+          "name": "Req BU HNF",
+          "structureField": "${fields(\"REQ_BU_HNF\")}"
+        },
+        {
+          "name": "Req CACN Status HNF",
+          "structureField": "${fields(\"REQ_CACNSTATUS_HNF\")}"
+        },
+        {
+          "name": "Req CACN Descr HNF",
+          "structureField": "${fields(\"REQ_CACNDESCR_HNF\")}"
+        },
+        {
+          "name": "Contract Desc",
+          "structureField": "${fields(\"CONTRACT_DESC\")}"
+        },
+        {
+          "name": "Contract Split HNF",
+          "structureField": "${fields(\"CNTRCT_SPLIT_HNF\")}"
+        },
+        {
+          "name": "Contract Status HNF",
+          "structureField": "${fields(\"CNTRCT_STAT_HNF\")}"
+        },
+        {
+          "name": "Perf BU HNF",
+          "structureField": "${fields(\"PERF_BU_HNF\")}"
+        },
+        {
+          "name": "Perf CACN Status HNF",
+          "structureField": "${fields(\"PERF_CACNSTAT_HNF\")}"
+        },
+        {
+          "name": "Perf CACN Descr HNF",
+          "structureField": "${fields(\"PERF_CACNDESCR_HNF\")}"
+        },
+        {
+          "name": "Perf RL WBS",
+          "structureField": "${fields(\"PERF_RLWBS\")}"
+        },
+        {
+          "name": "Perf CACN",
+          "structureField": "${fields(\"PERF_CACN\")}"
+        },
+        {
+          "name": "Perf Cost Specialist Name",
+          "structureField": "${fields(\"PERF_COST_SPECIALIST_NAME\")}"
+        },
+        {
+          "name": "Perf WPM Name",
+          "structureField": "${fields(\"PERF_WPM_NAME\")}"
+        },
+        {
+          "name": "Contract Release",
+          "structureField": "${fields(\"CONTRACT_RELEASE\")}"
+        },
+        {
+          "name": "Start Date",
+          "structureField": "${fields(\"START_DATE\")}"
+        },
+        {
+          "name": "End Date",
+          "structureField": "${fields(\"END_DATE\")}"
+        },
+        {
+          "name": "Contract Amount",
+          "structureField": "${fields(\"CONTRACT_AMOUNT\")}"
+        },
+        {
+          "name": "Perf Cost Specialist HID",
+          "structureField": "h${fields(\"PERF_COST_SPECIALIST_HID\")}"
+        },
+        {
+          "name": "Perf WPM HID",
+          "structureField": "h${fields(\"PERF_WPM_HID\")}"
+        },
+        {
+          "name": "Req CACN CAM HID",
+          "structureField": "h${fields(\"REQ_CACN_CAM_HID\")}"
+        },
+        {
+          "name": "Req CACN CAM Name",
+          "structureField": "${fields(\"REQ_CACN_CAM_NAME\")}"
+        }
+      ],
+      "bridgeSlug": "staging-database",
+      "name": "Staging DB - ICWO",
+      "qualifications": [
+        {
+          "name": "By Id",
+          "query": "caller_hid = ${parameters(\"id\")}"
+        },
+        {
+          "name": "By Name",
+          "query": "caller_name = ${parameters(\"name\")}\t"
+        },
+        {
+          "name": "By Email",
+          "query": "email_address = ${parameters(\"email\")}"
+        },
+        {
+          "name": "Like First Name - Last Name - Email or Id",
+          "query": "caller_firstname LIKE ${parameters(\"First Name\")} OR caller_lastrname LIKE ${parameters(\"Last Name\")} OR email_address LIKE ${parameters(\"Email \")} OR caller_hid LIKE ${parameters(\"Id\")}"
+        },
+        {
+          "name": "By Last Name",
+          "query": "caller_lastrname LIKE ${parameters(\"lname\")}"
+        },
+        {
+          "name": "Like First Name or Last Name",
+          "query": "caller_firstname LIKE ${parameters(\"fname\")} OR caller_lastrname LIKE ${parameters(\"lname\")}"
+        },
+        {
+          "name": "Like First Name - Last Name",
+          "query": "caller_firstname LIKE ${parameters(\"First Name\")} OR caller_lastrname LIKE ${parameters(\"Last Name\")} OR email_address LIKE ${parameters(\"Email\")}"
+        },
+        {
+          "name": "By Contract ID and Release",
+          "query": "CONTRACT_ID LIKE '%'+${parameters(\"Contract ID\")} AND (CONTRACT_RELEASE = '0000'+${parameters(\"Contract Release\")} OR CONTRACT_RELEASE = '000'+${parameters(\"Contract Release\")} OR CONTRACT_RELEASE = '00'+${parameters(\"Contract Release\")} OR CONTRACT_RELEASE = '0'+${parameters(\"Contract Release\")} OR CONTRACT_RELEASE = ${parameters(\"Contract Release\")})"
+        },
+        {
+          "name": "All",
+          "query": ""
+        },
+        {
+          "name": "Contract ID",
+          "query": "CONTRACT_ID LIKE '%'+${parameters(\"Contract ID\")}"
+        }
+      ],
+      "structure": "dbo.ICWO_CAM"
+    }
+  ],
+  "name": "Staging DB - ICWO",
+  "qualifications": [
+    {
+      "name": "All",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Contract ID and Release",
+      "parameters": [
+        {
+          "name": "Contract ID"
+        },
+        {
+          "name": "Contract Release"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Email",
+      "parameters": [
+        {
+          "name": "email"
+        }
+      ],
+      "resultType": "Single"
+    },
+    {
+      "name": "By Id",
+      "parameters": [
+        {
+          "name": "id"
+        }
+      ],
+      "resultType": "Single"
+    },
+    {
+      "name": "By Last Name",
+      "parameters": [
+        {
+          "name": "lname"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Name",
+      "parameters": [
+        {
+          "name": "name"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Contract ID",
+      "parameters": [
+        {
+          "name": "Contract ID"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Like First Name - Last Name",
+      "parameters": [
+        {
+          "name": "Email"
+        },
+        {
+          "name": "First Name"
+        },
+        {
+          "name": "Last Name"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Like First Name - Last Name - Email or Id",
+      "parameters": [
+        {
+          "name": "Email "
+        },
+        {
+          "name": "First Name"
+        },
+        {
+          "name": "Id"
+        },
+        {
+          "name": "Last Name"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Like First Name or Last Name",
+      "parameters": [
+        {
+          "name": "fname"
+        },
+        {
+          "name": "lname"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

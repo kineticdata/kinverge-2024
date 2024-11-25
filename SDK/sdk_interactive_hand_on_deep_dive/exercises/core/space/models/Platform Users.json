@@ -1,0 +1,64 @@
+{
+  "activeMappingName": "Platform Users",
+  "attributes": [
+    {
+      "name": "Memberships"
+    },
+    {
+      "name": "username"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Memberships",
+          "structureField": "${fields(\"memberships\")}"
+        },
+        {
+          "name": "username",
+          "structureField": "${fields(\"username\")}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Platform Users",
+      "qualifications": [
+        {
+          "name": "Get Users with Memberships",
+          "query": "q=username=\"${parameters(\"username\")}\"&include=memberships\n\n"
+        },
+        {
+          "name": "test",
+          "query": "q=displayName=*\"${parameters(\"name\")}\" OR email=*\"${parameters(\"email\")}\""
+        }
+      ],
+      "structure": "Users"
+    }
+  ],
+  "name": "Platform Users",
+  "qualifications": [
+    {
+      "name": "Get Users with Memberships",
+      "parameters": [
+        {
+          "name": "username"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "test",
+      "parameters": [
+        {
+          "name": "email"
+        },
+        {
+          "name": "name"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

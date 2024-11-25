@@ -1,0 +1,62 @@
+{
+  "activeMappingName": "Datastore - Work Info",
+  "attributes": [
+    {
+      "name": "Attachments"
+    },
+    {
+      "name": "Create Date"
+    },
+    {
+      "name": "Notes"
+    },
+    {
+      "name": "Parent Submission Id"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Attachments",
+          "structureField": "${fields('values[Attachments]')}"
+        },
+        {
+          "name": "Create Date",
+          "structureField": "${fields('createdAt')}"
+        },
+        {
+          "name": "Notes",
+          "structureField": "${fields('values[Notes]')}"
+        },
+        {
+          "name": "Parent Submission Id",
+          "structureField": "${fields('values[Parent Submission Id]')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-core",
+      "name": "Datastore - Work Info",
+      "qualifications": [
+        {
+          "name": "By Parent Submission Id",
+          "query": "formSlug=work-info&index=values[Parent Submission Id]&q=values[Parent Submission Id]= \"${parameters('Parent Submission Id')}\""
+        }
+      ],
+      "structure": "Datastore Submissions"
+    }
+  ],
+  "name": "Datastore - Work Info",
+  "qualifications": [
+    {
+      "name": "By Parent Submission Id",
+      "parameters": [
+        {
+          "name": "Parent Submission Id"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

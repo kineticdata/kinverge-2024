@@ -1,0 +1,144 @@
+{
+  "anonymous": false,
+  "attributes": [
+
+  ],
+  "bridgedResources": [
+    {
+      "model": "Team",
+      "name": "Team Membership",
+      "order": [
+
+      ],
+      "parameters": [
+        {
+          "mapping": "${values('Team Name')}",
+          "name": "Team Name"
+        }
+      ],
+      "qualification": "By Name",
+      "status": "Active"
+    }
+  ],
+  "categorizations": [
+
+  ],
+  "customHeadContent": "<style>\n  h1 {display:none;}\n\n  table a:link {\n      text-decoration: underline;\n  }\n</style>\n\n",
+  "description": "",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Team Name]",
+      "parts": [
+        "values[Team Name]"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "Team Members",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": "",
+      "displayCondition": "",
+      "displayPage": "",
+      "elements": [
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Table Section",
+          "title": null,
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+          },
+          "elements": [
+
+          ]
+        },
+        {
+          "enabled": true,
+          "dataType": "string",
+          "requiredMessage": null,
+          "name": "Team Name",
+          "omitWhenHidden": false,
+          "renderAttributes": {
+          },
+          "renderType": "text",
+          "pattern": null,
+          "defaultValue": "",
+          "visible": false,
+          "label": "Team Name",
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "rows": 1,
+          "defaultResourceName": null,
+          "type": "field",
+          "key": "f1",
+          "required": false
+        }
+      ],
+      "events": [
+        {
+          "name": "Get Team Membership",
+          "type": "Load",
+          "runIf": "values('Team Name')!=\"\"",
+          "bridgedResourceName": "Team Membership",
+          "action": "Custom",
+          "code": "if (resource.length ===0){alert(`${resource[0]['Name']} Team was not found`);}\nelse {\n\t$(\"h1\").html(`${resource[0]['Name']} Membership`).show()\n\tsearchConfig = typeof searchConfig===\"object\"? searchConfig : {};\n\t// Example of full configuration of a search object to return results as a DataTable\n\tsearchConfig['teamMembershipTableConfig'] ={\n\t\tresultsContainer: '<table cellspacing=\"0\", border=\"0\", class=\"display\", style=\"width: 100%;\">',\n\t\tdata: [\n\t\t{ \n\t\t\ttitle: \"Username\",\n\t\t\tname: \"user.username\",\n\t\t},\n\t\t{ \n\t\t\ttitle: \"Display Name\",\n\t\t\tname: \"user.displayName\",\n\t\t},\n\t\t{ \n\t\t\ttitle: \"Email\",\n\t\t\tname: \"user.email\",\n\t\t\trender: function ( data, type, full, meta ) {\n\t\t\t\treturn  `<a href=\"mailto:${data}\">${data}</a>`\n\t\t\t}\n\t\t},\n\t\t],\n\t\tresultsContainerId: 'teamMembershipTable',\n\t\tbefore: function(configObj){ \n\t\t},\n\t\tsuccess: function (configObj){\n\t\t},\n\t\tsuccessEmpty: function(configObj){\n\t\t// Render the table even if the results are empty. (ie: on page load)\n\t\tconfigObj.renderer.type(configObj.destination, configObj);\n\t\t},\n\t\terror: function(configObj){\n\t\t},\n\t\tcomplete: function(configObj){\n\t\t},\n\t\t// Executes on click of element with class of select\n\t\tclickCallback: function(element, results){\n\t\t},\n\t\tremoveOnClick: false,\n\t\trenderer: {\n\t\t\ttype: DataViewer.Renderers.DataTables, // Passing a function here allows for better customization\n\t\t\toptions: {\n\t\t\t// Options for Renderer\n\t\t\tprocessSingleResult: false,\n\t\t\t// DataTable OPTIONS; Passing options here make it clear that they are being passed to data tables\n\t\t\t// responsive: OPTIONAL Default for \"BridgeDataTable\" is true but can be over written.\n\t\t\tresponsive: false,\n\t\t\t//autoWidth: false,\n\t\t\tdom: 'Brt',\n\t\t\tpageLength: 15,\n\t\t\tpaging: false\n\t\t\t},\n\t\t},       \n\t}\n\n\t$.ajax({\n\t\turl: `/app/api/v1/teams/${resource[0].Slug}?include=memberships.user`,\n\t\ttype: \"GET\",\n\t\tdataType: \"json\",\n\t\tsuccess: function (data) {\n\t\t\tsearchConfig.teamMembershipTableConfig.response = data.team.memberships;\n\t\t\tDataViewer.renderResults($(K('section[Table Section]').element()), searchConfig.teamMembershipTableConfig);\n\t\t},\n\t\terror: function (error) {\n\t\t\tconsole.log(`Error ${error}`);\n\t\t}\n\t});\n}\t\n"
+        }
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+
+  ],
+  "slug": "display-team-members",
+  "status": "New",
+  "submissionLabelExpression": "",
+  "type": "Utility"
+}

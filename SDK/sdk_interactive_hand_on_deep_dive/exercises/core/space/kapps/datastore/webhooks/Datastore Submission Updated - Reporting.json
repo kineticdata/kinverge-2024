@@ -1,0 +1,7 @@
+{
+  "event": "Updated",
+  "filter": "",
+  "name": "Datastore Submission Updated - Reporting",
+  "type": "Submission",
+  "url": "/app/api/v1/run-tree/${space('attribute:Task Source Name')}/Datastore%20Submissions%20Reporting/Upsert"
+}

@@ -1,0 +1,73 @@
+{
+  "activeMappingName": "Datastore - Orderable Items Menus",
+  "attributes": [
+    {
+      "name": "Id"
+    },
+    {
+      "name": "Menu Label"
+    },
+    {
+      "name": "Menu Name"
+    },
+    {
+      "name": "Menu Value"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Menu Name",
+          "structureField": "${fields('values[Menu Name]')}"
+        },
+        {
+          "name": "Menu Value",
+          "structureField": "${fields('values[Menu Value]')}"
+        },
+        {
+          "name": "Menu Label",
+          "structureField": "${fields('values[Menu Label]')}"
+        },
+        {
+          "name": "Id",
+          "structureField": "${fields('id')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Datastore - Orderable Items Menus",
+      "qualifications": [
+        {
+          "name": "By Menu Name",
+          "query": "index=values[Menu Name]&q=values[Menu Name]=\"${parameters(\"Menu Name\")}\"\t"
+        },
+        {
+          "name": "All",
+          "query": "index=values[Menu Name]&limit=999"
+        }
+      ],
+      "structure": "Datastore Submissions  > orderable-items-menus"
+    }
+  ],
+  "name": "Datastore - Orderable Items Menus",
+  "qualifications": [
+    {
+      "name": "All",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Menu Name",
+      "parameters": [
+        {
+          "name": "Menu Name"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

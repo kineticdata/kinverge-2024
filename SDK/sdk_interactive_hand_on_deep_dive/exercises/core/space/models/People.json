@@ -1,0 +1,39 @@
+{
+  "activeMappingName": "People",
+  "attributes": [
+    {
+      "name": "Person ID"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Person ID",
+          "structureField": "${fields(\"Person ID\")}"
+        }
+      ],
+      "bridgeSlug": "ars-remedy-rest",
+      "name": "People",
+      "qualifications": [
+        {
+          "name": "All People",
+          "query": "1=1"
+        }
+      ],
+      "structure": "Entry > CTM:People"
+    }
+  ],
+  "name": "People",
+  "qualifications": [
+    {
+      "name": "All People",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

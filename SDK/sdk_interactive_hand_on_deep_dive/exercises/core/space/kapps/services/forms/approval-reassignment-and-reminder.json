@@ -1,0 +1,324 @@
+{
+  "anonymous": false,
+  "attributes": [
+
+  ],
+  "bridgedResources": [
+
+  ],
+  "categorizations": [
+
+  ],
+  "customHeadContent": null,
+  "description": "",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Approver Display Name]",
+      "parts": [
+        "values[Approver Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Approver Id]",
+      "parts": [
+        "values[Approver Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team Display Name]",
+      "parts": [
+        "values[Assigned Team Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Assigned Team]",
+      "parts": [
+        "values[Assigned Team]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Email Sent Text]",
+      "parts": [
+        "values[Email Sent Text]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Submission Id]",
+      "parts": [
+        "values[Submission Id]"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "Approval Reassignment and Reminder",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "type": "content",
+          "renderType": "html",
+          "name": "Person Search Container",
+          "text": null,
+          "visible": "values('Submission Id')!=null",
+          "renderAttributes": {
+            "id": "personSearch"
+          }
+        },
+        {
+          "type": "button",
+          "label": "Update Approver",
+          "name": "Update Approver",
+          "visible": "values('Submission Id')!=null",
+          "enabled": true,
+          "renderType": "custom",
+          "renderAttributes": {
+          },
+          "events": [
+            {
+              "name": "Update Approver",
+              "type": "Click",
+              "action": "Custom",
+              "code": "id = K('field[Submission Id]').value();\nvalues = {\n    \"values\": {\n        \"Assigned Individual\": K('field[Approver Id]').value(),\n        \"Assigned Individual Display Name\": K('field[Approver Display Name]').value(),\n        \"Assigned Team\": K('field[Assigned Team]').value(),\n        \"Assigned Team Display Name\": K('field[Assigned Team Display Name]').value(),\n    }\n};\n$.ajax({\n    url: `/app/api/v1/submissions/${id}`,\n    type: \"PUT\",\n  \tdata: JSON.stringify(values),\n  \tcontentType : \"application/json\",\n    success: function (data) {\n     getSubmissions(teams);\n      bundle.helpers.closeModalForm();\n\t},\n    error: function (error) {\n      \tconsole.log(`Error ${error}`);\n    }\n});"
+            }
+          ]
+        },
+        {
+          "type": "content",
+          "renderType": "text",
+          "name": "Email Display Text",
+          "text": "${values('Email Sent Text')}",
+          "visible": true,
+          "renderAttributes": {
+          }
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Hidden Section",
+          "title": null,
+          "visible": false,
+          "omitWhenHidden": false,
+          "renderAttributes": {
+          },
+          "elements": [
+            {
+              "enabled": true,
+              "dataType": "string",
+              "requiredMessage": null,
+              "name": "Submission Id",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Submission Id",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f1",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "requiredMessage": null,
+              "name": "Approver Id",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Approver Id",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "f2",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "requiredMessage": null,
+              "name": "Approver Display Name",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Approver Display Name",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "cf531343bd5a4048bb778bd6130d2515",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "requiredMessage": null,
+              "name": "Assigned Team",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Assigned Team",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "87a766e937444d87bee8586d5309f3f2",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "requiredMessage": null,
+              "name": "Assigned Team Display Name",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Assigned Team Display Name",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "edaf8b5fd4514b21ae4f045d5a2307d0",
+              "required": false
+            },
+            {
+              "enabled": true,
+              "dataType": "string",
+              "requiredMessage": null,
+              "name": "Email Sent Text",
+              "omitWhenHidden": null,
+              "renderAttributes": {
+              },
+              "renderType": "text",
+              "pattern": null,
+              "defaultValue": null,
+              "visible": true,
+              "label": "Email Sent Text",
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "rows": 1,
+              "defaultResourceName": null,
+              "type": "field",
+              "key": "d3563ce63bd84da599137b2e1e960ee1",
+              "required": false
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "Load Person Search",
+          "type": "Load",
+          "action": "Custom",
+          "code": "// ***** CONFIGURE *********\nvar load = {\n\t//Form to Load\n  \"formSlug\":\"person-search\", \n  //Container for the form (jQuery syntax)\n  \"container\": '#personSearch', \n  //Define values to pass into subform.  Map subform Field to value or K('field') reference.\n\t//NOTE: INCLUDE THESE FIELDS IN SUBFORM, OR PAGE WILL NOT LOAD\n  \"paramsInput\": {\n\t},\n  //Define Fields to set on parent form using watch.  Map subform field to parent form field.\n  \"watchFields\":{\n    \"Id\": \"Approver Id\",\n    \"Display Name\": \"Approver Display Name\"\n  }\n}\n// ***** END CONFIGURE *********\n\n// Turn paramsInput into formatted/encoded urlParams array as that's what's required by the\n// Kinetic App when passing in values\nload.urlParams = [];\n$.each( load.paramsInput, function( key, value ){\n  load.urlParams.push( \"values[\" + encodeURIComponent( key ) + \"]=\" + encodeURIComponent( value ) );\n})\n\n\n// Remove null values from urlParams list\nload.urlParams = load.urlParams.filter(function(val) { return val.split(\"=\")[1]!==\"null\" });\n\n// Load the Subform\nK.load({\n  path: bundle.spaceLocation() + '/'+ K(\"kapp\").slug()+ '/' + load.formSlug + '?' + load.urlParams.join(\"&\"),\n  container: load.container,\n  parent: K('form'),\n  loaded: function(form) {\n    // initialize watch fields definfed in configuration\n\t\tform.getFieldByName('Same as Requester').hide();\n        $.each(load.watchFields, function(source, desination){\n\t\t  form.$watch(source, function(newVal,oldVal){\n        K('field['+desination+']').value(newVal);\n      });\n    })\n  }\n});"
+        }
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+
+  ],
+  "slug": "approval-reassignment-and-reminder",
+  "status": "New",
+  "submissionLabelExpression": "",
+  "type": null
+}

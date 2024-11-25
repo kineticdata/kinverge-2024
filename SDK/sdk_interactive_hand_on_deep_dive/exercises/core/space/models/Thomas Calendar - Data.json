@@ -1,0 +1,347 @@
+{
+  "activeMappingName": "Thomas Calendar - Data",
+  "attributes": [
+    {
+      "name": "All Day Event"
+    },
+    {
+      "name": "Client On-site"
+    },
+    {
+      "name": "Comments 1"
+    },
+    {
+      "name": "Comments 2"
+    },
+    {
+      "name": "Customer"
+    },
+    {
+      "name": "Date Bucket"
+    },
+    {
+      "name": "Date Created 1"
+    },
+    {
+      "name": "Date Created 2"
+    },
+    {
+      "name": "End Date"
+    },
+    {
+      "name": "End Date Time"
+    },
+    {
+      "name": "End Time"
+    },
+    {
+      "name": "EQUIPMENT REQUIREMENTS"
+    },
+    {
+      "name": "Event Type"
+    },
+    {
+      "name": "Field Supervisor"
+    },
+    {
+      "name": "Final Docs"
+    },
+    {
+      "name": "Id"
+    },
+    {
+      "name": "Incentive Amount"
+    },
+    {
+      "name": "Internal ID"
+    },
+    {
+      "name": "Kids Only"
+    },
+    {
+      "name": "Location Name"
+    },
+    {
+      "name": "Location Status"
+    },
+    {
+      "name": "Methodology"
+    },
+    {
+      "name": "N per Facility"
+    },
+    {
+      "name": "Number of Visits"
+    },
+    {
+      "name": "Opportunity Name"
+    },
+    {
+      "name": "Opportunity URL"
+    },
+    {
+      "name": "Pairs"
+    },
+    {
+      "name": "Proctor"
+    },
+    {
+      "name": "Proctor Kinetic"
+    },
+    {
+      "name": "Project"
+    },
+    {
+      "name": "Project Manager"
+    },
+    {
+      "name": "Project URL"
+    },
+    {
+      "name": "Recruit Manager"
+    },
+    {
+      "name": "Room"
+    },
+    {
+      "name": "Sales Rep"
+    },
+    {
+      "name": "Session Length MIN"
+    },
+    {
+      "name": "Session Times"
+    },
+    {
+      "name": "Start Date"
+    },
+    {
+      "name": "Start Date Time"
+    },
+    {
+      "name": "Start Time"
+    },
+    {
+      "name": "Subject"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Start Date Time",
+          "structureField": "${fields('values[Start Date Time]')}"
+        },
+        {
+          "name": "End Date Time",
+          "structureField": "${fields('values[End Date Time]')}"
+        },
+        {
+          "name": "Date Bucket",
+          "structureField": "${fields('values[Date Bucket]')}"
+        },
+        {
+          "name": "Subject",
+          "structureField": "${fields('values[Subject]')}"
+        },
+        {
+          "name": "Event Type",
+          "structureField": "${fields('values[Event Type]')}"
+        },
+        {
+          "name": "Location Status",
+          "structureField": "${fields('values[Location Status]')}"
+        },
+        {
+          "name": "Customer",
+          "structureField": "${fields('values[Customer]')}"
+        },
+        {
+          "name": "Opportunity Name",
+          "structureField": "${fields('values[Opportunity Name]')}"
+        },
+        {
+          "name": "Opportunity URL",
+          "structureField": "${fields('values[Opportunity URL]')}"
+        },
+        {
+          "name": "Start Date",
+          "structureField": "${fields('values[Start Date]')}"
+        },
+        {
+          "name": "End Date",
+          "structureField": "${fields('values[End Date]')}"
+        },
+        {
+          "name": "Start Time",
+          "structureField": "${fields('values[Start Time]')}"
+        },
+        {
+          "name": "End Time",
+          "structureField": "${fields('values[End Time]')}"
+        },
+        {
+          "name": "All Day Event",
+          "structureField": "${fields('values[All Day Event]')}"
+        },
+        {
+          "name": "Sales Rep",
+          "structureField": "${fields('values[Sales Rep]')}"
+        },
+        {
+          "name": "Date Created 1",
+          "structureField": "${fields('values[Date Created 1]')}"
+        },
+        {
+          "name": "Methodology",
+          "structureField": "${fields('values[Methodology]')}"
+        },
+        {
+          "name": "Session Length MIN",
+          "structureField": "${fields('values[Session Length MIN]')}"
+        },
+        {
+          "name": "N per Facility",
+          "structureField": "${fields('values[N per Facility]')}"
+        },
+        {
+          "name": "Room",
+          "structureField": "${fields('values[Room]')}"
+        },
+        {
+          "name": "Client On-site",
+          "structureField": "${fields('values[Client On-site]')}"
+        },
+        {
+          "name": "Comments 1",
+          "structureField": "${fields('values[Comments 1]')}"
+        },
+        {
+          "name": "Project",
+          "structureField": "${fields('values[Project]')}"
+        },
+        {
+          "name": "Project URL",
+          "structureField": "${fields('values[Project URL]')}"
+        },
+        {
+          "name": "Project Manager",
+          "structureField": "${fields('values[Project Manager]')}"
+        },
+        {
+          "name": "Final Docs",
+          "structureField": "${fields('values[Final Docs]')}"
+        },
+        {
+          "name": "Field Supervisor",
+          "structureField": "${fields('values[Field Supervisor]')}"
+        },
+        {
+          "name": "Incentive Amount",
+          "structureField": "${fields('values[Incentive Amount]')}"
+        },
+        {
+          "name": "Session Times",
+          "structureField": "${fields('values[Session Times]')}"
+        },
+        {
+          "name": "Internal ID",
+          "structureField": "${fields('values[Internal ID]')}"
+        },
+        {
+          "name": "Location Name",
+          "structureField": "${fields('values[Location Name]')}"
+        },
+        {
+          "name": "Comments 2",
+          "structureField": "${fields('values[Comments 2]')}"
+        },
+        {
+          "name": "Proctor Kinetic",
+          "structureField": "${fields('values[Proctor Kinetic]')}"
+        },
+        {
+          "name": "Recruit Manager",
+          "structureField": "${fields('values[Recruit Manager]')}"
+        },
+        {
+          "name": "Pairs",
+          "structureField": "${fields('values[Pairs]')}"
+        },
+        {
+          "name": "Kids Only",
+          "structureField": "${fields('values[Kids Only]')}"
+        },
+        {
+          "name": "Proctor",
+          "structureField": "${fields('values[Proctor]')}"
+        },
+        {
+          "name": "Number of Visits",
+          "structureField": "${fields('values[Number of Visits]')}"
+        },
+        {
+          "name": "EQUIPMENT REQUIREMENTS",
+          "structureField": "${fields('values[EQUIPMENT REQUIREMENTS]')}"
+        },
+        {
+          "name": "Date Created 2",
+          "structureField": "${fields('values[Date Created 2]')}"
+        },
+        {
+          "name": "Id",
+          "structureField": "${fields('id')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-core",
+      "name": "Thomas Calendar - Data",
+      "qualifications": [
+        {
+          "name": "Get Date Range",
+          "query": "kappSlug=calendar&formSlug=thomas-calendar-data&limit=1000&q=values[Date Bucket] IN ${parameters(\"Date Range\")}"
+        },
+        {
+          "name": "Offsite",
+          "query": "kappSlug=calendar&formSlug=thomas-calendar-data&limit=1000&index=values[Location Name],values[Date Bucket]&q=values[Location Name]=\"Offsite\" AND values[Date Bucket] IN ${parameters(\"Date Range\")}"
+        },
+        {
+          "name": "Old Bridge",
+          "query": "kappSlug=calendar&formSlug=thomas-calendar-data&limit=1000&index=values[Location Name],values[Date Bucket]&q=values[Location Name]=\"Old Bridge\" AND values[Date Bucket] IN ${parameters(\"Date Range\")}"
+        }
+      ],
+      "structure": "Submissions"
+    }
+  ],
+  "name": "Thomas Calendar - Data",
+  "qualifications": [
+    {
+      "name": "Get Date Range",
+      "parameters": [
+        {
+          "name": "Date Range"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Offsite",
+      "parameters": [
+        {
+          "name": "Date Range"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Old Bridge",
+      "parameters": [
+        {
+          "name": "Date Range"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

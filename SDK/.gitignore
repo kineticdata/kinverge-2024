@@ -1,0 +1,6 @@
+Gemfile.lock
+output.log
+
+# Exclude config files to prevent accidentally committing them
+config.yaml
+config.yml

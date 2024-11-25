@@ -1,0 +1,7 @@
+[
+  {
+    "allowsMultiple": false,
+    "description": "The name of the package that this Kapp should use for display",
+    "name": "Bundle Package"
+  }
+]

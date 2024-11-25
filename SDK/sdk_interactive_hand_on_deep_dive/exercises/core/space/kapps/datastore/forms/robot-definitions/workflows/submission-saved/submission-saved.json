@@ -1,0 +1,120 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "matthew.howe@kineticdata.com",
+  "lastId": 10,
+  "name": "Saved",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_robot_execution_v2_10",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_robot_execution_v2_10"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "name": "Initiate execution v2",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_robot_execution_v2_10",
+      "position": {
+        "x": 292.29998779296875,
+        "y": 113.41667175292969
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Space slug of the submission",
+          "id": "space slug",
+          "label": "space slug",
+          "menu": "",
+          "value": "<%= @space['Slug']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Submission Id of the robot schedule record",
+          "id": "submission id",
+          "label": "submission id",
+          "menu": "",
+          "value": "<%= @submission['Id']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The time from which the next schedule should be determined.  Usually the current time, unless this is for a new schedule.",
+          "id": "start time",
+          "label": "start time",
+          "menu": "",
+          "value": "<%= @values['Start Date']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Schedule update time (for the initial routine call), or current time (for subsequent calls).",
+          "id": "schedule update time",
+          "label": "schedule update time",
+          "menu": "",
+          "value": "<%= @submission['Updated At']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Set to false when this routine calls itself; any other value when called the first time (when a submission is submitted or modified)",
+          "id": "Initial Run",
+          "label": "Initial Run",
+          "menu": "",
+          "value": "True",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_robot_execution_v2"
+    }
+  ]
+}

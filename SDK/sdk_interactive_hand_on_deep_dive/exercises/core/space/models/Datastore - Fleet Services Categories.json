@@ -1,0 +1,115 @@
+{
+  "activeMappingName": "Datastore - Fleet Services Categories",
+  "attributes": [
+    {
+      "name": "Category 1"
+    },
+    {
+      "name": "Category 2"
+    },
+    {
+      "name": "Category 3"
+    },
+    {
+      "name": "Category 4"
+    },
+    {
+      "name": "Id"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Category 1",
+          "structureField": "${fields('values[Category 1]')}"
+        },
+        {
+          "name": "Category 2",
+          "structureField": "${fields('values[Category 2]')}"
+        },
+        {
+          "name": "Category 3",
+          "structureField": "${fields('values[Category 3]')}"
+        },
+        {
+          "name": "Category 4",
+          "structureField": "${fields('values[Category 4]')}"
+        },
+        {
+          "name": "Id",
+          "structureField": "${fields('id')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Datastore - Fleet Services Categories",
+      "qualifications": [
+        {
+          "name": "All",
+          "query": "index=values[Category 1]&limit=1000\n"
+        },
+        {
+          "name": "By Category 1",
+          "query": "index=values[Category 1],values[Category 2],values[Category 3],values[Category 4]&q=values[Category 1] = \"${parameters(\"Category 1\")}\"&limit=1000"
+        },
+        {
+          "name": "By Category 1 and Category 2",
+          "query": "index=values[Category 1],values[Category 2]&q=values[Category 1] = \"${parameters(\"Category 1\")}\" AND values[Category 2] = \"${parameters(\"Category 2\")}\"&limit=1000"
+        },
+        {
+          "name": "By Category 1 Category 2 and Category 3",
+          "query": "index=values[Category 1],values[Category 2],values[Category 3],values[Category 4]&q=values[Category 1] = \"${parameters(\"Category 1\")}\" AND values[Category 2] = \"${parameters(\"Category 2\")}\" AND values[Category 3] = \"${parameters(\"Category 3\")}\"&limit=1000\n"
+        }
+      ],
+      "structure": "Datastore Submissions > fleet-services-categories"
+    }
+  ],
+  "name": "Datastore - Fleet Services Categories",
+  "qualifications": [
+    {
+      "name": "All",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Category 1",
+      "parameters": [
+        {
+          "name": "Category 1"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Category 1 and Category 2",
+      "parameters": [
+        {
+          "name": "Category 1"
+        },
+        {
+          "name": "Category 2"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Category 1 Category 2 and Category 3",
+      "parameters": [
+        {
+          "name": "Category 1"
+        },
+        {
+          "name": "Category 2"
+        },
+        {
+          "name": "Category 3"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

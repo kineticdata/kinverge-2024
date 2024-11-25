@@ -1,0 +1,183 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 44,
+  "name": "Deleted",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "system_noop_v1_31",
+      "label": "Is Survey",
+      "value": "@form_attributes.has_key?('Survey Configuration') && !@form_attributes['Survey Configuration'].nil? && !@form_attributes['Survey Configuration'].empty?",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_31",
+      "to": "routine_datastore_submission_retrieve_by_query_v1_35",
+      "label": "Had Polling",
+      "value": "!@form_attributes['Survey Configuration'].to_s.empty? && JSON.parse(@form_attributes['Survey Configuration']).has_key?('Event Polling') && JSON.parse(@form_attributes['Survey Configuration'])[\"Event Polling\"][\"Poll\"] == \"true\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_datastore_submission_retrieve_by_query_v1_35",
+      "to": "routine_kinetic_datastore_submission_delete_v1_36",
+      "label": "Found robot definition",
+      "value": "!@results['Get Poller to Delete']['Id'].nil?",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Is Survey",
+            "type": "Complete",
+            "value": "@form_attributes.has_key?('Survey Configuration') && !@form_attributes['Survey Configuration'].nil? && !@form_attributes['Survey Configuration'].empty?",
+            "content": "system_noop_v1_31"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 550,
+        "y": -35
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Is Survey",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Had Polling",
+            "type": "Complete",
+            "value": "!@form_attributes['Survey Configuration'].to_s.empty? && JSON.parse(@form_attributes['Survey Configuration']).has_key?('Event Polling') && JSON.parse(@form_attributes['Survey Configuration'])[\"Event Polling\"][\"Poll\"] == \"true\"",
+            "content": "routine_datastore_submission_retrieve_by_query_v1_35"
+          }
+        ]
+      },
+      "id": "system_noop_v1_31",
+      "position": {
+        "x": 814,
+        "y": -28
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_noop_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Get Poller to Delete",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Found robot definition",
+            "type": "Complete",
+            "value": "!@results['Get Poller to Delete']['Id'].nil?",
+            "content": "routine_kinetic_datastore_submission_delete_v1_36"
+          }
+        ]
+      },
+      "id": "routine_datastore_submission_retrieve_by_query_v1_35",
+      "position": {
+        "x": 1173,
+        "y": -20
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Datastore Form Slug",
+          "label": "Datastore Form Slug",
+          "menu": "",
+          "value": "robot-definitions",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Index To Search",
+          "label": "Index To Search",
+          "menu": "",
+          "value": "values[Robot Name]",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Query",
+          "label": "Query",
+          "menu": "",
+          "value": "values[Robot Name] = \"<%= @form['Slug'] %> poller\"",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_datastore_submission_retrieve_by_query_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Remove Poller",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_datastore_submission_delete_v1_36",
+      "position": {
+        "x": 1502,
+        "y": -17
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The id of the submission to delete",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%= @results['Get Poller to Delete']['Id'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_datastore_submission_delete_v1"
+    }
+  ]
+}

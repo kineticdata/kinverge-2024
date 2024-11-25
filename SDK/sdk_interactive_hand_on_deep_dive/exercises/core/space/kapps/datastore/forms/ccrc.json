@@ -1,0 +1,189 @@
+{
+  "anonymous": false,
+  "attributes": [
+    {
+      "name": "Datastore Configuration",
+      "values": [
+        "{\"columns\":[{\"name\":\"Category 1\",\"label\":\"Category 1\",\"type\":\"value\",\"visible\":true},{\"name\":\"Category 2\",\"label\":\"Category 2\",\"type\":\"value\",\"visible\":true},{\"name\":\"Category 3\",\"label\":\"Category 3\",\"type\":\"value\",\"visible\":true},{\"name\":\"handle\",\"label\":\"Handle\",\"type\":\"system\",\"visible\":false},{\"name\":\"label\",\"label\":\"Label\",\"type\":\"system\",\"visible\":false},{\"name\":\"createdAt\",\"label\":\"Created At\",\"type\":\"system\",\"visible\":false},{\"name\":\"createdBy\",\"label\":\"Created By\",\"type\":\"system\",\"visible\":false},{\"name\":\"updatedAt\",\"label\":\"Updated At\",\"type\":\"system\",\"visible\":false},{\"name\":\"updatedBy\",\"label\":\"Updated By\",\"type\":\"system\",\"visible\":false},{\"name\":\"id\",\"label\":\"Id\",\"type\":\"system\",\"visible\":false}],\"defaultSearchIndex\":{\"index\":\"values[Category 1]\",\"direction\":\"ASC\"}}"
+      ]
+    }
+  ],
+  "bridgedResources": [
+
+  ],
+  "categorizations": [
+
+  ],
+  "customHeadContent": null,
+  "description": "",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Category 1]",
+      "parts": [
+        "values[Category 1]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Category 2]",
+      "parts": [
+        "values[Category 2]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Category 3]",
+      "parts": [
+        "values[Category 3]"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "CCRC",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "enabled": true,
+          "dataType": "string",
+          "requiredMessage": null,
+          "name": "Category 1",
+          "omitWhenHidden": null,
+          "renderAttributes": {
+          },
+          "renderType": "text",
+          "pattern": null,
+          "defaultValue": null,
+          "visible": true,
+          "label": "Category 1",
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "rows": 1,
+          "defaultResourceName": null,
+          "type": "field",
+          "key": "91f386b7c10c43d19d03f2f3f4b68396",
+          "required": false
+        },
+        {
+          "enabled": true,
+          "dataType": "string",
+          "requiredMessage": null,
+          "name": "Category 2",
+          "omitWhenHidden": null,
+          "renderAttributes": {
+          },
+          "renderType": "text",
+          "pattern": null,
+          "defaultValue": null,
+          "visible": true,
+          "label": "Category 2",
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "rows": 1,
+          "defaultResourceName": null,
+          "type": "field",
+          "key": "52406845e9fc4e0cbeadfb55abfbbca3",
+          "required": false
+        },
+        {
+          "type": "field",
+          "name": "Category 3",
+          "label": "Category 3",
+          "key": "f1",
+          "defaultValue": null,
+          "defaultResourceName": null,
+          "visible": true,
+          "enabled": true,
+          "required": false,
+          "requiredMessage": null,
+          "omitWhenHidden": null,
+          "pattern": null,
+          "constraints": [
+
+          ],
+          "events": [
+
+          ],
+          "renderAttributes": {
+          },
+          "dataType": "string",
+          "renderType": "text",
+          "rows": 1
+        },
+        {
+          "visible": true,
+          "renderAttributes": {
+          },
+          "name": "Submit Button",
+          "label": "Submit",
+          "type": "button",
+          "renderType": "submit-page",
+          "enabled": true
+        }
+      ],
+      "events": [
+
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+
+  ],
+  "slug": "ccrc",
+  "status": "Active",
+  "submissionLabelExpression": null,
+  "type": "Datastore"
+}

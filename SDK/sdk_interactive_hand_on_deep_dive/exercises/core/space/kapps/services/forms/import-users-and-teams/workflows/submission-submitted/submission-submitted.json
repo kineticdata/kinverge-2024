@@ -1,0 +1,977 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 42,
+  "name": "Submitted",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "utilities_echo_v1_11",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "utilities_echo_v1_11",
+      "to": "routine_kinetic_teams_retrieve_list_v1_29",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_12",
+      "to": "system_loop_tail_v1_13",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_12",
+      "to": "routine_kinetic_team_membership_create_v1_28",
+      "label": "Team Exists",
+      "value": "JSON.parse(@results['Create Teams Array']['output']).include?(JSON.parse(@row)['Team'])",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_12",
+      "to": "routine_kinetic_team_create_v1_32",
+      "label": "Team Does Not Exist",
+      "value": "!JSON.parse(@results['Create Teams Array']['output']).include?(JSON.parse(@row)['Team'])",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_tail_v1_13",
+      "to": "routine_kinetic_finish_v1_42",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_user_retrieve_v1_15",
+      "to": "routine_kinetic_user_create_v1_16",
+      "label": "Does Not Exist",
+      "value": "@results['Check for User']['Exists']==\"false\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_user_retrieve_v1_15",
+      "to": "system_join_v1_41",
+      "label": "Exists",
+      "value": "@results['Check for User']['Exists']==\"true\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_user_create_v1_16",
+      "to": "system_join_v1_41",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_team_membership_create_v1_28",
+      "to": "system_join_v1_33",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_teams_retrieve_list_v1_29",
+      "to": "utilities_echo_v1_30",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "utilities_echo_v1_30",
+      "to": "utilities_echo_v1_37",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_team_create_v1_32",
+      "to": "system_join_v1_33",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_join_v1_33",
+      "to": "system_loop_tail_v1_13",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "utilities_echo_v1_37",
+      "to": "system_loop_head_v1_38",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_38",
+      "to": "routine_kinetic_user_retrieve_v1_15",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_38",
+      "to": "system_loop_tail_v1_39",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_tail_v1_39",
+      "to": "system_loop_head_v1_12",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_join_v1_41",
+      "to": "system_loop_tail_v1_39",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "utilities_echo_v1_11"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 10,
+        "y": 10
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": true,
+      "name": "CSV Attachment to JSON",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_teams_retrieve_list_v1_29"
+          }
+        ]
+      },
+      "id": "utilities_echo_v1_11",
+      "position": {
+        "x": 270.2632,
+        "y": 14.427244
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "input",
+          "label": "Input",
+          "menu": "",
+          "value": "<%=\nrequire 'rubygems'\nrequire 'open-uri'\nrequire 'csv'\nurl = URI.encode(\"#{@space_attributes['Web Server Url']}/submissions/#{@submission['Id']}/files/CSV File/0/#{@values['CSV File'][0]['name']}\")\nrows = []\nCSV.new(open(url), :headers => :first_row ).each do|row|\n   rows << row.to_hash\nend\nrows.to_json\n\n%>",
+          "required": true
+        }
+      ],
+      "definitionId": "utilities_echo_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Loop Head",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_tail_v1_13"
+          },
+          {
+            "label": "Team Exists",
+            "type": "Complete",
+            "value": "JSON.parse(@results['Create Teams Array']['output']).include?(JSON.parse(@row)['Team'])",
+            "content": "routine_kinetic_team_membership_create_v1_28"
+          },
+          {
+            "label": "Team Does Not Exist",
+            "type": "Complete",
+            "value": "!JSON.parse(@results['Create Teams Array']['output']).include?(JSON.parse(@row)['Team'])",
+            "content": "routine_kinetic_team_create_v1_32"
+          }
+        ]
+      },
+      "id": "system_loop_head_v1_12",
+      "position": {
+        "x": 1336.9474,
+        "y": 654
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The source that contains the data to use to create each task in the loop.",
+          "id": "data_source",
+          "label": "Data Source:",
+          "menu": "",
+          "value": "<%= @results['CSV Attachment to JSON']['output'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The XPath or JSONPath statement to indicate what data records to process.",
+          "id": "loop_path",
+          "label": "Loop Path:",
+          "menu": "",
+          "value": "$.[*]",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The local variable name used to represent the data used in loop tasks.",
+          "id": "var_name",
+          "label": "Variable Name:",
+          "menu": "",
+          "value": "row",
+          "required": false
+        }
+      ],
+      "definitionId": "system_loop_head_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Loop Tail",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_finish_v1_42"
+          }
+        ]
+      },
+      "id": "system_loop_tail_v1_13",
+      "position": {
+        "x": 1337.9474,
+        "y": 926
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "How many loop processes must be completed before continuing?",
+          "id": "type",
+          "label": "Type:",
+          "menu": "All,Some,Any",
+          "value": "All",
+          "required": true
+        },
+        {
+          "dependsOnId": "type",
+          "dependsOnValue": "Some",
+          "description": "If some, how many?",
+          "id": "number",
+          "label": "Number:",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "system_loop_tail_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Check for User",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Does Not Exist",
+            "type": "Complete",
+            "value": "@results['Check for User']['Exists']==\"false\"",
+            "content": "routine_kinetic_user_create_v1_16"
+          },
+          {
+            "label": "Exists",
+            "type": "Complete",
+            "value": "@results['Check for User']['Exists']==\"true\"",
+            "content": "system_join_v1_41"
+          }
+        ]
+      },
+      "id": "routine_kinetic_user_retrieve_v1_15",
+      "position": {
+        "x": 1819.5913,
+        "y": 189.87616
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The User's username",
+          "id": "Username",
+          "label": "Username",
+          "menu": "",
+          "value": "<%=JSON.parse(@row)['Username']%>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_user_retrieve_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Create User",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_join_v1_41"
+          }
+        ]
+      },
+      "id": "routine_kinetic_user_create_v1_16",
+      "position": {
+        "x": 2206.2043,
+        "y": 187.78947
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The value the User will use to login to the application",
+          "id": "Username",
+          "label": "Username",
+          "menu": "",
+          "value": "<%=JSON.parse(@row)['Username']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The email address to send notifications to the user",
+          "id": "Email",
+          "label": "Email",
+          "menu": "",
+          "value": "<%=JSON.parse(@row)['Email']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The name that is displayed for the user",
+          "id": "Display Name",
+          "label": "Display Name",
+          "menu": "",
+          "value": "<%=JSON.parse(@row)['Display Name']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "JSON representation of the attributes associated to the user",
+          "id": "Attributes Map JSON",
+          "label": "Attributes Map JSON",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "JSON representation of the profile attributes associated to the user",
+          "id": "Profile Attributes Map JSON",
+          "label": "Profile Attributes Map JSON",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "(True | False) Whether the user is a super administrator user",
+          "id": "Is Space Admin",
+          "label": "Is Space Admin",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "(True | False) Whether the user is enabled",
+          "id": "Is Enabled",
+          "label": "Is Enabled",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_user_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Add Membership",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_join_v1_33"
+          }
+        ]
+      },
+      "id": "routine_kinetic_team_membership_create_v1_28",
+      "position": {
+        "x": 1894.387,
+        "y": 661.4706
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The name the team to add the user to",
+          "id": "Team Name",
+          "label": "Team Name",
+          "menu": "",
+          "value": "<%=JSON.parse(@row)['Team']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Username",
+          "label": "Username",
+          "menu": "",
+          "value": "<%=JSON.parse(@row)['Username']%>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_team_membership_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Get All Teams",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "utilities_echo_v1_30"
+          }
+        ]
+      },
+      "id": "routine_kinetic_teams_retrieve_list_v1_29",
+      "position": {
+        "x": 612.5945,
+        "y": 13.764706
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Query to use to fetch teams. All teams fetched when left blank",
+          "id": "Query",
+          "label": "Query",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_teams_retrieve_list_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": true,
+      "name": "Create Teams Array",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "utilities_echo_v1_37"
+          }
+        ]
+      },
+      "id": "utilities_echo_v1_30",
+      "position": {
+        "x": 933.1826,
+        "y": 10.941176
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "input",
+          "label": "Input",
+          "menu": "",
+          "value": "<%= JSON.parse(@results['Get All Teams']['Teams List JSON']).map{|team| team['name']} %>",
+          "required": true
+        }
+      ],
+      "definitionId": "utilities_echo_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Create Team",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_join_v1_33"
+          }
+        ]
+      },
+      "id": "routine_kinetic_team_create_v1_32",
+      "position": {
+        "x": 1640.9752,
+        "y": 772.2353
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The teams name",
+          "id": "Name",
+          "label": "Name",
+          "menu": "",
+          "value": "<%=JSON.parse(@row)['Team']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The teams description",
+          "id": "Description",
+          "label": "Description",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "JSON representation of the attributes associated to the team",
+          "id": "Attributes Map JSON",
+          "label": "Attributes Map JSON",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON array of usernames to be added as team members (ie. ['john.doe', 'jane.doe'])",
+          "id": "Memberships List JSON",
+          "label": "Memberships List JSON",
+          "menu": "",
+          "value": "<%=\nmembership = []\nmembership.push(JSON.parse(@row)['Username'])\n%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_team_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Join Team",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_tail_v1_13"
+          }
+        ]
+      },
+      "id": "system_join_v1_33",
+      "position": {
+        "x": 1904.0929,
+        "y": 933.8823
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "How many dependents must be completed before continuing?",
+          "id": "type",
+          "label": "Type:",
+          "menu": "All,Any,Some",
+          "value": "Any",
+          "required": true
+        },
+        {
+          "dependsOnId": "type",
+          "dependsOnValue": "Some",
+          "description": "If some, how many?",
+          "id": "number",
+          "label": "Number:",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "system_join_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "hold 2",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "system_noop_v1_36",
+      "position": {
+        "x": 2718.5574,
+        "y": 148.02478
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_noop_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": true,
+      "name": "Unique Users",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_head_v1_38"
+          }
+        ]
+      },
+      "id": "utilities_echo_v1_37",
+      "position": {
+        "x": 1328.9474,
+        "y": 14
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "input",
+          "label": "Input",
+          "menu": "",
+          "value": "<%= \nrows = JSON.parse(@results['CSV Attachment to JSON']['output'] )\nkeys_to_extract = [\"Display Name\",\"Username\", \"Email\"]\nrows.uniq {|e| e['Username'] }.map { |user|\n  user.select { |k,_| keys_to_extract.include? k }\n}.to_json\n%>",
+          "required": true
+        }
+      ],
+      "definitionId": "utilities_echo_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Loop Head Users",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_user_retrieve_v1_15"
+          },
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_tail_v1_39"
+          }
+        ]
+      },
+      "id": "system_loop_head_v1_38",
+      "position": {
+        "x": 1333,
+        "y": 191
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The source that contains the data to use to create each task in the loop.",
+          "id": "data_source",
+          "label": "Data Source:",
+          "menu": "",
+          "value": "<%= @results['Unique Users']['output'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The XPath or JSONPath statement to indicate what data records to process.",
+          "id": "loop_path",
+          "label": "Loop Path:",
+          "menu": "",
+          "value": "$.[*]",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The local variable name used to represent the data used in loop tasks.",
+          "id": "var_name",
+          "label": "Variable Name:",
+          "menu": "",
+          "value": "row",
+          "required": false
+        }
+      ],
+      "definitionId": "system_loop_head_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Loop Tail Users",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_head_v1_12"
+          }
+        ]
+      },
+      "id": "system_loop_tail_v1_39",
+      "position": {
+        "x": 1334,
+        "y": 430
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "How many loop processes must be completed before continuing?",
+          "id": "type",
+          "label": "Type:",
+          "menu": "All,Some,Any",
+          "value": "All",
+          "required": true
+        },
+        {
+          "dependsOnId": "type",
+          "dependsOnValue": "Some",
+          "description": "If some, how many?",
+          "id": "number",
+          "label": "Number:",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "system_loop_tail_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Join User",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_tail_v1_39"
+          }
+        ]
+      },
+      "id": "system_join_v1_41",
+      "position": {
+        "x": 1820.1765,
+        "y": 440.70587
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "How many dependents must be completed before continuing?",
+          "id": "type",
+          "label": "Type:",
+          "menu": "All,Any,Some",
+          "value": "Any",
+          "required": true
+        },
+        {
+          "dependsOnId": "type",
+          "dependsOnValue": "Some",
+          "description": "If some, how many?",
+          "id": "number",
+          "label": "Number:",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "system_join_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Finish",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_finish_v1_42",
+      "position": {
+        "x": 1338.9474,
+        "y": 1118
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the completed run",
+          "id": "Run Id",
+          "label": "Run Id",
+          "menu": "",
+          "value": "<%=@run['Id']%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_finish_v1"
+    }
+  ]
+}

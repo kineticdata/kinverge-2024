@@ -1,0 +1,66 @@
+{
+  "activeMappingName": "Datastore - CCRC",
+  "attributes": [
+    {
+      "name": "Category 1"
+    },
+    {
+      "name": "Category 2"
+    },
+    {
+      "name": "Id"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Category 1",
+          "structureField": "${fields('values[Category 1]')}"
+        },
+        {
+          "name": "Category 2",
+          "structureField": "${fields('values[Category 2]')}"
+        },
+        {
+          "name": "Id",
+          "structureField": "${fields('id')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Datastore - CCRC",
+      "qualifications": [
+        {
+          "name": "All",
+          "query": "index=values[Category 1]&limit=1000"
+        },
+        {
+          "name": "By Category 1",
+          "query": "index=values[Category 1]&limit=1000&q=values[Category 1] = \"${parameters(\"Category 1\")}\""
+        }
+      ],
+      "structure": "Datastore Submissions > ccrc"
+    }
+  ],
+  "name": "Datastore - CCRC",
+  "qualifications": [
+    {
+      "name": "All",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Category 1",
+      "parameters": [
+        {
+          "name": "Category 1"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

@@ -1,0 +1,202 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 24,
+  "name": "Updated",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_users_retrieve_list_v1_22",
+      "label": "Default Team Renamed",
+      "value": "@team_previous['Name'] == \"Default\" && @team['Name'] != \"Default\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_users_retrieve_list_v1_22",
+      "to": "routine_kinetic_team_create_v1_23",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_team_create_v1_23",
+      "to": "routine_kinetic_finish_v1_24",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Default Team Renamed",
+            "type": "Complete",
+            "value": "@team_previous['Name'] == \"Default\" && @team['Name'] != \"Default\"",
+            "content": "routine_kinetic_users_retrieve_list_v1_22"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": -9,
+        "y": 1
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Retrieve All Users",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_team_create_v1_23"
+          }
+        ]
+      },
+      "id": "routine_kinetic_users_retrieve_list_v1_22",
+      "position": {
+        "x": 253,
+        "y": -11
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Query to use to fetch users. All users fetched when left blank",
+          "id": "Query",
+          "label": "Query",
+          "menu": "",
+          "value": "spaceAdmin=\"true\"",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_users_retrieve_list_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Create Default Team",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_finish_v1_24"
+          }
+        ]
+      },
+      "id": "routine_kinetic_team_create_v1_23",
+      "position": {
+        "x": 429,
+        "y": -21
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The teams name",
+          "id": "Name",
+          "label": "Name",
+          "menu": "",
+          "value": "Default",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The teams description",
+          "id": "Description",
+          "label": "Description",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "JSON representation of the attributes associated to the team",
+          "id": "Attributes Map JSON",
+          "label": "Attributes Map JSON",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON array of usernames to be added as team members (ie. ['john.doe', 'jane.doe'])",
+          "id": "Memberships List JSON",
+          "label": "Memberships List JSON",
+          "menu": "",
+          "value": "<%=\nusers = JSON.parse(@results['Retrieve All Users']['Users List JSON'])\nusers.map{|user| user['username']}.to_json%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_team_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "name": "Finish",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_finish_v1_24",
+      "position": {
+        "x": 605,
+        "y": 1
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the completed run",
+          "id": "Run Id",
+          "label": "Run Id",
+          "menu": "",
+          "value": "<%=@run['Id']%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_finish_v1"
+    }
+  ]
+}

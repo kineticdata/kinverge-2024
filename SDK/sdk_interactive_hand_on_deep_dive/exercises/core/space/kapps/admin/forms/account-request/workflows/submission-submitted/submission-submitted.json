@@ -1,0 +1,939 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 48,
+  "name": "Submitted",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "routine_kinetic_admin_kapp_submission_config_v1_43",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_junction_v1_23",
+      "to": "routine_kinetic_submission_update_v1_47",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_32",
+      "to": "system_loop_tail_v1_33",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_32",
+      "to": "routine_kinetic_team_membership_create_v1_48",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_tail_v1_33",
+      "to": "system_junction_v1_23",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_submission_update_status_v1_40",
+      "to": "routine_kinetic_user_retrieve_v1_41",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_user_retrieve_v1_41",
+      "to": "routine_kinetic_email_template_notification_send_v1_42",
+      "label": "Account Exists",
+      "value": "@results['Check if User Exists']['Exists'].to_s.downcase == \"true\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_user_retrieve_v1_41",
+      "to": "routine_kinetic_solutions_service_portal_submission_approval_v1_44",
+      "label": "Doesn't Exist",
+      "value": "@results['Check if User Exists']['Exists'].to_s.downcase == \"false\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_email_template_notification_send_v1_42",
+      "to": "system_junction_v1_23",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_admin_kapp_submission_config_v1_43",
+      "to": "routine_kinetic_submission_update_status_v1_40",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_solutions_service_portal_submission_approval_v1_44",
+      "to": "routine_kinetic_email_template_notification_send_v1_45",
+      "label": "Denied",
+      "value": "@results['Approval Task']['Decision'].downcase == \"denied\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_solutions_service_portal_submission_approval_v1_44",
+      "to": "routine_kinetic_user_create_v1_46",
+      "label": "Approved",
+      "value": "@results['Approval Task']['Decision'].downcase != \"denied\"",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_email_template_notification_send_v1_45",
+      "to": "system_junction_v1_23",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_user_create_v1_46",
+      "to": "system_loop_head_v1_32",
+      "label": "Has Memberships",
+      "value": "JSON.parse(@results['Approval Task']['Fields JSON']).has_key?('Memberships')",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_user_create_v1_46",
+      "to": "system_junction_v1_23",
+      "label": "No Memberships",
+      "value": "!JSON.parse(@results['Approval Task']['Fields JSON']).has_key?('Memberships')",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_team_membership_create_v1_48",
+      "to": "system_loop_tail_v1_33",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_admin_kapp_submission_config_v1_43"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 447,
+        "y": -28
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Junction",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_update_v1_47"
+          }
+        ]
+      },
+      "id": "system_junction_v1_23",
+      "position": {
+        "x": 718,
+        "y": 503
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_junction_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Member Head",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_tail_v1_33"
+          },
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_team_membership_create_v1_48"
+          }
+        ]
+      },
+      "id": "system_loop_head_v1_32",
+      "position": {
+        "x": 446,
+        "y": 507
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The source that contains the data to use to create each task in the loop.",
+          "id": "data_source",
+          "label": "Data Source:",
+          "menu": "",
+          "value": "<% memberships = JSON.parse(@results['Approval Task']['Fields JSON'])['Memberships']\nmembershipsJSON = JSON.parse(memberships) %>\n<teams><%= membershipsJSON.collect {|team| \"<team>#{team}</team>\"}.join %></teams>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The XPath statement to indicate what data records to process.",
+          "id": "loop_path",
+          "label": "Loop Path:",
+          "menu": "",
+          "value": "//teams/team",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The local variable name used to represent the data used in loop tasks.",
+          "id": "var_name",
+          "label": "Variable Name:",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "system_loop_head_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Member Tail",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_junction_v1_23"
+          }
+        ]
+      },
+      "id": "system_loop_tail_v1_33",
+      "position": {
+        "x": 549,
+        "y": 618
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "How many loop processes must be completed before continuing?",
+          "id": "type",
+          "label": "Type:",
+          "menu": "All,Some,Any",
+          "value": "All",
+          "required": true
+        },
+        {
+          "dependsOnId": "type",
+          "dependsOnValue": "Some",
+          "description": "If some, how many?",
+          "id": "number",
+          "label": "Number:",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "system_loop_tail_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Status - Submitted",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_user_retrieve_v1_41"
+          }
+        ]
+      },
+      "id": "routine_kinetic_submission_update_status_v1_40",
+      "position": {
+        "x": 451,
+        "y": 89
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Id of the Submission that is being updated",
+          "id": "Submission Id",
+          "label": "Submission Id",
+          "menu": "",
+          "value": "<%= @submission['Id']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Status to set the submission to. (e.g. Submitted, In Progress)",
+          "id": "Status",
+          "label": "Status",
+          "menu": "",
+          "value": "Submitted",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_update_status_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Check if User Exists",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Account Exists",
+            "type": "Complete",
+            "value": "@results['Check if User Exists']['Exists'].to_s.downcase == \"true\"",
+            "content": "routine_kinetic_email_template_notification_send_v1_42"
+          },
+          {
+            "label": "Doesn't Exist",
+            "type": "Complete",
+            "value": "@results['Check if User Exists']['Exists'].to_s.downcase == \"false\"",
+            "content": "routine_kinetic_solutions_service_portal_submission_approval_v1_44"
+          }
+        ]
+      },
+      "id": "routine_kinetic_user_retrieve_v1_41",
+      "position": {
+        "x": 446,
+        "y": 164
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The User's username",
+          "id": "Username",
+          "label": "Username",
+          "menu": "",
+          "value": "<%= @values['Email']%>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_user_retrieve_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Send Account Already Exists",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_junction_v1_23"
+          }
+        ]
+      },
+      "id": "routine_kinetic_email_template_notification_send_v1_42",
+      "position": {
+        "x": 924,
+        "y": 150
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Comma separated list of recipients (Usernames, SMTP Addresses, and/or Team Names)",
+          "id": "Recipient List",
+          "label": "Recipient List",
+          "menu": "",
+          "value": "<%= @values['Email']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Name of the notification template to use when sending this email",
+          "id": "Notification Template Name",
+          "label": "Notification Template Name",
+          "menu": "",
+          "value": "Account Already Exists",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "JSON input of miscellaneous values.  These values are used to replace placeholder content in notification messages.",
+          "id": "JSON Variables",
+          "label": "JSON Variables",
+          "menu": "",
+          "value": "<%= \n{\n  \"Login Link\" => \"#{@space_attributes['Web Server Url']}\"\n}.to_json %>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The slug of the Kapp sending the notification (ex: catalog, queue, etc.)",
+          "id": "Kapp Slug Initiating Notification",
+          "label": "Kapp Slug Initiating Notification",
+          "menu": "",
+          "value": "<%= @kapp['Slug']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Id of the submission to get values for, required if using those or attachments in the message",
+          "id": "Related Submission Id",
+          "label": "Related Submission Id",
+          "menu": "",
+          "value": "<%= @submission['Id']%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_email_template_notification_send_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Get Config",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_submission_update_status_v1_40"
+          }
+        ]
+      },
+      "id": "routine_kinetic_admin_kapp_submission_config_v1_43",
+      "position": {
+        "x": 451,
+        "y": 34
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Submission Source Data Used to Build Configuration",
+          "id": "Source Data",
+          "label": "Source Data",
+          "menu": "",
+          "value": "<%=@source['Data']%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_admin_kapp_submission_config_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Approval Task",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Denied",
+            "type": "Complete",
+            "value": "@results['Approval Task']['Decision'].downcase == \"denied\"",
+            "content": "routine_kinetic_email_template_notification_send_v1_45"
+          },
+          {
+            "label": "Approved",
+            "type": "Complete",
+            "value": "@results['Approval Task']['Decision'].downcase != \"denied\"",
+            "content": "routine_kinetic_user_create_v1_46"
+          }
+        ]
+      },
+      "id": "routine_kinetic_solutions_service_portal_submission_approval_v1_44",
+      "position": {
+        "x": 456,
+        "y": 289
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Options are \"Manager\", a username, or a team name",
+          "id": "Approver",
+          "label": "Approver",
+          "menu": "",
+          "value": "<%=@results['Get Config']['Approver']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Slug of the Queue form to create an approval in",
+          "id": "Approval Form Slug",
+          "label": "Approval Form Slug",
+          "menu": "",
+          "value": "<%=@results['Get Config']['Approval Form Slug']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A description of what is being approved ",
+          "id": "Details",
+          "label": "Details",
+          "menu": "",
+          "value": "<%= @values['First Name']%> <%= @values['Last Name']%> requested a kinops Account.",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the originating submission",
+          "id": "Originating Submission Id",
+          "label": "Originating Submission Id",
+          "menu": "",
+          "value": "<%= @submission['Id']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Number of Days until the submission is due to be completed",
+          "id": "Service Days Due",
+          "label": "Service Days Due",
+          "menu": "",
+          "value": "<%=@results['Get Config']['Service Days Due']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Slug of the Kapp in which this approval should be created",
+          "id": "Queue Kapp Slug",
+          "label": "Queue Kapp Slug",
+          "menu": "",
+          "value": "<%=@results['Get Config']['Queue Kapp Slug']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A summary of what is being approved",
+          "id": "Summary",
+          "label": "Summary",
+          "menu": "",
+          "value": "kinops User Account Request for: <%= @values['First Name']%> <%= @values['Last Name']%>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_solutions_service_portal_submission_approval_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Account Request Denied",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_junction_v1_23"
+          }
+        ]
+      },
+      "id": "routine_kinetic_email_template_notification_send_v1_45",
+      "position": {
+        "x": 718,
+        "y": 318
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Comma separated list of recipients (Usernames, SMTP Addresses, and/or Team Names)",
+          "id": "Recipient List",
+          "label": "Recipient List",
+          "menu": "",
+          "value": "<%= @values['Email']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Name of the notification template to use when sending this email",
+          "id": "Notification Template Name",
+          "label": "Notification Template Name",
+          "menu": "",
+          "value": "Account Request Denied",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "JSON input of miscellaneous values.  These values are used to replace placeholder content in notification messages.",
+          "id": "JSON Variables",
+          "label": "JSON Variables",
+          "menu": "",
+          "value": "<%={\n\"Denial Reason\" => @results['Approval Task']['Denial Reason']\n}.to_json%>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The slug of the Kapp sending the notification (ex: catalog, queue, etc.)",
+          "id": "Kapp Slug Initiating Notification",
+          "label": "Kapp Slug Initiating Notification",
+          "menu": "",
+          "value": "<%= @kapp['Slug']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Id of the submission to get values for, required if using those or attachments in the message",
+          "id": "Related Submission Id",
+          "label": "Related Submission Id",
+          "menu": "",
+          "value": "<%= @submission['Id']%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_email_template_notification_send_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Create User",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Has Memberships",
+            "type": "Complete",
+            "value": "JSON.parse(@results['Approval Task']['Fields JSON']).has_key?('Memberships')",
+            "content": "system_loop_head_v1_32"
+          },
+          {
+            "label": "No Memberships",
+            "type": "Complete",
+            "value": "!JSON.parse(@results['Approval Task']['Fields JSON']).has_key?('Memberships')",
+            "content": "system_junction_v1_23"
+          }
+        ]
+      },
+      "id": "routine_kinetic_user_create_v1_46",
+      "position": {
+        "x": 451,
+        "y": 407
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The value the User will use to login to the application",
+          "id": "Username",
+          "label": "Username",
+          "menu": "",
+          "value": "<%= @values['Email']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The email address to send notifications to the user",
+          "id": "Email",
+          "label": "Email",
+          "menu": "",
+          "value": "<%= @values['Email']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The name that is displayed for the user",
+          "id": "Display Name",
+          "label": "Display Name",
+          "menu": "",
+          "value": "<%= @values['First Name']%> <%= @values['Last Name']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "JSON representation of the attributes associated to the user",
+          "id": "Attributes Map JSON",
+          "label": "Attributes Map JSON",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "JSON representation of the profile attributes associated to the user",
+          "id": "Profile Attributes Map JSON",
+          "label": "Profile Attributes Map JSON",
+          "menu": "",
+          "value": "<%=\nphone_number = @values['Phone Number'].to_s.empty? ? [] : [@values['Phone Number']]\n{\n  \"First Name\" => [@values['First Name']],\n  \"Last Name\"  => [@values['Last Name']],\n  \"Work Phone\" => phone_number,\n  \"Cell Phone\" => phone_number\n}.to_json%>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "(True | False) Whether the user is a super administrator user",
+          "id": "Is Space Admin",
+          "label": "Is Space Admin",
+          "menu": "",
+          "value": "<%=JSON.parse(@results['Approval Task']['Fields JSON']).has_key?('Space Admin') ? JSON.parse(@results['Approval Task']['Fields JSON'])['Space Admin'] : \"false\"%>",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "(True | False) Whether the user is enabled",
+          "id": "Is Enabled",
+          "label": "Is Enabled",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_user_create_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Close Submission",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_submission_update_v1_47",
+      "position": {
+        "x": 868,
+        "y": 607
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The id of the submission to update",
+          "id": "Id",
+          "label": "Id",
+          "menu": "",
+          "value": "<%= @submission['Id']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The submissions core state",
+          "id": "Updated - Core State",
+          "label": "Updated - Core State",
+          "menu": "",
+          "value": "Closed",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The page to set the submission to",
+          "id": "Updated - Current Page Name",
+          "label": "Updated - Current Page Name",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The direction of the next page (next or previous)",
+          "id": "Updated - Current Page Navigation",
+          "label": "Updated - Current Page Navigation",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submissions origin",
+          "id": "Updated - Origin Id",
+          "label": "Updated - Origin Id",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the submissions parent",
+          "id": "Updated - Parent Id",
+          "label": "Updated - Parent Id",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "A JSON representation of the submissions values",
+          "id": "Updated - Values JSON",
+          "label": "Updated - Values JSON",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_submission_update_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Add Membership",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_tail_v1_33"
+          }
+        ]
+      },
+      "id": "routine_kinetic_team_membership_create_v1_48",
+      "position": {
+        "x": 363,
+        "y": 597
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The name the team to add the user to",
+          "id": "Team Name",
+          "label": "Team Name",
+          "menu": "",
+          "value": "<%=@results['Member Head']['Value']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "Username",
+          "label": "Username",
+          "menu": "",
+          "value": "<%= @values['Email'].downcase %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_team_membership_create_v1"
+    }
+  ]
+}

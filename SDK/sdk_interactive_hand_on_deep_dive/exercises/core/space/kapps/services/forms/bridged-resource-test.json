@@ -1,0 +1,141 @@
+{
+  "anonymous": false,
+  "attributes": [
+
+  ],
+  "bridgedResources": [
+    {
+      "model": "Incidents",
+      "name": "All Incidents",
+      "order": [
+
+      ],
+      "parameters": [
+
+      ],
+      "qualification": "All",
+      "status": "Active"
+    },
+    {
+      "model": "Incidents",
+      "name": "Backoffice Support",
+      "order": [
+
+      ],
+      "parameters": [
+
+      ],
+      "qualification": "Backoffice Support",
+      "status": "Active"
+    },
+    {
+      "model": "Incidents",
+      "name": "Frontoffice Support",
+      "order": [
+
+      ],
+      "parameters": [
+
+      ],
+      "qualification": "Frontoffice Support",
+      "status": "Active"
+    },
+    {
+      "model": "Incidents",
+      "name": "Service Desk",
+      "order": [
+
+      ],
+      "parameters": [
+
+      ],
+      "qualification": "Service Desk",
+      "status": "Active"
+    }
+  ],
+  "categorizations": [
+
+  ],
+  "customHeadContent": null,
+  "description": "",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "_Bridged Resource Test",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "visible": true,
+          "renderAttributes": {
+          },
+          "name": "Submit Button",
+          "label": "Submit",
+          "type": "button",
+          "renderType": "submit-page",
+          "enabled": true
+        }
+      ],
+      "events": [
+        {
+          "name": "Test",
+          "type": "Load",
+          "bridgedResourceName": "All Incidents",
+          "action": "Custom",
+          "code": "debugger;"
+        }
+      ],
+      "name": "Page 1",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+
+  ],
+  "slug": "bridged-resource-test",
+  "status": "New",
+  "submissionLabelExpression": null,
+  "type": null
+}

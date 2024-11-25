@@ -1,0 +1,83 @@
+{
+  "activeMappingName": "Datastore - Orderable Items",
+  "attributes": [
+    {
+      "name": "Category"
+    },
+    {
+      "name": "Cost"
+    },
+    {
+      "name": "Description"
+    },
+    {
+      "name": "Id"
+    },
+    {
+      "name": "Menu 1"
+    },
+    {
+      "name": "Menu 2"
+    },
+    {
+      "name": "Request Slug"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Description",
+          "structureField": "${fields('values[Description]')}"
+        },
+        {
+          "name": "Cost",
+          "structureField": "${fields('values[Cost]')}"
+        },
+        {
+          "name": "Request Slug",
+          "structureField": "${fields('values[Request Slug]')}"
+        },
+        {
+          "name": "Id",
+          "structureField": "${fields('id')}"
+        },
+        {
+          "name": "Menu 1",
+          "structureField": "${fields('values[Menu 1]')}"
+        },
+        {
+          "name": "Menu 2",
+          "structureField": "${fields('values[Menu 2]')}"
+        },
+        {
+          "name": "Category",
+          "structureField": "${fields('values[Category]')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Datastore - Orderable Items",
+      "qualifications": [
+        {
+          "name": "By Request",
+          "query": "index=values[Request Slug]&q=values[Request Slug]=\"${parameters(\"Request Slug\")}\"&limit=1000"
+        }
+      ],
+      "structure": "Datastore Submissions  > orderable-items"
+    }
+  ],
+  "name": "Datastore - Orderable Items",
+  "qualifications": [
+    {
+      "name": "By Request",
+      "parameters": [
+        {
+          "name": "Request Slug"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

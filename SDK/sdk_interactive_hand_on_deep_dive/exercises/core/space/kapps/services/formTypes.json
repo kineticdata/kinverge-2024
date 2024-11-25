@@ -1,0 +1,35 @@
+[
+  {
+    "name": "Approval"
+  },
+  {
+    "name": "Console"
+  },
+  {
+    "name": "Content"
+  },
+  {
+    "name": "External"
+  },
+  {
+    "name": "Service"
+  },
+  {
+    "name": "Service Description"
+  },
+  {
+    "name": "Subservice"
+  },
+  {
+    "name": "Template"
+  },
+  {
+    "name": "Template - Subform"
+  },
+  {
+    "name": "Utility"
+  },
+  {
+    "name": "Work Order"
+  }
+]

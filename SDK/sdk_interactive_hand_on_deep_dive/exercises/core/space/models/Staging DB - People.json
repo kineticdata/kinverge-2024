@@ -1,0 +1,179 @@
+{
+  "activeMappingName": "Staging DB - People",
+  "attributes": [
+    {
+      "name": "Company"
+    },
+    {
+      "name": "Cost Code"
+    },
+    {
+      "name": "Display Name"
+    },
+    {
+      "name": "Email"
+    },
+    {
+      "name": "Id"
+    },
+    {
+      "name": "Phone"
+    },
+    {
+      "name": "Responsible Company"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Id",
+          "structureField": "${fields(\"caller_hid\")}"
+        },
+        {
+          "name": "Display Name",
+          "structureField": "${fields(\"caller_name\")}"
+        },
+        {
+          "name": "Email",
+          "structureField": "${fields(\"email_address\")}"
+        },
+        {
+          "name": "Phone",
+          "structureField": "${fields(\"phone\")}"
+        },
+        {
+          "name": "Responsible Company",
+          "structureField": "${fields(\"contractor_billing\")}"
+        },
+        {
+          "name": "Company",
+          "structureField": "${fields(\"contractor\")}"
+        },
+        {
+          "name": "Cost Code",
+          "structureField": "${fields(\"costcode\")}"
+        }
+      ],
+      "bridgeSlug": "staging-database",
+      "name": "Staging DB - People",
+      "qualifications": [
+        {
+          "name": "By Id",
+          "query": "caller_hid = ${parameters(\"id\")}"
+        },
+        {
+          "name": "By Name",
+          "query": "caller_name = ${parameters(\"name\")}\t"
+        },
+        {
+          "name": "By Email",
+          "query": "email_address = ${parameters(\"email\")}"
+        },
+        {
+          "name": "Like First Name - Last Name - Email or Id",
+          "query": "caller_firstname LIKE ${parameters(\"First Name\")} OR caller_lastrname LIKE ${parameters(\"Last Name\")} OR email_address LIKE ${parameters(\"Email \")} OR caller_hid LIKE ${parameters(\"Id\")}"
+        },
+        {
+          "name": "By Last Name",
+          "query": "caller_lastrname LIKE ${parameters(\"lname\")}"
+        },
+        {
+          "name": "Like First Name or Last Name",
+          "query": "caller_firstname LIKE ${parameters(\"fname\")} OR caller_lastrname LIKE ${parameters(\"lname\")}"
+        },
+        {
+          "name": "Like First Name - Last Name",
+          "query": "caller_firstname LIKE ${parameters(\"First Name\")} OR caller_lastrname LIKE ${parameters(\"Last Name\")} OR email_address LIKE ${parameters(\"Email\")}"
+        }
+      ],
+      "structure": "dbo.han_phone"
+    }
+  ],
+  "name": "Staging DB - People",
+  "qualifications": [
+    {
+      "name": "By Email",
+      "parameters": [
+        {
+          "name": "email"
+        }
+      ],
+      "resultType": "Single"
+    },
+    {
+      "name": "By Id",
+      "parameters": [
+        {
+          "name": "id"
+        }
+      ],
+      "resultType": "Single"
+    },
+    {
+      "name": "By Last Name",
+      "parameters": [
+        {
+          "name": "lname"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Name",
+      "parameters": [
+        {
+          "name": "name"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Like First Name - Last Name",
+      "parameters": [
+        {
+          "name": "Email"
+        },
+        {
+          "name": "First Name"
+        },
+        {
+          "name": "Last Name"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Like First Name - Last Name - Email or Id",
+      "parameters": [
+        {
+          "name": "Email "
+        },
+        {
+          "name": "First Name"
+        },
+        {
+          "name": "Id"
+        },
+        {
+          "name": "Last Name"
+        }
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "Like First Name or Last Name",
+      "parameters": [
+        {
+          "name": "fname"
+        },
+        {
+          "name": "lname"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

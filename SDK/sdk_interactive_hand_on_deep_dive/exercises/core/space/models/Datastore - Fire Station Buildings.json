@@ -1,0 +1,59 @@
+{
+  "activeMappingName": "Datastore - Fire Station Buildings",
+  "attributes": [
+    {
+      "name": "Building"
+    },
+    {
+      "name": "Station"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Station",
+          "structureField": "${fields('values[Station]')}"
+        },
+        {
+          "name": "Building",
+          "structureField": "${fields('values[Building]')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Datastore - Fire Station Buildings",
+      "qualifications": [
+        {
+          "name": "All",
+          "query": "index=values[Station]&limit=999"
+        },
+        {
+          "name": "By Station",
+          "query": "index=values[Station]&q=values[Station]=\"${parameters(\"Station\")}\""
+        }
+      ],
+      "structure": "Datastore Submissions > fire-station-buildings"
+    }
+  ],
+  "name": "Datastore - Fire Station Buildings",
+  "qualifications": [
+    {
+      "name": "All",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    },
+    {
+      "name": "By Station",
+      "parameters": [
+        {
+          "name": "Station"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

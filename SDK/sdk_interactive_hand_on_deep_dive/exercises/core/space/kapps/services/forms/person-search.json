@@ -1,0 +1,465 @@
+{
+  "anonymous": false,
+  "attributes": [
+    {
+      "name": "Approver",
+      "values": [
+        ""
+      ]
+    },
+    {
+      "name": "Version Tag",
+      "values": [
+        "1-0-0-RC-3"
+      ]
+    }
+  ],
+  "bridgedResources": [
+    {
+      "model": "Staging DB - People",
+      "name": "Staging DB Person Search",
+      "order": [
+
+      ],
+      "parameters": [
+        {
+          "mapping": "${values('search-typeahead')}%",
+          "name": "Email "
+        },
+        {
+          "mapping": "${values('search-typeahead')}%",
+          "name": "First Name"
+        },
+        {
+          "mapping": "${values('search-typeahead')}%",
+          "name": "Id"
+        },
+        {
+          "mapping": "${values('search-typeahead')}%",
+          "name": "Last Name"
+        }
+      ],
+      "qualification": "Like First Name - Last Name - Email or Id",
+      "status": "Active"
+    }
+  ],
+  "categorizations": [
+
+  ],
+  "customHeadContent": "",
+  "description": "Sub Form Template to hold Requested For Section. In this example it shows a different search style using type ahead.",
+  "indexDefinitions": [
+    {
+      "name": "closedBy",
+      "parts": [
+        "closedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "createdBy",
+      "parts": [
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "handle",
+      "parts": [
+        "handle"
+      ],
+      "unique": false
+    },
+    {
+      "name": "submittedBy",
+      "parts": [
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,createdBy",
+      "parts": [
+        "type",
+        "coreState",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,coreState,submittedBy",
+      "parts": [
+        "type",
+        "coreState",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,createdBy",
+      "parts": [
+        "type",
+        "createdBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "type,submittedBy",
+      "parts": [
+        "type",
+        "submittedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "updatedBy",
+      "parts": [
+        "updatedBy"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Display Name]",
+      "parts": [
+        "values[Display Name]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Email]",
+      "parts": [
+        "values[Email]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Id]",
+      "parts": [
+        "values[Id]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Phone]",
+      "parts": [
+        "values[Phone]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Review Mode]",
+      "parts": [
+        "values[Review Mode]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[Same as Requester]",
+      "parts": [
+        "values[Same as Requester]"
+      ],
+      "unique": false
+    },
+    {
+      "name": "values[search-typeahead]",
+      "parts": [
+        "values[search-typeahead]"
+      ],
+      "unique": false
+    }
+  ],
+  "integrations": [
+
+  ],
+  "name": "Person Search",
+  "notes": null,
+  "pages": [
+    {
+      "advanceCondition": null,
+      "displayCondition": null,
+      "displayPage": null,
+      "elements": [
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "search-section",
+          "title": null,
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+            "class": "form-group__columns"
+          },
+          "elements": [
+            {
+              "type": "field",
+              "name": "Same as Requester",
+              "label": "",
+              "key": "f22",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+                {
+                  "name": "Toggle Requested For",
+                  "type": "Change",
+                  "action": "Custom",
+                  "code": "var parentForm = Kinetic.forms[$(K('form').element()).parent().closest('form').attr('id')];\n\nif ( K('field[Same as Requester]').value().includes(\"Same as Requester\") ) {\n\tK('field[search-typeahead]').hide();\n  K('field[Display Name]').value( parentForm.getFieldByName('Requested For Display Name').value() );\n\tK('field[Phone]').value( parentForm.getFieldByName('Requested For Phone').value() );\n\tK('field[Email]').value( parentForm.getFieldByName('Requested For Email').value() );\n}\nelse {\n\tK('field[search-typeahead]').show();\n  K('field[Display Name]').value( null );\n\tK('field[Phone]').value( null );\n\tK('field[Email]').value( null );\n}\n\nsetPersonDetails();",
+                  "runIf": ""
+                }
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "json",
+              "renderType": "checkbox",
+              "choicesResourceName": null,
+              "choicesRunIf": null,
+              "choices": [
+                {
+                  "label": "Same as Requester",
+                  "value": "Same as Requester"
+                }
+              ]
+            },
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "typeahead-instructions-html",
+              "text": "",
+              "visible": true,
+              "renderAttributes": {
+              }
+            },
+            {
+              "type": "field",
+              "name": "search-typeahead",
+              "label": "",
+              "key": "f20",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+                "uses-typeahead": "yes",
+                "typeahead-fa-class": "null",
+                "typeahead-bridged-resource": "Staging DB Person Search",
+                "typeahead-attribute-to-set": "Id",
+                "typeahead-fields-to-set": "Id=Id,Email=Email,Phone=Phone,Display Name=Display Name",
+                "typeahead-attributes-to-show": "Display Name,Phone,Email,Id",
+                "typeahead-placeholder": "Search for Person by HID or Last Name"
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "person-details-section",
+          "title": null,
+          "visible": true,
+          "omitWhenHidden": null,
+          "renderAttributes": {
+          },
+          "elements": [
+            {
+              "type": "content",
+              "renderType": "html",
+              "name": "person-details-container-html",
+              "text": "<div id=\"personDetails\">\n  <div id=\"requestedFor\">\n    <dt id=\"dt_personDetailsName\">Name:</dt>  <dd id=\"dd_personDetailsName\"></dd>\n    <dt id=\"dt_personDetailsPhone\">Phone:</dt>  <dd id=\"dd_personDetailsPhone\"></dd>\n    <dt id=\"dt_personDetailsEmail\">Email:</dt>  <dd id=\"dd_personDetailsEmail\"></dd>\n  </div>\n</div>\n",
+              "visible": true,
+              "renderAttributes": {
+              }
+            }
+          ]
+        },
+        {
+          "type": "section",
+          "renderType": null,
+          "name": "Hidden Section",
+          "title": null,
+          "visible": false,
+          "omitWhenHidden": false,
+          "renderAttributes": {
+          },
+          "elements": [
+            {
+              "type": "field",
+              "name": "Display Name",
+              "label": "Display Name",
+              "key": "f14",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Id",
+              "label": "Id",
+              "key": "f15",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": true,
+              "requiredMessage": "Please selected a who the Request is for",
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Email",
+              "label": "Email",
+              "key": "f9",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Phone",
+              "label": "Phone",
+              "key": "f21",
+              "defaultValue": "",
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            },
+            {
+              "type": "field",
+              "name": "Review Mode",
+              "label": "Review Mode",
+              "key": "f19",
+              "defaultValue": null,
+              "defaultResourceName": null,
+              "visible": true,
+              "enabled": true,
+              "required": false,
+              "requiredMessage": null,
+              "omitWhenHidden": null,
+              "pattern": null,
+              "constraints": [
+
+              ],
+              "events": [
+
+              ],
+              "renderAttributes": {
+              },
+              "dataType": "string",
+              "renderType": "text",
+              "rows": 1
+            }
+          ]
+        }
+      ],
+      "events": [
+        {
+          "name": "onLoad",
+          "type": "Load",
+          "action": "Custom",
+          "code": "setPersonDetails = function(){\n      $('#dd_personDetailsName').text( K('field[Display Name]').value() )\n      $('#dd_personDetailsPhone').text( K('field[Phone]').value() )\n      $('#dd_personDetailsEmail').text( K('field[Email]').value() )\n   \n  }  \n\n// setTimeout is a workaround to KCORE-2962.  The work around allows the watch fields to be set in the K.load loaded callback before the fields are set.  \nsetTimeout(function(){ \n  // Logic for when parent is loaded in review mode.\n  if ( K('field[Review Mode]').value() == \"true\" ) {\n    $(K('form').element()).find(':input:not(:disabled)').prop('disabled',true);\n    K('section[search-section]').hide();\n  }\n  setPersonDetails();\n}, 1000);\n",
+          "runIf": ""
+        },
+        {
+          "name": "Initialize Typeahead",
+          "type": "Load",
+          "action": "Custom",
+          "code": "typeAheadSearch( K('form') );\n// Bind an additional event to typeahead select\n$(K('field[search-typeahead]').element()).bind('typeahead:select', function(ev, suggestion) {\n  // Render the Callback Sepecified in the Configuration\n  setPersonDetails();\n  $(this).typeahead('val','');\n});\n",
+          "bridgedResourceName": null,
+          "runIf": ""
+        }
+      ],
+      "name": "requested-for-information",
+      "renderType": "submittable",
+      "type": "page"
+    }
+  ],
+  "securityPolicies": [
+    {
+      "endpoint": "Display",
+      "name": "Everyone"
+    }
+  ],
+  "slug": "person-search",
+  "status": "Active",
+  "submissionLabelExpression": "",
+  "type": "Template - Subform"
+}

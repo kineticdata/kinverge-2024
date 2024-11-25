@@ -1,0 +1,39 @@
+{
+  "activeMappingName": "Datastore - HFD DOE Numbers",
+  "attributes": [
+    {
+      "name": "DOE Number"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "DOE Number",
+          "structureField": "${fields('values[DOE Number]')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Datastore - HFD DOE Numbers",
+      "qualifications": [
+        {
+          "name": "All",
+          "query": "index=values[DOE Number]&limit=999"
+        }
+      ],
+      "structure": "Datastore Submissions > hfd-doe-numbers"
+    }
+  ],
+  "name": "Datastore - HFD DOE Numbers",
+  "qualifications": [
+    {
+      "name": "All",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

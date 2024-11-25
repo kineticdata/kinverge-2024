@@ -1,0 +1,137 @@
+[
+  {
+    "allowsMultiple": false,
+    "description": "The Queue kapp form which approvals related to this form should be created in (Kapp setting is used if not set here)",
+    "name": "Approval Form Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Options are: CACN, Team Name, Individual Name or Manager. Including a comma-separated list will iterate through all approvers one after the other until all approvals have been completed or one has been denied.",
+    "name": "Approver"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "",
+    "name": "Autoclose"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "This attribute controls whether or not submissions for this form can be canceled. If set to true, the Request to Cancel button will not display.",
+    "name": "Cancel Disabled"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "This attribute controls whether or not submissions for this form can be cloned. If set to true, the Clone as Draft button will not display.",
+    "name": "Cloning Disabled"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "This attribute controls whether or not submissions for this form can have comments added. If set to true, the Add Comment button will not display.",
+    "name": "Comment Disabled"
+  },
+  {
+    "allowsMultiple": true,
+    "description": "If the form has custom submission workflow for a given event, the name of the event (i.e. Created, Saved, Submitted...etc) should be listed as one of the attribute values",
+    "name": "Custom Submission Workflow"
+  },
+  {
+    "allowsMultiple": false,
+    "description": null,
+    "name": "Form Configuration"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Font Awesome Icon Class",
+    "name": "Icon"
+  },
+  {
+    "allowsMultiple": true,
+    "description": "",
+    "name": "Keyword"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Name of the Notification Template to use when this forms submission is completed. (Defaults to Kapp setting when not set at the Form Level)",
+    "name": "Notification Template Name - Complete"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Name of the Notification Template to use when this forms submission is submitted. (Defaults to Kapp setting when not set at the Form Level)",
+    "name": "Notification Template Name - Create"
+  },
+  {
+    "allowsMultiple": true,
+    "description": "Team that owns and manages this service (Defaults to Kapp Attribute when not set here)",
+    "name": "Owning Team"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "This value is passed into the \"Print Path\" Attribute value when the form specific Print button in the Queue tickets. The value will replace the \"<DOC_ID>\" tag used in the path.\t\nWhen this value is added to a Form an additional Print button will be displayed next to the one shared by all Queue tickets.",
+    "name": "Print Doc Id"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "The Label used in the creation of the Form specific Print Button of Queue tickets. (Default value is \"<Form Name> Print\")",
+    "name": "Print Label"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "The URL Path used in the creation of the Form specific Print Button of Queue tickets. Appended to the \"Print Server\" Attribute. \nReplaceable Values: \n-\"<DOC_ID>\" Replaced with the value of the \"Print Doc Id\" Attribute \n-\"<REQ_ID>\" Replaced with the value of the ticket that in view when the button is created. \n\nIf no value is supplied the \"Print Path\" form the Space Attribute will be used.\n\n(ie: \"/openDocument.jsp?iDocID=<DOC_ID>&lsSService Request ID=<REQ_ID>\")\t\n",
+    "name": "Print Path"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "The Server part of the URL used in the creation of the form specific Print Button of Queue tickets. (ie: https://biapp.rl.gov)\t\n\n If no value is supplied the \"Print Server\" form the Space Attribute will be used.",
+    "name": "Print Server"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "An external URL. When set, clicking on the form link in the portal will open the external URL in a new tab instead of opening the form. (HTTP:// must be included in the URL)",
+    "name": "Redirect URL"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "If this form can be requested for users other than the submitter",
+    "name": "Request For Others"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Number of days until service is expected to be fulfilled - Defaults to Kapp Attribute if not set here.",
+    "name": "Service Days Due"
+  },
+  {
+    "allowsMultiple": true,
+    "description": "Submissions with a status value included in this attribute will be considered Active",
+    "name": "Statuses - Active"
+  },
+  {
+    "allowsMultiple": true,
+    "description": "Submissions with a status value included in this attribute will be considered Cancelled",
+    "name": "Statuses - Cancelled"
+  },
+  {
+    "allowsMultiple": true,
+    "description": "Submissions with a status value included in this attribute will be considered Inactive",
+    "name": "Statuses - Inactive"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "The form to use when creating a survey for this item",
+    "name": "Survey Form Slug"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "User to assign tasks to when this form is submitted.",
+    "name": "Task Assignee Individual"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "Team to assign tasks to when this form is submitted.",
+    "name": "Task Assignee Team"
+  },
+  {
+    "allowsMultiple": false,
+    "description": "The form to use when creating a fulfillment task for this item",
+    "name": "Task Form Slug"
+  }
+]

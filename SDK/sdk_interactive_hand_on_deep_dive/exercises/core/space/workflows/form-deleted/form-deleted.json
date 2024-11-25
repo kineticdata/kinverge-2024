@@ -1,0 +1,493 @@
+{
+  "builderVersion": "",
+  "schemaVersion": "1.0",
+  "version": "",
+  "processOwnerEmail": "",
+  "lastId": 27,
+  "name": "Deleted",
+  "notes": "",
+  "connectors": [
+    {
+      "from": "start",
+      "to": "system_noop_v1_6",
+      "label": "Has Custom Workflow",
+      "value": "!@form_attributes['Custom Submission Workflow'].nil? && !@form_attributes['Custom Submission Workflow'].empty?",
+      "type": "Complete"
+    },
+    {
+      "from": "start",
+      "to": "routine_upsert_form_categories_datastore_27",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_workflow_retrieve_list_v1_5",
+      "to": "utilities_echo_v1_21",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_noop_v1_6",
+      "to": "routine_kinetic_workflow_retrieve_list_v1_5",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "utilities_echo_v1_21",
+      "to": "system_loop_head_v1_22",
+      "label": "Delete Trees",
+      "value": "JSON.parse(@results['Trees Needed']['output'])['delete'].size > 0",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_22",
+      "to": "system_loop_tail_v1_23",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_head_v1_22",
+      "to": "routine_kinetic_workflow_delete_v1_26",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "system_loop_tail_v1_23",
+      "to": "routine_kinetic_finish_v1_19",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    },
+    {
+      "from": "routine_kinetic_workflow_delete_v1_26",
+      "to": "system_loop_tail_v1_23",
+      "label": "",
+      "value": "",
+      "type": "Complete"
+    }
+  ],
+  "nodes": [
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Start",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Has Custom Workflow",
+            "type": "Complete",
+            "value": "!@form_attributes['Custom Submission Workflow'].nil? && !@form_attributes['Custom Submission Workflow'].empty?",
+            "content": "system_noop_v1_6"
+          },
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_upsert_form_categories_datastore_27"
+          }
+        ]
+      },
+      "id": "start",
+      "position": {
+        "x": 550,
+        "y": -35
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_start_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Retrieve Existing Form Workflow",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "utilities_echo_v1_21"
+          }
+        ]
+      },
+      "id": "routine_kinetic_workflow_retrieve_list_v1_5",
+      "position": {
+        "x": 548,
+        "y": 193
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Name of the source to retrieve workflow processes for",
+          "id": "Source",
+          "label": "Source",
+          "menu": "",
+          "value": "<%=@source['Name']%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Name of the source group to retrieve workflow processes for",
+          "id": "Group",
+          "label": "Group",
+          "menu": "",
+          "value": "<%=\"Submissions > #{@kapp['Slug']} > #{@form['Slug']}\"%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Names of workflow processes to retrieve (comma-separated, leave blank to retrieve all workflow processes)",
+          "id": "Names",
+          "label": "Names",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Maximum number of workflow processes to return (default 1000)",
+          "id": "Limit",
+          "label": "Limit",
+          "menu": "",
+          "value": "",
+          "required": false
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The offset to start if there are more results than the specified limit (default 0)",
+          "id": "Offset",
+          "label": "Offset",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_workflow_retrieve_list_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Has Custom Workflow",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_workflow_retrieve_list_v1_5"
+          }
+        ]
+      },
+      "id": "system_noop_v1_6",
+      "position": {
+        "x": 550,
+        "y": 82
+      },
+      "version": 1,
+      "parameters": [
+
+      ],
+      "definitionId": "system_noop_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": true,
+      "visible": false,
+      "name": "Finish",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_kinetic_finish_v1_19",
+      "position": {
+        "x": 399,
+        "y": 641
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The Id of the completed run",
+          "id": "Run Id",
+          "label": "Run Id",
+          "menu": "",
+          "value": "<%=@run['Id']%>",
+          "required": false
+        }
+      ],
+      "definitionId": "routine_kinetic_finish_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": true,
+      "name": "Trees Needed",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "Delete Trees",
+            "type": "Complete",
+            "value": "JSON.parse(@results['Trees Needed']['output'])['delete'].size > 0",
+            "content": "system_loop_head_v1_22"
+          }
+        ]
+      },
+      "id": "utilities_echo_v1_21",
+      "position": {
+        "x": 549,
+        "y": 341
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "",
+          "id": "input",
+          "label": "Input",
+          "menu": "",
+          "value": "<%=\nexisting_form_workflows = JSON.parse(@results['Retrieve Existing Form Workflow']['Workflow List JSON']).collect{|tree| tree['name']}\nrequired_workflows = @form_attributes['Custom Submission Workflow']\ndelete = existing_form_workflows\n{\n  'delete' => delete\n}.to_json%>",
+          "required": true
+        }
+      ],
+      "definitionId": "utilities_echo_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Delete Trees - Head",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_tail_v1_23"
+          },
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_workflow_delete_v1_26"
+          }
+        ]
+      },
+      "id": "system_loop_head_v1_22",
+      "position": {
+        "x": 419,
+        "y": 419
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The source that contains the data to use to create each task in the loop.",
+          "id": "data_source",
+          "label": "Data Source:",
+          "menu": "",
+          "value": "<%=\nneeded_workflows = JSON.parse(@results['Trees Needed']['output'])['delete']\ntrees_xml = \"<trees>\\n\"\ntrees_xml << needed_workflows.collect{|name| \"\\t<tree>#{name}</tree>\\n\"}.to_s\ntrees_xml << \"</trees>\"\ntrees_xml%>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The XPath statement to indicate what data records to process.",
+          "id": "loop_path",
+          "label": "Loop Path:",
+          "menu": "",
+          "value": "//trees/tree",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The local variable name used to represent the data used in loop tasks.",
+          "id": "var_name",
+          "label": "Variable Name:",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "system_loop_head_v1"
+    },
+    {
+      "configured": true,
+      "defers": false,
+      "deferrable": false,
+      "visible": false,
+      "name": "Delete Trees - Tail",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "routine_kinetic_finish_v1_19"
+          }
+        ]
+      },
+      "id": "system_loop_tail_v1_23",
+      "position": {
+        "x": 397,
+        "y": 541
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "How many loop processes must be completed before continuing?",
+          "id": "type",
+          "label": "Type:",
+          "menu": "All,Some,Any",
+          "value": "All",
+          "required": true
+        },
+        {
+          "dependsOnId": "type",
+          "dependsOnValue": "Some",
+          "description": "If some, how many?",
+          "id": "number",
+          "label": "Number:",
+          "menu": "",
+          "value": "",
+          "required": false
+        }
+      ],
+      "definitionId": "system_loop_tail_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Delete Tree",
+      "messages": [
+
+      ],
+      "dependents": {
+        "task": [
+          {
+            "label": "",
+            "type": "Complete",
+            "value": "",
+            "content": "system_loop_tail_v1_23"
+          }
+        ]
+      },
+      "id": "routine_kinetic_workflow_delete_v1_26",
+      "position": {
+        "x": 644,
+        "y": 515
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "The title of the workflow (tree / routine) which is a concatenation of \nthe source name :: source group :: workflow name",
+          "id": "Title",
+          "label": "Title",
+          "menu": "",
+          "value": "<%=\"#{@source['Name']} :: Submissions > #{@kapp['Slug']} > #{@form['Slug']} :: #{@results['Delete Trees - Head']['Value'].capitalize}\"%>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_kinetic_workflow_delete_v1"
+    },
+    {
+      "configured": true,
+      "defers": true,
+      "deferrable": true,
+      "visible": false,
+      "name": "Delete Form Categories Datastore",
+      "messages": [
+
+      ],
+      "dependents": "",
+      "id": "routine_upsert_form_categories_datastore_27",
+      "position": {
+        "x": 796,
+        "y": -32
+      },
+      "version": 1,
+      "parameters": [
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Slug of the Kapp",
+          "id": "Kapp Slug",
+          "label": "Kapp Slug",
+          "menu": "",
+          "value": "<%=  @kapp['Slug'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Slug of the Form",
+          "id": "Form Slug",
+          "label": "Form Slug",
+          "menu": "",
+          "value": "<%=  @form['Slug'] %>",
+          "required": true
+        },
+        {
+          "dependsOnId": "",
+          "dependsOnValue": "",
+          "description": "Name of the Form",
+          "id": "Form Name",
+          "label": "Form Name",
+          "menu": "",
+          "value": "<%=  @form['Name'] %>",
+          "required": true
+        }
+      ],
+      "definitionId": "routine_upsert_form_categories_datastore"
+    }
+  ]
+}

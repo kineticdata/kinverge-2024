@@ -1,0 +1,53 @@
+{
+  "activeMappingName": "Datastore - HPC Approvers",
+  "attributes": [
+    {
+      "name": "Company"
+    },
+    {
+      "name": "HID"
+    },
+    {
+      "name": "Name"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "Company",
+          "structureField": "${fields('values[Company]')}"
+        },
+        {
+          "name": "HID",
+          "structureField": "${fields('values[HID]')}"
+        },
+        {
+          "name": "Name",
+          "structureField": "${fields('values[Name]')}"
+        }
+      ],
+      "bridgeSlug": "kinetic-platform",
+      "name": "Datastore - HPC Approvers",
+      "qualifications": [
+        {
+          "name": "All",
+          "query": "index=values[Company]&limit=999"
+        }
+      ],
+      "structure": "Datastore Submissions > hpc-approvers"
+    }
+  ],
+  "name": "Datastore - HPC Approvers",
+  "qualifications": [
+    {
+      "name": "All",
+      "parameters": [
+
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

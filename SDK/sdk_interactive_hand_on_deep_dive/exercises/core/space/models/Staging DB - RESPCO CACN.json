@@ -1,0 +1,48 @@
+{
+  "activeMappingName": "Staging DB - RESPCO CACN",
+  "attributes": [
+    {
+      "name": "Billing Co"
+    },
+    {
+      "name": "CACN"
+    }
+  ],
+  "mappings": [
+    {
+      "agentSlug": "system",
+      "attributes": [
+        {
+          "name": "CACN",
+          "structureField": "${fields(\"cacn_no\")}"
+        },
+        {
+          "name": "Billing Co",
+          "structureField": "${fields(\"billing_company\")}"
+        }
+      ],
+      "bridgeSlug": "staging-database",
+      "name": "Staging DB - RESPCO CACN",
+      "qualifications": [
+        {
+          "name": "By Billing Co",
+          "query": "billing_company = ${parameters(\"billingco\")}"
+        }
+      ],
+      "structure": "dbo.han_cacn"
+    }
+  ],
+  "name": "Staging DB - RESPCO CACN",
+  "qualifications": [
+    {
+      "name": "By Billing Co",
+      "parameters": [
+        {
+          "name": "billingco"
+        }
+      ],
+      "resultType": "Multiple"
+    }
+  ],
+  "status": "Active"
+}

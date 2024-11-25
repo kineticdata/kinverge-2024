@@ -1,0 +1,7 @@
+{
+  "event": "Created",
+  "filter": "",
+  "name": "Submission Created - Reporting",
+  "type": "Submission",
+  "url": "/app/api/v1/run-tree/${space('attribute:Task Source Name')}/Kapp%20Submissions%20Reporting/Upsert"
+}
