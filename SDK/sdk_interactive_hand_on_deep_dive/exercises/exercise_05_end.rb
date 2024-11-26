@@ -45,8 +45,8 @@ response.content['forms'].each do |form|
   #Add an entry to the log
   logger.info "Updating the #{form['slug']} request"
 
-  # Update the status of the form
-  form['status'] = "Active"
+  # Update the type of the form
+  form['type'] = "Utility"
   
   #Set variables for form and owning_team
   owning_team = form['attributesMap']['Owning Team']

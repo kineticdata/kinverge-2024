@@ -22,13 +22,7 @@
       }
     ],
     "bridgedResources": [],
-    "categorizations": [
-      {
-        "category": {
-          "slug": "human-resources"
-        }
-      }
-    ],
+    "categorizations": [],
     "customHeadContent": null,
     "description": "This form can be used to request something not listed in the Catalog from the HR Team.",
     "indexDefinitions": [
@@ -495,6 +489,6 @@
     "slug": "general-hr-request",
     "status": "Active",
     "submissionLabelExpression": "${values('Summary')}",
-    "type": "Service"
+    "type": ""
   }
 }

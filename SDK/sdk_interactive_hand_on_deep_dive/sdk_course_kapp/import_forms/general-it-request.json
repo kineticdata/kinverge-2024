@@ -22,13 +22,7 @@
       }
     ],
     "bridgedResources": [],
-    "categorizations": [
-      {
-        "category": {
-          "slug": "information-technology"
-        }
-      }
-    ],
+    "categorizations": [],
     "customHeadContent": null,
     "description": "This form can be used to request something not listed in the Catalog from the IT Team.",
     "indexDefinitions": [
@@ -495,6 +489,6 @@
     "slug": "general-it-request",
     "status": "Inactive",
     "submissionLabelExpression": "${values('Summary')}",
-    "type": "Service"
+    "type": ""
   }
 }

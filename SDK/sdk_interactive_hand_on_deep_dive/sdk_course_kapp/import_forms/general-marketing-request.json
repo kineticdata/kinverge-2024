@@ -23,11 +23,6 @@
     ],
     "bridgedResources": [],
     "categorizations": [
-      {
-        "category": {
-          "slug": "marketing"
-        }
-      }
     ],
     "customHeadContent": null,
     "description": "This form can be used to request something not listed in the Catalog from the Marketing Team.",
@@ -495,6 +490,6 @@
     "slug": "general-marketing-request",
     "status": "Inactive",
     "submissionLabelExpression": "${values('Summary')}",
-    "type": "Service"
+    "type": ""
   }
 }

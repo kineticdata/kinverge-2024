@@ -39,6 +39,7 @@ response = conn.find_users()
 
 # Get the users from the response
 users = response.content['users'] 
+puts "---------Number of Users Found: #{users.length}---------"
 
 # Iterate through the users
 users.each do |user|
