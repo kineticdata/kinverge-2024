@@ -24,7 +24,11 @@
 
   ],
   "categorizations": [
-
+    {
+      "category": {
+        "slug": "finance"
+      }
+    }
   ],
   "customHeadContent": null,
   "description": "This form can be used to request something not listed in the Catalog from the Finance Team.",
