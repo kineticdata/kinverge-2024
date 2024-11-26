@@ -6,3 +6,4 @@ SPACE_SLUG:
 #LOG_LEVEL: {OFF, INFO, or DEBUG}ruby
 LOG_LEVEL: INFO 
 KAPP: sdk-course
+QUERY: status="Inactive"
