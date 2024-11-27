@@ -9,4 +9,3 @@ conn = KineticSdk::Core.new({
 })
 
 response = conn.me()
-

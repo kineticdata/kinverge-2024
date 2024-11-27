@@ -32,7 +32,9 @@ puts "Response Code: #{response.status}"
 if response.status == 200
   puts "Success! You have successfully connected to the server and ready to start."
 elsif response.status == 401
-  puts "Unable to authenticate, check credentials"
+  puts "Unable to authenticate, check the credentials."
+elsif response.status == 404
+  puts "Unable to connect to server, check the Server URL."
 elsif response.status == 0
   puts response.message
 else
