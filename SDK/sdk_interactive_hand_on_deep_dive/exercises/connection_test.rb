@@ -27,12 +27,22 @@ conn = KineticSdk::Core.new({
   }
 })
 
-# Test the connection using a simple SDK method
-response = conn.me()
-puts "Response Code: #{response.status}"
+#Defnine the forms that are expected to be found in the SDK Course Kapp. 
+forms_expected = [
+  "general-facilities-request",
+  "general-finance-request",
+  "general-hr-request",
+  "general-it-request",
+  "general-legal-request",
+  "general-marketing-request"
+]
 
 # Set inital value of pass = true
 pass = true
+
+# Test the connection using a simple SDK method
+response = conn.me()
+puts "Response Code: #{response.status}"
 
 # Check the connection status and handle errors accordingly
 if response.status == 200
@@ -51,31 +61,30 @@ else
   pass = false
 end
 
-#Defnine the forms that are expected to be found in the SDK Course Kapp. 
-forms_expected = [
-  "general-facilities-request",
-  "general-finance-request",
-  "general-hr-request",
-  "general-it-request",
-  "general-legal-request",
-  "general-marketing-request"
-]
-
 # Check for the SDK Course Kapp
 if conn.find_kapp("sdk-course").status == 200
   #Kapp found
   puts "SDK Course Kapp found"
+  
+  #Check for the Owning Team Attribute 
+  if conn.find_form_attribute_definition("sdk-course","Owning Team").status == 200 
+    puts "Owning Team Form Attriibute Found"
+  else
+    puts "Owning Team Form Attribute Not Found"
+    pass = false
+  end
 
+  #Check if all expected forms are found in the SDK Course Kapp
   #Create an Array of forms found
   forms_found = (conn.find_forms('sdk-course').content['forms'] || []).map{|form| form['slug']}
 
-  #Check if forms found match forms expected
-  if forms_found.sort == forms_expected.sort
-    puts "All forms found"
-  else
-    puts "Not all forms were imported into the SDK Course Kapp"
-    pass = false
-  end
+  forms_expected.each{|form| 
+    if !forms_found.include?(form)
+      puts "The form '#{form}' was not found in the SDK Course Kapp"
+      pass = false
+    end
+  }
+  puts "All expected forms found in the SDK Course Kapp" if pass == true
 
 else
   #Kapp not found
