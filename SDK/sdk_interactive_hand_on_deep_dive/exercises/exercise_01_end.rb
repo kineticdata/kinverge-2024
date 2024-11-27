@@ -18,9 +18,6 @@ conn = KineticSdk::Core.new({
   space_slug: config["SPACE_SLUG"],
   username: config["SPACE_USERNAME"],
   password: config["SPACE_PASSWORD"],
-  options: {
-    log_level: config["LOG_LEVEL"],
-  }
 })
 
 response = conn.me()
