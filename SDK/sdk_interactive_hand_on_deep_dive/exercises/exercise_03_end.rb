@@ -27,8 +27,6 @@ params = {
 response = conn.find_form(config["KAPP"],"general-it-request",params)
 puts response.content['form'].pretty_inspect
 
-form = response.content['form']
-
 ##### Add a form Attributes #####
 #Set variable to the form object
 form = response.content['form']
