@@ -19,7 +19,6 @@ conn = KineticSdk::Core.new({
   password: config["SPACE_PASSWORD"],
   options: {
       log_level: "INFO",
-      max_redirects: 3
   }
 })
 
