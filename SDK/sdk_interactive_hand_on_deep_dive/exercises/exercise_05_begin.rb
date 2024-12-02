@@ -31,8 +31,7 @@ conn = KineticSdk::Core.new({
 })
 
 params = {
-  "include"=>config["INCLUDE"],
-  "q"=> config["QUERY"]
+  "include"=>details
 }
 
 
