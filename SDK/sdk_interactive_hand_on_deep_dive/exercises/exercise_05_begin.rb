@@ -10,15 +10,6 @@ rescue
   raise StandardError.new "There was a problem loading the config.yaml file"
 end
 
-# configure the logger
-logger = Logger.new(STDERR)
-logger = Logger.new File.open(File.join("#{PWD}/output.log"), 'w')
-logger.level = Logger::INFO
-logger.formatter = proc do |severity, datetime, progname, msg|
-  date_format = datetime.utc.strftime("%Y-%m-%dT%H:%M:%S.%LZ")
-  "[#{date_format}] #{severity}: #{msg}\n"
-end
-
 # Create space connection
 conn = KineticSdk::Core.new({
   space_server_url: config["SERVER_URL"],
@@ -33,7 +24,6 @@ conn = KineticSdk::Core.new({
 params = {
   "include"=>details
 }
-
 
 response = conn.find_forms(config["KAPP"], params)
 puts response.content.pretty_inspect
